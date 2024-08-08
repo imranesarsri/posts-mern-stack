@@ -1,1 +1,1 @@
-# posts-mern-stack
+# Posts mern stack
