@@ -1,8 +1,11 @@
 {
-	"folders": [
-		{
-			"path": "backEnd"
-		}
-	],
-	"settings": {}
+  "folders": [
+    {
+      "path": "backEnd"
+    },
+    {
+      "path": "../node-js-api"
+    }
+  ],
+  "settings": {}
 }
