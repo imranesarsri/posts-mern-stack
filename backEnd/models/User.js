@@ -43,7 +43,7 @@ const UserSchema = mongoose.Schema({
 
 // Create token
 UserSchema.methods.generateToken = function () {
-    return jwt.sign({ id: this._id, isAdmin: this.isAdmin }, process.env.JWT_SECRET_KEY, { expiresIn: '1h' });
+    return jwt.sign({ id: this._id, isAdmin: this.isAdmin }, process.env.JWT_SECRET_KEY, { expiresIn: '30d' });
 }
 
 const User = mongoose.model('User', UserSchema)
@@ -74,6 +74,7 @@ function validationUpdateUser(obj) {
         userName: Joi.string().trim().min(3).max(100),
         email: Joi.string().trim().min(3).max(100).email(),
         password: Joi.string().trim().min(8),
+        bio: Joi.string(),
     })
     return schema.validate(obj)
 }

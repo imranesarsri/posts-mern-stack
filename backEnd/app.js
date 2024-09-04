@@ -21,4 +21,5 @@ const app = express()
 app.use(express.json())
 
 // Routes
-app.use('/auth', require('./routes/auth'))
+app.use('/auth', require('./routes/authRoute'))
+app.use('/users', require('./routes/usersRoute'))

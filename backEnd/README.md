@@ -42,3 +42,13 @@ npm i bcryptjs
 ```bash
 npm i jsonwebtoken
 ```
+
+9. 
+- Install multer (Upload files)
+```bash
+npm i multer
+```
+- Install Cloudinary
+```bash
+npm i cloudinary
+```
