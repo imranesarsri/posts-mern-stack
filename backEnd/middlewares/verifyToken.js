@@ -17,7 +17,7 @@ function verifyToken(req, res, next) {
 }
 
 
-// verify Token & Authorization the User
+// verify Token & Authorization (User and Amine)
 function verifyTokenAndAuthorization(req, res, next) {
     verifyToken(req, res, async () => {
         const ID = req.params.id

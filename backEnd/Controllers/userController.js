@@ -161,24 +161,45 @@ const updateUser = asyncHandler(async (req, res) => {
 
 
 /** ----------------------------------------------------------------- 
- * @desc delete user
+ * @desc delete user profile (Account)
  * @route /:id
  * @method DELETE 
- * @access private
+ * @access private (only admin or user himself)
     ---------------------------------------------------------------- */
 
-const deleteUser = asyncHandler(
+const deleteUserProfile = asyncHandler(
     async (req, res) => {
+
+        // 1. Get the user from DB
         const ID = req.params.id
         const user = await User.findById(ID)
-        if (user) {
-            await User.findByIdAndDelete(user)
-            return res.status(200).json({ message: "Deleted successfull" });
-        } else {
-            return res.status(404).json({ message: error.message });
 
-        }
+        //TODO 2. Get all posts from DB
+        //TODO 3. Get the public ids from the posts
+        //TODO 4. Delete all posts image from cloudinary that belong to this user
+
+
+        // 5. Delete the profile picture from cloudinary
+        const profilePhotoID = user.profilePhoto.publicID
+        await cloudinaryRemoveImage(profilePhotoID)
+
+        //TODO - 6. Delete user posts & comments
+
+        // 7. Delete the user himself
+        await User.findByIdAndDelete(ID)
+
+        // 8. Send a response to the client
+        return res.status(200).json({ message: "your profile has been deleted" });
+
     }
+
+
+
+
+
+
+
+
 )
 
 
@@ -188,5 +209,5 @@ module.exports = {
     getUsersCountCtrl,
     profilePhotoUpload,
     updateUser,
-    deleteUser
+    deleteUserProfile
 }
