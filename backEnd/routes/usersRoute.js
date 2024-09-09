@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { verifyToken, verifyTokenAndAuthorization, verifyTokenAndAdmin, verifyTokenAndOnlyUser } = require('../middlewares/verifyToken');
-const { getAllUsers, getUser, getUsersCountCtrl, profilePhotoUpload, updateUser, deleteUserProfile } = require('../controllers/userController')
+const { getAllUsers, getUser, getUsersCountCtrl, profilePhotoUpload, updateUser, deleteUserProfile } = require('../controllers/usersController')
 const validateUserId = require('../middlewares/validateUserId')
 const photoUpload = require('../middlewares/photoUpload')
 

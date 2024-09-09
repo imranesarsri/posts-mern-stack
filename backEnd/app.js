@@ -23,3 +23,4 @@ app.use(express.json())
 // Routes
 app.use('/auth', require('./routes/authRoute'))
 app.use('/users', require('./routes/usersRoute'))
+app.use('/posts', require('./routes/postsRoute'))

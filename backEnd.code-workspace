@@ -7,5 +7,7 @@
       "path": "../node-js-api"
     }
   ],
-  "settings": {}
+  "settings": {
+    "cSpell.language": "en-GB,en"
+  }
 }

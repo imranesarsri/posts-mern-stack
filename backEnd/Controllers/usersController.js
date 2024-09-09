@@ -7,7 +7,7 @@ const fs = require('fs')
 
 /** ----------------------------------------------------------------- 
  * @desc get all users
- * @route /
+ * @route /users/
  * @method GET 
  * @access private (only admin)
     ---------------------------------------------------------------- */
@@ -22,9 +22,9 @@ const getAllUsers = asyncHandler(
 
 /** ----------------------------------------------------------------- 
  * @desc get user profile
- * @route /is
+ * @route /users/:id
  * @method GET 
- * @access private (only user himself)
+ * @access public
     ---------------------------------------------------------------- */
 
 const getUser = asyncHandler(
@@ -42,7 +42,7 @@ const getUser = asyncHandler(
 
 /**----------------------------------------------------------------- 
  * @desc get users count
- * @route /count
+ * @route /users/count
  * @method GET 
  * @access private (only admin)
     ---------------------------------------------------------------*/
@@ -59,7 +59,7 @@ const getUsersCountCtrl = asyncHandler(
 /**----------------------------------------------------------------- 
  * @desc Profile photo upload
  * @route /profile-photo-upload
- * @method GOST 
+ * @method POST 
  * @access private (only logged in user)
     ---------------------------------------------------------------*/
 
@@ -114,9 +114,9 @@ const profilePhotoUpload = asyncHandler(
 
 /** ----------------------------------------------------------------- 
  * @desc Update user
- * @route /:id
+ * @route /users/:id
  * @method PUT 
- * @access private
+ * @access private (Only user himself)
     --------------------------------------------------------------- */
 
 const updateUser = asyncHandler(async (req, res) => {
@@ -162,7 +162,7 @@ const updateUser = asyncHandler(async (req, res) => {
 
 /** ----------------------------------------------------------------- 
  * @desc delete user profile (Account)
- * @route /:id
+ * @route /users/:id
  * @method DELETE 
  * @access private (only admin or user himself)
     ---------------------------------------------------------------- */
@@ -192,14 +192,6 @@ const deleteUserProfile = asyncHandler(
         return res.status(200).json({ message: "your profile has been deleted" });
 
     }
-
-
-
-
-
-
-
-
 )
 
 
