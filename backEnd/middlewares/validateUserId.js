@@ -3,6 +3,7 @@ const { User } = require('../models/User');
 
 module.exports = async (req, res, next) => {
     const ID = req.params.id
+
     // Check if the provided ID is a valid MongoDB ObjectId
     if (!mongoose.Types.ObjectId.isValid(ID)) {
         return res.status(400).json({ message: 'Invalid ID' });

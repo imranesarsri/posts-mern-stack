@@ -1,7 +1,7 @@
 const usersData = [
     {
         userName: "imrane",
-        email: "imrane222@gmail.com",
+        email: "imrane@gmail.com",
         password: "12345678",
         isAdmin: false,
     },

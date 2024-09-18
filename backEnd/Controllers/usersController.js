@@ -51,7 +51,7 @@ const getUsersCountCtrl = asyncHandler(
     async (req, res) => {
         // Use countDocuments() to count the documents
         const count = await User.countDocuments();
-        return res.status(200).json({ count });
+        return res.status(200).json(count);
     }
 );
 

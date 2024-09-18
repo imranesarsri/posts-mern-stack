@@ -17,7 +17,11 @@ const run = async () => {
 
         switch (argv) {
             case '+all':
-                await Promise.all([seedUsers(), seedPosts()]);
+                await seedUsers();
+                console.log('Users Seeded');
+                await seedPosts();
+                console.log('Posts Seeded');
+                console.log('Seeding completed successfully!');
                 break;
             case '-all':
                 await Promise.all([removeUsers(), removePosts()]);

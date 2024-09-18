@@ -28,7 +28,7 @@ const createPost = asyncHandler(async (req, res) => {
     }
 
     // 3. Upload image 
-    const imagePath = path.join(__dirname, `../upload/blogImages/${req.file.filename}`)
+    const imagePath = path.join(__dirname, `../upload/profileImages/${req.file.filename}`)
     // Upload to cloudinary
     const result = await cloudinaryUploadImage(imagePath)
 
@@ -47,11 +47,124 @@ const createPost = asyncHandler(async (req, res) => {
     // 5. Send requise to the client 
     res.status(201).json(post)
 
-    //! 6. Remove image from the server
+    // 6. Remove image from the server
     fs.unlinkSync(imagePath)
 })
 
 
+/** ----------------------------------------------------------------- 
+ * @desc Get all posts
+ * @route /posts/
+ * @method GET 
+ * @access public
+    ---------------------------------------------------------------- */
+
+const getAllPosts = asyncHandler(async (req, res) => {
+
+    const POST_BY_PAGE = 4
+    const { pageNumber, category } = req.query
+    let posts
+
+    if (pageNumber && category) {
+        posts = await Post
+            .find({ category })
+            .skip((pageNumber - 1) * POST_BY_PAGE)
+            .limit(POST_BY_PAGE)
+            .sort({ createdAt: -1 })
+            .populate('user', ['-password', '-isAdmin'])
+    } else if (pageNumber) {
+        posts = await Post
+            .find()
+            .sort({ createdAt: -1 })
+            .skip((pageNumber - 1) * POST_BY_PAGE)
+            .limit(POST_BY_PAGE)
+            .sort({ createdAt: -1 })
+            .populate('user', ['-password', '-isAdmin'])
+    } else if (category) {
+        posts = await Post
+            .find({ category })
+            .sort({ createdAt: -1 })
+            .populate('user', ['-password', '-isAdmin'])
+    } else {
+        posts = await Post
+            .find()
+            .sort({ createdAt: -1 })
+            .populate('user', ['-password', '-isAdmin'])
+    }
+
+    res.status(200).json(posts)
+})
+
+
+/** ----------------------------------------------------------------- 
+ * @desc Get post by id
+ * @route /posts/:id
+ * @method GET 
+ * @access public
+    ---------------------------------------------------------------- */
+
+const getPostByID = asyncHandler(async (req, res) => {
+    const ID = req.params.id
+
+    const post = await Post
+        .findById(ID)
+        .populate('user', ['-password', '-isAdmin'])
+
+    if (!post) {
+        res.status(404).json({ message: 'post not found' })
+    }
+
+    res.status(200).json(post)
+
+})
+
+
+/** ----------------------------------------------------------------- 
+ * @desc Get post Count
+ * @route /posts/count
+ * @method GET 
+ * @access private
+    ---------------------------------------------------------------- */
+
+const getPostCountCtrl = asyncHandler(async (req, res) => {
+
+    const count = await Post.countDocuments();
+    return res.status(200).json(count);
+})
+
+
+/** ----------------------------------------------------------------- 
+ * @desc delete post by id
+ * @route /posts/:id
+ * @method DELETE 
+ * @access public
+    ---------------------------------------------------------------- */
+
+const deletePost = asyncHandler(async (req, res) => {
+    const ID = req.params.id
+
+    const post = await Post.findById(ID)
+
+    if (!post) {
+        res.status(404).json({ message: 'post not found' })
+    }
+
+    // if(req.user.isAdmin){
+
+    // }
+
+    // console.log(req.user)
+
+    // res.status(200).json(post)
+
+})
+
+
+
 module.exports = {
-    createPost
+    createPost,
+    getAllPosts,
+    getPostByID,
+    getPostCountCtrl,
+    deletePost
 }
