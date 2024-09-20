@@ -109,6 +109,7 @@ const getPostByID = asyncHandler(async (req, res) => {
     const post = await Post
         .findById(ID)
         .populate('user', ['-password', '-isAdmin'])
+        .populate('comments')
 
     if (!post) {
         return res.status(404).json({ message: 'post not found' })
