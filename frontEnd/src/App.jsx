@@ -14,7 +14,6 @@ function App() {
     setLang(selectedLang);
     i18n.changeLanguage(selectedLang);
     cookies.set('i18next', selectedLang, { expires: 365 }); // Save language preference for 1 year
-    cookies.set('imrane', 'sarsri imrane', { expires: 365 }); // Save language preference for 1 year
   };
 
   useEffect(() => {
