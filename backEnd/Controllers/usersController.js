@@ -72,7 +72,7 @@ const profilePhotoUpload = asyncHandler(
         }
 
         // Get the path to the client
-        const imagePath = path.join(__dirname, `../upload/profileImages/${req.file.filename}`)
+        const imagePath = path.join(__dirname, `../upload/${req.file.filename}`)
         // console.log(imagePath)
 
         // Upload to cloudinary
@@ -149,7 +149,6 @@ const updateUser = asyncHandler(async (req, res) => {
                 userName: req.body.userName,
                 email: req.body.email,
                 password: req.body.password,
-                // profilePhoto: req.body.profilePhoto,
                 bio: req.body.bio,
             },
         },
@@ -174,16 +173,16 @@ const deleteUserProfile = asyncHandler(
         const ID = req.params.id
         const user = await User.findById(ID)
 
-        //TODO 2. Get all posts from DB
-        //TODO 3. Get the public ids from the posts
-        //TODO 4. Delete all posts image from cloudinary that belong to this user
+        // TODO 2. Get all posts from DB
+        // TODO 3. Get the public ids from the posts
+        // TODO 4. Delete all posts image from cloudinary that belong to this user
 
 
         // 5. Delete the profile picture from cloudinary
         const profilePhotoID = user.profilePhoto.publicID
         await cloudinaryRemoveImage(profilePhotoID)
 
-        //TODO - 6. Delete user posts & comments
+        // TODO - 6. Delete user posts & comments
 
         // 7. Delete the user himself
         await User.findByIdAndDelete(ID)

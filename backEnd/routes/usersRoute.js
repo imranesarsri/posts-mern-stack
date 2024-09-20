@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { verifyToken, verifyTokenAndAuthorization, verifyTokenAndAdmin, verifyTokenAndOnlyUser } = require('../middlewares/verifyToken');
 const { getAllUsers, getUser, getUsersCountCtrl, profilePhotoUpload, updateUser, deleteUserProfile } = require('../controllers/usersController')
-const validateUserId = require('../middlewares/validateUserId')
+const { validateUserID } = require('../middlewares/validateUserId')
 const photoUpload = require('../middlewares/photoUpload')
 
 
@@ -21,8 +21,8 @@ router.post('/profile-photo-upload', verifyToken, photoUpload.single('image'), p
  * Deleted User
  */
 router.route('/:id')
-    .get(validateUserId, getUser)
-    .put(validateUserId, verifyTokenAndOnlyUser, updateUser)
-    .delete(validateUserId, verifyTokenAndAuthorization, deleteUserProfile)
+    .get(validateUserID, getUser)
+    .put(validateUserID, verifyTokenAndOnlyUser, updateUser)
+    .delete(validateUserID, verifyTokenAndAuthorization, deleteUserProfile)
 
 module.exports = router;
