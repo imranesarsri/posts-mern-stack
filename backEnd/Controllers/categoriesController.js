@@ -4,12 +4,12 @@ const { Category, validateCreateCategory } = require("../models/Category");
 
 /**-----------------------------------------------
  * @desc    Create New Category
- * @route   /api/categories
+ * @route   /categories
  * @method  POST
  * @access  private (only admin)
 ------------------------------------------------*/
 
-module.exports.createCategoryCtrl = asyncHandler(async (req, res) => {
+module.exports.createCategory = asyncHandler(async (req, res) => {
     const { error } = validateCreateCategory(req.body);
     if (error) {
         return res.status(400).json({ message: error.details[0].message });
@@ -26,23 +26,24 @@ module.exports.createCategoryCtrl = asyncHandler(async (req, res) => {
 
 /**-----------------------------------------------
  * @desc    Get All Categories
- * @route   /api/categories
+ * @route   /categories
  * @method  GET
  * @access  public
 ------------------------------------------------*/
 
-module.exports.getAllCategoriesCtrl = asyncHandler(async (req, res) => {
+module.exports.getAllCategories = asyncHandler(async (req, res) => {
     const categories = await Category.find();
     res.status(200).json(categories);
 });
 
+
 /**-----------------------------------------------
  * @desc    Delete Category
- * @route   /api/categories/:id
+ * @route   /categories/:id
  * @method  DELETE
  * @access  private (only admin)
 ------------------------------------------------*/
-module.exports.deleteCategoryCtrl = asyncHandler(async (req, res) => {
+module.exports.deleteCategory = asyncHandler(async (req, res) => {
     const category = await Category.findById(req.params.id);
     if (!category) {
         return res.status(404).json({ message: "category not found" });

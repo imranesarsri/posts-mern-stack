@@ -4,7 +4,7 @@ const { User } = require("../models/User");
 
 /**-----------------------------------------------
  * @desc    Create New Comment
- * @route   /api/comments
+ * @route   /comments
  * @method  POST
  * @access  private (only logged in user)
 ------------------------------------------------*/
@@ -29,7 +29,7 @@ module.exports.createComment = asyncHandler(async (req, res) => {
 
 /**-----------------------------------------------
  * @desc    Get All Comments
- * @route   /api/comments
+ * @route   /comments
  * @method  GET
  * @access  private (only admin)
 ------------------------------------------------*/
@@ -42,7 +42,7 @@ module.exports.getAllComments = asyncHandler(async (req, res) => {
 
 /**-----------------------------------------------
  * @desc    Delete Comment
- * @route   /api/comments/:id
+ * @route   /comments/:id
  * @method  DELETE
  * @access  private (only admin or owner of the comment)
 ------------------------------------------------*/
@@ -64,7 +64,7 @@ module.exports.deleteComment = asyncHandler(async (req, res) => {
 
 /**-----------------------------------------------
  * @desc    Update Comment
- * @route   /api/comments/:id
+ * @route   /comments/:id
  * @method  PUT
  * @access  private (only owner of the comment)
 ------------------------------------------------*/

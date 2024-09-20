@@ -5,13 +5,13 @@ const { validateObjectID, validateUserID } = require('../middlewares/validateUse
 const photoUpload = require('../middlewares/photoUpload')
 
 
-// /api/comments
+// /comments
 router
     .route("/")
     .post(verifyToken, createComment)
     .get(verifyTokenAndAdmin, getAllComments);
 
-// /api/comments/:id
+// /comments/:id
 router.route("/:id")
     .delete(validateObjectID, verifyToken, deleteComment)
     .put(validateObjectID, verifyToken, updateComment);
