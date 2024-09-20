@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { verifyToken, verifyTokenAndAuthorization, verifyTokenAndAdmin, verifyTokenAndOnlyUser } = require('../middlewares/verifyToken');
-const { createPost, getAllPosts, getPostByID, getPostCountCtrl, deletePost, updatePost, updateImagePost } = require('../Controllers/postsController')
+const { createPost, getAllPosts, getPostByID, getPostCountCtrl, deletePost, updatePost, updateImagePost, toggleLike } = require('../Controllers/postsController')
 const { validateObjectID, validateUserID } = require('../middlewares/validateUserId')
 const photoUpload = require('../middlewares/photoUpload')
 
@@ -29,5 +29,7 @@ router.route('/:id')
     .delete(validateObjectID, verifyToken, deletePost)
     .put(validateObjectID, verifyToken, updatePost)
 
+// Like post
+router.put('/like/:id', validateObjectID, verifyToken, toggleLike)
 
 module.exports = router;

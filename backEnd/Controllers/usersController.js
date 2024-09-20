@@ -32,7 +32,7 @@ const getUser = asyncHandler(
         const { id } = req.params;
 
         // Find the user by ID, excluding the password and isAdmin fields
-        const user = await User.findById(id).select('-password -isAdmin');
+        const user = await User.findById(id).select('-password -isAdmin').populate('posts');
 
         // If the user is found, return a 200 status with the user data
         return res.status(200).json(user);
