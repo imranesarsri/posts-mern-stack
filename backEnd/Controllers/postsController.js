@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 const path = require('path');
 const { cloudinaryUploadImage, cloudinaryRemoveImage } = require('../utils/cloudinary')
 const fs = require('fs')
-
+const { Comment } = require("../models/Comment");
 
 
 /** ----------------------------------------------------------------- 
@@ -156,7 +156,8 @@ const deletePost = asyncHandler(async (req, res) => {
         await Post.findByIdAndDelete(ID)
         await cloudinaryRemoveImage(post.image.publicID)
 
-        // TODO Delete all comments that belong to this post
+        // Delete all comments that belong to this post
+        await Comment.deleteMany({ postId: post._id })
 
         res.status(200).json({
             message: 'Post has been deleted successfully',

@@ -32,6 +32,8 @@ const register = asyncHandler(async (req, res) => {
     const newUser = new User(req.body);
     const result = await newUser.save();
 
+    // TODO Sending email (verify account)
+
     // Create token
     const token = newUser.generateToken()
     const { password, isAdmin, ...other } = result._doc;
@@ -67,6 +69,8 @@ const login = asyncHandler(async (req, res) => {
     if (!isPasswordMatch) {
         return res.status(400).json({ message: 'Invalid password' })
     }
+
+    // TODO Sending email (verify account if not verfied)
 
     // generate token
     const token = user.generateToken()

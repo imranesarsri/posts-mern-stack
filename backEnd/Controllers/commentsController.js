@@ -1,5 +1,5 @@
 const asyncHandler = require("express-async-handler");
-const { Comment, validateCreateComment, validateUpdateComment, } = require("../models/Comment");
+const { Comment, validateCreateComment, validateUpdateComment } = require("../models/Comment");
 const { User } = require("../models/User");
 
 /**-----------------------------------------------
