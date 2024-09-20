@@ -14,7 +14,6 @@ connectDB().then(() => {
     console.error(`Failed to connect to the database: ${error}`);
 });
 
-
 // Init app
 const app = express()
 
