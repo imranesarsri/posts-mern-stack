@@ -20,3 +20,8 @@ npm install i18next-http-backend
 ```bash
 npm i js-cookie
 ```
+
+## React Icons
+```bash
+npm install react-icons 
+```

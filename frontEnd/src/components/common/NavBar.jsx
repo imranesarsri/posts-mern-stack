@@ -1,17 +1,21 @@
 "use client";
-import { Navbar, Button, DarkThemeToggle } from "flowbite-react";
+import { Navbar, Button } from "flowbite-react";
 import { useContext } from "react";
 import { UseToggleDarkMode } from "../../App"
-const customTheme = {
-    color: {
-        primary: "bg-red-500",
-    },
-};
+import { useThemeMode } from 'flowbite-react';
+import { FaRegSun, FaRegMoon } from "react-icons/fa";
+
+// const customTheme = {
+//     color: {
+//         primary: "bg-red-500",
+//     },
+// };
 
 
 export default function NavBar() {
 
     const { lang, handleChangeLanguage, t } = useContext(UseToggleDarkMode)
+    const { mode, toggleMode } = useThemeMode(); // Get the current mode and the toggle function
 
     return (
         <Navbar fluid rounded>
@@ -20,7 +24,17 @@ export default function NavBar() {
             </Navbar.Brand>
             <div className="flex md:order-2">
                 <div>
-                    <DarkThemeToggle />
+                    <button
+                        onClick={toggleMode}
+                        className="p-2 rounded-full bg-gray-200 dark:bg-gray-700"
+                        aria-label="Toggle Dark Mode"
+                    >
+                        {mode === 'dark' ? (
+                            <FaRegSun className="text-white" />
+                        ) : (
+                            <FaRegMoon />
+                        )}
+                    </button>
                     <select
                         name="lang"
                         value={lang}
