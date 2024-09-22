@@ -1,10 +1,18 @@
 import i18n from "i18next";
 import { useTranslation } from "react-i18next";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, createContext } from 'react';
 import cookies from 'js-cookie';
 import './config/i18nConfig';
+import Home from "./pages/Home";
+import { Flowbite } from "flowbite-react";
+
+// Use Context
+export const UseToggleDarkMode = createContext(null)
+
 
 function App() {
+
+  // Start work to Lange
   const { t } = useTranslation();
   const langCookie = cookies.get('i18next') || 'en';
   const [lang, setLang] = useState(langCookie);
@@ -20,24 +28,20 @@ function App() {
     window.document.dir = i18n.dir(lang); // Update document direction based on language
   }, [lang]);
 
+
+  // All values use by CONTEXT
+  const values = {
+    lang,
+    handleChangeLanguage,
+    t
+  }
+
   return (
-    <div>
-      <select
-        name="lang"
-        value={lang}
-        onChange={handleChangeLanguage}
-        className="p-2 border rounded"
-      >
-        <option value="en">English</option>
-        <option value="ar">Arabic</option>
-      </select>
-      <h2 className="text-3xl font-bold underline mt-2">
-        {t('welcomeToReact')}
-      </h2>
-      <h2 className="text-5xl font-bold underline mt-2">
-        {t('welcome:welcome')}
-      </h2>
-    </div>
+    <Flowbite>
+      <UseToggleDarkMode.Provider value={values}>
+        <Home lang={lang} toggleLang={handleChangeLanguage} />
+      </UseToggleDarkMode.Provider>
+    </Flowbite>
   );
 }
 
