@@ -17,8 +17,7 @@ function App() {
   const langCookie = cookies.get('i18next') || 'en';
   const [lang, setLang] = useState(langCookie);
 
-  const handleChangeLanguage = (e) => {
-    const selectedLang = e.target.value;
+  const handleChangeLanguage = (selectedLang) => {
     setLang(selectedLang);
     i18n.changeLanguage(selectedLang);
     cookies.set('i18next', selectedLang, { expires: 365 }); // Save language preference for 1 year
@@ -40,6 +39,15 @@ function App() {
     <Flowbite>
       <UseToggleDarkMode.Provider value={values}>
         <Home lang={lang} toggleLang={handleChangeLanguage} />
+
+        <div className="dark:bg-Dark-backgroundSec h-screen bg-Light-backgroundSec dark:text-white text-Light-text">
+          <h2 className="text-3xl font-bold underline ">
+            {t('welcomeToReact')}
+          </h2>
+          <h2 className="text-5xl font-bold underline mt-2">
+            {t('welcome:welcome')}
+          </h2>
+        </div>
       </UseToggleDarkMode.Provider>
     </Flowbite>
   );

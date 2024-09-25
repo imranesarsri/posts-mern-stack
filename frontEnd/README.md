@@ -21,7 +21,15 @@ npm install i18next-http-backend
 npm i js-cookie
 ```
 
-## React Icons
+## Icons
+
+### React Icons
 ```bash
 npm install react-icons 
+```
+
+### Countrais Icons React
+- [link](https://github.com/stephenway/react-flagkit) 
+```bash
+npm install --save react-flagkit
 ```

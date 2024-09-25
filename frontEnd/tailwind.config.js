@@ -11,7 +11,13 @@ module.exports = {
     extend: {
       container: {
         center: true,
-        // padding: '2rem',
+        padding: {
+          DEFAULT: '1rem',
+          sm: '2rem',
+          lg: '4rem',
+          xl: '5rem',
+          '2xl': '6rem',
+        },
       },
       boxShadow: {
         'custom': '0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12)',
@@ -21,12 +27,21 @@ module.exports = {
         '9xl': '4rem',
       },
       colors: {
-        Default: {
-          primary: '#6A7CF6',
-          secondary: '#EB5153',
-          tertiary: '#F6F8FA',
-          quaternary: '#222566',
-          quinary: '#F9FAFB'
+        Light: {
+          'text': '#000c1a',
+          'backgroundPri': '#f0f6ff',
+          'backgroundSec': '#EBF3FF',
+          'primary': '#1782fd',
+          'secondary': '#9176fe',
+          'accent': '#8e49fd',
+        },
+        Dark: {
+          'text': '#e5f1ff',
+          'backgroundPri': '#00060f',
+          'backgroundSec': '#00183d',
+          'primary': '#026ee8',
+          'secondary': '#1c0189',
+          'accent': '#4702b6',
         },
       },
     },
