@@ -21,6 +21,8 @@ module.exports = {
       },
       boxShadow: {
         'custom': '0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12)',
+        'inside': 'rgba(50, 50, 93, 0.25) 0px 3px 6px -2px inset, rgba(0, 0, 0, 0.3) 0px 8px 3px -2px inset',
+        'bottom': 'rgba(0, 0, 0, 0.45) 0px 25px 20px -20px'
       },
       fontSize: {
         '10xl': '5rem',
@@ -42,6 +44,14 @@ module.exports = {
           'primary': '#026ee8',
           'secondary': '#1c0189',
           'accent': '#4702b6',
+        },
+        GradientsLight: {
+          light: '#8e49fd', // Start color
+          dark: '#1782fd',  // End color
+        },
+        GradientsDark: {
+          light: '#4702b6',
+          dark: '#1c0189',
         },
       },
     },

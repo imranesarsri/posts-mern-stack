@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+[dir="rtl"] button[data-testid="flowbite-dropdown-target"] span svg.ml-2 {
+    margin-left: 0 !important;
+    margin-right: 0.5rem !important;
+}
+
+
+/* Assuming you're using a stylesheet linked to your component */
+@media (max-width: 768px) {
+
+    /* Tailwind's md breakpoint is 768px */
+    .md\:bg-transparent {
+        background-color: #1782fd !important;
+    }
+}
+
+@media (min-width: 768px) {
+
+    /* Tailwind's md breakpoint is 768px */
+    .md\:bg-transparent {
+        color: #1782fd !important;
+    }
+}
