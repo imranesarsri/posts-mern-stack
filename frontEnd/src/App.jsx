@@ -41,12 +41,6 @@ function App() {
       <UseToggleDarkMode.Provider value={values}>
         <Main>
           <Home lang={lang} toggleLang={handleChangeLanguage} />
-          <h2 className="text-3xl font-bold underline ">
-            {translate('welcomeToReact')}
-          </h2>
-          <h2 className="text-5xl font-bold underline mt-2">
-            {translate('welcome:welcome')}
-          </h2>
         </Main>
       </UseToggleDarkMode.Provider>
     </Flowbite>
