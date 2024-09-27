@@ -31,6 +31,7 @@ module.exports = {
       colors: {
         Light: {
           'text': '#000c1a',
+          'textSec': '#4b5563',
           'backgroundPri': '#f0f6ff',
           'backgroundSec': '#EBF3FF',
           'primary': '#1782fd',
@@ -39,6 +40,7 @@ module.exports = {
         },
         Dark: {
           'text': '#e5f1ff',
+          'textSec': '#e5f1ff', //!change
           'backgroundPri': '#00060f',
           'backgroundSec': '#00183d',
           'primary': '#026ee8',

@@ -14,7 +14,7 @@ export const UseToggleDarkMode = createContext(null)
 function App() {
 
   // Start work to Lange
-  const { t } = useTranslation();
+  const { t: translate } = useTranslation();
   const langCookie = cookies.get('i18next') || 'en';
   const [lang, setLang] = useState(langCookie);
 
@@ -33,7 +33,7 @@ function App() {
   const values = {
     lang,
     handleChangeLanguage,
-    t
+    translate
   }
 
   return (
@@ -42,10 +42,10 @@ function App() {
         <Main>
           <Home lang={lang} toggleLang={handleChangeLanguage} />
           <h2 className="text-3xl font-bold underline ">
-            {t('welcomeToReact')}
+            {translate('welcomeToReact')}
           </h2>
           <h2 className="text-5xl font-bold underline mt-2">
-            {t('welcome:welcome')}
+            {translate('welcome:welcome')}
           </h2>
         </Main>
       </UseToggleDarkMode.Provider>
