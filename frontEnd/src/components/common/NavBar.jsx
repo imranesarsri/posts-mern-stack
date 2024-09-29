@@ -1,4 +1,3 @@
-"use client";
 import { Navbar } from "flowbite-react";
 import { useContext } from "react";
 import { UseToggleDarkMode } from "../../App"
@@ -7,7 +6,7 @@ import { FaRegSun, FaRegMoon } from "react-icons/fa";
 import Flag from 'react-flagkit';
 import { Dropdown } from "flowbite-react";
 import LoginButton from "../buttons/LoginButton"
-import RegisterButton from "../buttons/RegisterButton"
+import { Link } from "react-router-dom";
 
 export default function NavBar() {
 
@@ -21,8 +20,8 @@ export default function NavBar() {
                     <img src={mode === 'dark' ? ('images/logos/logo-dark.svg') : ('images/logos/logo-light.svg')} className="mr-3 h-9 sm:h-12" alt="Flowbite React Logo" />
                 </Navbar.Brand>
                 <div className="flex md:order-2">
-                    <div className="flex shadow-inside bg-Light-backgroundSec dark:bg-Dark-backgroundSec rtl:ml-5 ltr:mr-5 rounded-3xl">
-                        <button className="text-center items-center px-3 py-2"
+                    <div className="flex shadow-inside bg-Light-backgroundSec dark:bg-Dark-backgroundSec rtl:ml-5 ltr:mr-5 rounded-3xl text-center items-center">
+                        <button className="px-3 py-2"
                             onClick={toggleMode}
                             aria-label="Toggle Dark Mode"
                         >
@@ -50,21 +49,20 @@ export default function NavBar() {
                         </div>
                     </div>
                     <div className="hidden md:flex justify-end ">
-                        <RegisterButton />
                         <LoginButton />
                     </div>
                     <Navbar.Toggle />
                 </div>
                 <Navbar.Collapse>
-                    <Navbar.Link href="#" className="rtl:md:ml-8 " active>
-                        {translate('navBar:home')}
+                    <Navbar.Link className="rtl:md:ml-8 capitalize" active>
+                        <Link to="/">{translate('navBar:home')}</Link>
+
                     </Navbar.Link>
-                    <Navbar.Link href="#">
-                        {translate('navBar:aboute')}
+                    <Navbar.Link className="capitalize">
+                        <Link to="/login">{translate('navBar:posts')}</Link>
                     </Navbar.Link>
 
                     <div className="md:hidden flex justify-between ">
-                        <RegisterButton />
                         <LoginButton />
 
                     </div>

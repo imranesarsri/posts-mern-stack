@@ -24,8 +24,12 @@ export default function Hero() {
                 </div>
 
                 <div className="flex justify-between space-x-5 md:w-2/3 lg:w-1/2 mb-20">
-                    <LoginButton />
-                    <RegisterButton />
+                    <div className="w-1/2">
+                        <LoginButton />
+                    </div>
+                    <div className="w-1/2">
+                        <RegisterButton />
+                    </div>
                 </div>
 
                 <div className="flex space-x-10 md:w-2/3 lg:w-1/2">

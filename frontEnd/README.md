@@ -33,3 +33,8 @@ npm install react-icons
 ```bash
 npm install --save react-flagkit
 ```
+## React router dom v6
+- [react-router-dom](https://reactrouter.com/en/main)
+```bash
+npm install react-router-dom@6
+```

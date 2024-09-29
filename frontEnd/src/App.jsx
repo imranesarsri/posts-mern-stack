@@ -6,6 +6,11 @@ import './config/i18nConfig';
 import Home from "./pages/Home";
 import { Flowbite } from "flowbite-react";
 import Main from "./components/layouts/Main";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import { Route, Routes, useLocation } from "react-router-dom";
+import NavBar from "./components/common/NavBar";
+import Error404 from "./pages/Error404";
 
 // Use Context
 export const UseToggleDarkMode = createContext(null)
@@ -36,11 +41,19 @@ function App() {
     translate
   }
 
+  const location = useLocation();
+
   return (
     <Flowbite>
       <UseToggleDarkMode.Provider value={values}>
         <Main>
-          <Home lang={lang} toggleLang={handleChangeLanguage} />
+          {location.pathname !== '/login' && <NavBar />}
+          <Routes>
+            <Route path="/" element={<Home lang={lang} toggleLang={handleChangeLanguage} />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="*" element={<Error404 />} />
+          </Routes>
         </Main>
       </UseToggleDarkMode.Provider>
     </Flowbite>

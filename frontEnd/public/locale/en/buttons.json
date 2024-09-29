@@ -1,4 +1,4 @@
 {
-    "LoginButton": "Login",
-    "RegisterButton": "Register"
+    "loginButton": "Login",
+    "registerButton": "Register"
 }
