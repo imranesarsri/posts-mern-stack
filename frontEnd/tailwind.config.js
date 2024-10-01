@@ -56,6 +56,12 @@ module.exports = {
           dark: '#1c0189',
         },
       },
+      backgroundImage: {
+        'hero-light-ltr': "url('/images/sections/hero/heroBackgroundLightLTR.svg')",
+        'hero-dark-ltr': "url('/images/sections/hero/heroBackgroundDarkLTR.svg')",
+        'hero-light-rtl': "url('/images/sections/hero/heroBackgroundLightRTL.svg')",
+        'hero-dark-rtl': "url('/images/sections/hero/heroBackgroundDarkRTL.svg')",
+      }
     },
   },
   plugins: [
