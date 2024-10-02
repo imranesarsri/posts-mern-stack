@@ -26,7 +26,16 @@ i18n
         backend: {
             loadPath: '/locale/{{lng}}/{{ns}}.json',
         },
-        ns: ['translation', 'hero', 'buttons', 'navBar', 'error404', 'register', 'login'],
+        ns: [
+            'translation',
+            'hero',
+            'buttons',
+            'navBar',
+            'error404',
+            'register',
+            'login',
+            'footer'
+        ],
         defaultNS: 'translation',
         react: {
             useSuspense: false,

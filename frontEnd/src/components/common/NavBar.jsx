@@ -18,10 +18,13 @@ export default function NavBar() {
     const { mode, toggleMode } = useThemeMode(); // Get the current mode and the toggle function
 
     return (
-        <div className="dark:bg-Dark-backgroundPri bg-Light-backgroundPri shadow-md">
+        <div className="fixed top-0 left-0 right-0 z-10 w-full dark:bg-Dark-backgroundPri bg-Light-backgroundPri shadow-md">
             <Navbar fluid rounded className="dark:bg-Dark-backgroundPri bg-Light-backgroundPri container">
                 <Navbar.Brand href="/">
                     <img src={mode === 'dark' ? ('images/logos/logo-dark.svg') : ('images/logos/logo-light.svg')} className="mr-3 h-9 sm:h-12" alt="Flowbite React Logo" />
+                    <span className="self-center text-2xl font-semibold whitespace-nowrap text-Light-text dark:text-Dark-text ">
+                        {translate('translation:appName')}
+                    </span>
                 </Navbar.Brand>
                 <div className="flex md:order-2">
                     <div className="flex shadow-inside bg-Light-backgroundSec dark:bg-Dark-backgroundSec rtl:ml-5 ltr:mr-5 rounded-3xl text-center items-center">
@@ -59,26 +62,26 @@ export default function NavBar() {
                 </div>
                 <Navbar.Collapse>
                     <Navbar.Link className="rtl:md:ml-8 capitalize" active={location.pathname === '/'}>
-                        <Link to="/" className="flex space-x-2">
+                        <Link to="/" className="flex ltr:space-x-2">
                             <FaHome className="text-xl" />
-                            <span className="block">
+                            <span className="block rtl:mr-2 md:hidden lg:block">
                                 {translate('navBar:home')}
                             </span>
                         </Link>
 
                     </Navbar.Link>
                     <Navbar.Link className="capitalize" active={location.pathname === '/posts'}>
-                        <Link to="/posts" className="flex space-x-2">
+                        <Link to="/posts" className="flex ltr:space-x-2">
                             <MdLibraryBooks className="text-xl" />
-                            <span className="block">
+                            <span className="block rtl:mr-2 md:hidden lg:block">
                                 {translate('navBar:posts')}
                             </span>
                         </Link>
                     </Navbar.Link>
                     <Navbar.Link className="capitalize" active={location.pathname === '/posts/create'}>
-                        <Link to="/posts/create" className="flex space-x-2">
+                        <Link to="/posts/create" className="flex ltr:space-x-2">
                             <GiNotebook className="text-xl" />
-                            <span className="block">
+                            <span className="block rtl:mr-2 md:hidden lg:block">
                                 {translate('navBar:createPosts')}
                             </span>
                         </Link>
@@ -86,9 +89,9 @@ export default function NavBar() {
 
                     {/* Only admin */}
                     <Navbar.Link className="capitalize">
-                        <Link to="/admin" className="flex space-x-2">
+                        <Link to="/admin" className="flex ltr:space-x-2">
                             <RiAdminFill className="text-xl" />
-                            <span className="block">
+                            <span className="block rtl:mr-2 md:hidden lg:block">
                                 {translate('navBar:adminDashboard')}
                             </span>
                         </Link>

@@ -61,6 +61,9 @@ module.exports = {
         'hero-dark-ltr': "url('/images/sections/hero/heroBackgroundDarkLTR.svg')",
         'hero-light-rtl': "url('/images/sections/hero/heroBackgroundLightRTL.svg')",
         'hero-dark-rtl': "url('/images/sections/hero/heroBackgroundDarkRTL.svg')",
+      },
+      spacing: {
+        '18': '4rem',
       }
     },
   },

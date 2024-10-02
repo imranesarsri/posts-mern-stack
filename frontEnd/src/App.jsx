@@ -13,6 +13,10 @@ import NavBar from "./components/common/NavBar";
 import Error404 from "./pages/Error404";
 import Post from "./pages/posts/Post";
 import CreatePosts from "./pages/posts/CreatePosts";
+import ContainerBady from "./components/layouts/ContainerBady";
+import Footer from "./components/common/Footer";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
 
 // Use Context
 export const UseToggleDarkMode = createContext(null)
@@ -53,14 +57,19 @@ function App() {
       <UseToggleDarkMode.Provider value={values}>
         <Main>
           {(location.pathname !== '/login' && location.pathname !== '/register') && <NavBar />}
-          <Routes>
-            <Route path="/" element={<Home lang={lang} toggleLang={handleChangeLanguage} />} />
-            <Route path="/posts" element={<Post />} />
-            <Route path="/posts/create" element={<CreatePosts />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="*" element={<Error404 />} />
-          </Routes>
+          <ContainerBady>
+            <Routes>
+              <Route path="/" element={<Home lang={lang} toggleLang={handleChangeLanguage} />} />
+              <Route path="/posts" element={<Post />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/posts/create" element={<CreatePosts />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="*" element={<Error404 />} />
+            </Routes>
+          </ContainerBady>
+          {(location.pathname !== '/login' && location.pathname !== '/register') && <Footer />}
         </Main>
       </UseToggleDarkMode.Provider>
     </Flowbite>
