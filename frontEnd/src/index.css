@@ -25,3 +25,12 @@
         color: #1782fd !important;
     }
 }
+
+/* dropdawn menu */
+#dropdawnMenu button svg[aria-hidden="true"] {
+    display: none;
+}
+
+#dropdawnMenu button span {
+    padding: 0 !important;
+}
