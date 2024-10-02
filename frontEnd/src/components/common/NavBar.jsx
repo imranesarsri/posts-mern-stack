@@ -7,10 +7,14 @@ import Flag from 'react-flagkit';
 import { Dropdown } from "flowbite-react";
 import LoginButton from "../buttons/LoginButton"
 import { Link } from "react-router-dom";
+import { FaHome } from "react-icons/fa";
+import { MdLibraryBooks } from "react-icons/md";
+import { GiNotebook } from "react-icons/gi";
+import { RiAdminFill } from "react-icons/ri";
 
 export default function NavBar() {
 
-    const { lang, handleChangeLanguage, translate } = useContext(UseToggleDarkMode)
+    const { lang, handleChangeLanguage, translate, location } = useContext(UseToggleDarkMode)
     const { mode, toggleMode } = useThemeMode(); // Get the current mode and the toggle function
 
     return (
@@ -54,12 +58,40 @@ export default function NavBar() {
                     <Navbar.Toggle />
                 </div>
                 <Navbar.Collapse>
-                    <Navbar.Link className="rtl:md:ml-8 capitalize" active>
-                        <Link to="/">{translate('navBar:home')}</Link>
+                    <Navbar.Link className="rtl:md:ml-8 capitalize" active={location.pathname === '/'}>
+                        <Link to="/" className="flex space-x-2">
+                            <FaHome className="text-xl" />
+                            <span className="block">
+                                {translate('navBar:home')}
+                            </span>
+                        </Link>
 
                     </Navbar.Link>
+                    <Navbar.Link className="capitalize" active={location.pathname === '/posts'}>
+                        <Link to="/posts" className="flex space-x-2">
+                            <MdLibraryBooks className="text-xl" />
+                            <span className="block">
+                                {translate('navBar:posts')}
+                            </span>
+                        </Link>
+                    </Navbar.Link>
+                    <Navbar.Link className="capitalize" active={location.pathname === '/posts/create'}>
+                        <Link to="/posts/create" className="flex space-x-2">
+                            <GiNotebook className="text-xl" />
+                            <span className="block">
+                                {translate('navBar:createPosts')}
+                            </span>
+                        </Link>
+                    </Navbar.Link>
+
+                    {/* Only admin */}
                     <Navbar.Link className="capitalize">
-                        <Link to="/login">{translate('navBar:posts')}</Link>
+                        <Link to="/admin" className="flex space-x-2">
+                            <RiAdminFill className="text-xl" />
+                            <span className="block">
+                                {translate('navBar:adminDashboard')}
+                            </span>
+                        </Link>
                     </Navbar.Link>
 
                     <div className="md:hidden flex justify-between ">

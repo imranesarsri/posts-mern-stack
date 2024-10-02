@@ -6,11 +6,13 @@ import './config/i18nConfig';
 import Home from "./pages/Home";
 import { Flowbite } from "flowbite-react";
 import Main from "./components/layouts/Main";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
+import Login from "./pages/forms/Login";
+import Register from "./pages/forms/Register";
 import { Route, Routes, useLocation } from "react-router-dom";
 import NavBar from "./components/common/NavBar";
 import Error404 from "./pages/Error404";
+import Post from "./pages/posts/Post";
+import CreatePosts from "./pages/posts/CreatePosts";
 
 // Use Context
 export const UseToggleDarkMode = createContext(null)
@@ -34,22 +36,27 @@ function App() {
   }, [lang]);
 
 
+  const location = useLocation();
+
   // All values use by CONTEXT
   const values = {
     lang,
     handleChangeLanguage,
-    translate
+    translate,
+    location
   }
 
-  const location = useLocation();
+
 
   return (
     <Flowbite>
       <UseToggleDarkMode.Provider value={values}>
         <Main>
-          {location.pathname !== '/login' && <NavBar />}
+          {(location.pathname !== '/login' && location.pathname !== '/register') && <NavBar />}
           <Routes>
             <Route path="/" element={<Home lang={lang} toggleLang={handleChangeLanguage} />} />
+            <Route path="/posts" element={<Post />} />
+            <Route path="/posts/create" element={<CreatePosts />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="*" element={<Error404 />} />

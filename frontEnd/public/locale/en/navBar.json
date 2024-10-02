@@ -1,6 +1,8 @@
 {
     "home": "home",
     "posts": "posts",
+    "createPosts": "create post",
+    "adminDashboard": "admin dashboard",
     "english": "English",
     "arabic": "Arabic"
 }
