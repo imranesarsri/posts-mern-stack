@@ -1,0 +1,7 @@
+{
+    "title": "create a new post",
+    "titleInput": "title",
+    "categoryInput": "category",
+    "descriptionInput": "description",
+    "uploadImageInput": "upload image"
+}

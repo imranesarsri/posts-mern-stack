@@ -34,7 +34,8 @@ i18n
             'error404',
             'register',
             'login',
-            'footer'
+            'footer',
+            'postCreate'
         ],
         defaultNS: 'translation',
         react: {

@@ -9,16 +9,18 @@ export default function PostCard() {
     return (
         <div className="lg:basis-3/4 bg-Light-backgroundPri dark:bg-Dark-backgroundPri border-2 border-x-Light-primary rounded-lg shadow dark:border-x-Dark-primary border-y-0 dark:border-y-0">
             <div className="flex p-3">
-                <div className="min-w-12">
-                    <img className="w-10 h-10 rounded-full" src="https://res.cloudinary.com/dvldvlezb/image/upload/v1726849372/lvvcskml0w7rcxuc8tf7.webp" alt="Rounded avatar" />
+                <div className="min-w-8 lg:min-w-12 pt-1">
+                    <img className="w-6 h-6 lg:w-10 lg:h-10 rounded-full" src="https://res.cloudinary.com/dvldvlezb/image/upload/v1726849372/lvvcskml0w7rcxuc8tf7.webp" alt="Rounded avatar" />
                 </div>
-                <div className="ltr:mr-5 rtl:ml-5 md:ltr:mr-10 md:rtl:ml-10">
+                <div className="ltr:mr-3 rtl:ml-3 md:ltr:mr-10 md:rtl:ml-10">
                     <div className="">
                         <div>
                             <div className="flex justify-between">
-                                <h3 className="font-bold text-lg ">
-                                    Cristiano Ronaldo
-                                    <span className="font-light ml-3 text-base ">
+                                <h3 className="flex flex-col mb-2">
+                                    <span className="block font-bold text-sm lg:text-lg">
+                                        Cristiano Ronaldo
+                                    </span>
+                                    <span className="block font-light text-xs lg:text-base ">
                                         Sport . Sep 30
                                     </span>
                                 </h3>
@@ -31,12 +33,12 @@ export default function PostCard() {
                                     </div >
                                 </div>
                             </div>
-                            <h2 className="font-normal text-lg">
+                            <h2 className="font-normal text-base lg:text-lg">
                                 Hard work pays off. Lets keep going!
                             </h2>
                         </div>
                     </div>
-                    <p className="mb-3 text-justify text-base">
+                    <p className="mb-3 text-justify text-sm lg:text-base">
                         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur sint explicabo doloremque sapiente doloribus temporibus illum, aspernatur sed aut at laborum reprehenderit tenetur dolore nesciunt quidem in reiciendis alias. Voluptate.
                     </p>
                     <a href="/">
