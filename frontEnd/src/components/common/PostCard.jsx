@@ -6,28 +6,29 @@ import { MdOutlineDelete } from "react-icons/md";
 import { FaPenAlt } from "react-icons/fa";
 import { useContext } from "react";
 import { UseToggleDarkMode } from "../../App";
+import { Link } from "react-router-dom";
 
-export default function PostCard() {
+const PostCard = (params) => {
     const { translate } = useContext(UseToggleDarkMode)
 
     return (
         <div className="bg-Light-backgroundPri dark:bg-Dark-backgroundPri border-2 border-x-Light-primary rounded-lg shadow dark:border-x-Dark-primary border-y-0 dark:border-y-0">
-            <div className="flex p-3">
-                <div className="min-w-8 lg:min-w-12 pt-1">
-                    <img className="w-6 h-6 lg:w-10 lg:h-10 rounded-full" src="https://res.cloudinary.com/dvldvlezb/image/upload/v1726849372/lvvcskml0w7rcxuc8tf7.webp" alt="Rounded avatar" />
-                </div>
+            <div className="flex p-5 justify-center">
+                <Link to="/profile" className="block min-w-8 lg:min-w-12 pt-1">
+                    <img className="w-6 h-6 lg:w-10 lg:h-10 rounded-full" src={params.post.user.image} alt="Rounded avatar" />
+                </Link>
                 <div className="ltr:mr-3 rtl:ml-3 md:ltr:mr-10 md:rtl:ml-10">
                     <div className="">
                         <div>
                             <div className="flex justify-between">
-                                <h3 className="flex flex-col mb-2">
+                                <Link to="/profile" className="flex flex-col mb-2">
                                     <span className="block font-bold text-sm lg:text-lg">
-                                        Cristiano Ronaldo
+                                        {params.post.user.username}
                                     </span>
                                     <span className="block font-light text-xs lg:text-base ">
-                                        Sport . Sep 30
+                                        {params.post.category} . Sep 30
                                     </span>
-                                </h3>
+                                </Link>
                                 <div>
                                     <div id="dropdawnMenu" className="bg-Light-backgroundSec py-1 px-1 dark:bg-Dark-backgroundSec">
                                         <Dropdown color="Gray" label={<CiMenuKebab id="deleteMargin" className=" text-lg  text-Light-text dark:text-Dark-text" />} dismissOnClick={false}>
@@ -47,18 +48,18 @@ export default function PostCard() {
                                     </div >
                                 </div>
                             </div>
-                            <h2 className="font-normal text-base lg:text-lg">
-                                Hard work pays off. Lets keep going!
-                            </h2>
+                            <Link to={`/posts/details/${params.post._id}`} className="block font-normal text-base lg:text-lg">
+                                {params.post.title}
+                            </Link>
                         </div>
                     </div>
-                    <p className="mb-3 text-justify text-sm lg:text-base">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur sint explicabo doloremque sapiente doloribus temporibus illum, aspernatur sed aut at laborum reprehenderit tenetur dolore nesciunt quidem in reiciendis alias. Voluptate.
-                    </p>
-                    <a href="/">
-                        <img className="rounded-lg" src="https://res.cloudinary.com/dvldvlezb/image/upload/v1726186558/x32b7drsphzzxfoznumk.jpg" alt="" />
-                    </a>
-                    <div className="flex justify-around pt-3">
+                    <Link to={`/posts/details/${params.post._id}`} className="block mb-3 text-justify text-sm lg:text-base">
+                        {params.post.description}
+                    </Link>
+                    <Link to={`/posts/details/${params.post._id}`}>
+                        <img className="rounded-lg" src={params.post.image} alt="" />
+                    </Link>
+                    <div className="flex justify-around pt-5">
                         <div className="flex space-x-2 text-start items-center cursor-pointer">
                             <AiOutlineLike className="text-xl rtl:ml-2" />
                             {/* <AiFillLike className="text-xl" /> */}
@@ -75,3 +76,6 @@ export default function PostCard() {
         </div>
     )
 }
+
+
+export default PostCard

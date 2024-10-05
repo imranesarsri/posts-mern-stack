@@ -22,15 +22,15 @@ export default function Login() {
         e.preventDefault()
 
         if (!email) {
-            return toast.error("Email is required")
+            return toast.error(translate("validateMessage:emailRequired"))
         } else if (!validateEmail(email)) {
-            return toast.error("Invalid email format")
+            return toast.error(translate("validateMessage:emailInvalid"))
         }
 
         if (!password) {
-            return toast.error("Password is required")
+            return toast.error(translate("validateMessage:passwordRequired"))
         } else if (password.length < 8) {
-            return toast.error("Password must be at least 8 characters long")
+            return toast.error(translate("validateMessage:passwordInvalid"))
         }
 
         console.log({ email, password })
@@ -41,7 +41,7 @@ export default function Login() {
             <form className="space-y-4 md:space-y-6" onSubmit={formSubminHandler}>
                 <div>
                     <FloatingLabel
-                        type="email"
+                        // type="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         variant="outlined"

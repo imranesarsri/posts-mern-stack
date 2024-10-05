@@ -3,8 +3,13 @@ import { useContext } from "react";
 import { UseToggleDarkMode } from "../../App";
 import { Link } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
+import { useEffect } from "react";
 
 export default function AuthBody(params) {
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     const { mode } = useThemeMode();
     const { translate } = useContext(UseToggleDarkMode)

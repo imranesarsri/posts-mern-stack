@@ -22,16 +22,16 @@ export default function CreatePosts() {
         e.preventDefault()
 
         if (title.trim().length < 2 || title.trim().length > 200) {
-            return toast.error(translate('postCreate:messageErrorTitle'));
+            return toast.error(translate('validateMessage:titleInvalid'));
         }
         if (description.trim().length < 5 || description.trim().length > 5000) {
-            return toast.error(translate('postCreate:messageErrorDescription'))
+            return toast.error(translate('validateMessage:descriptionInvalid'))
         }
         if (!category.trim()) {
-            return toast.error(translate('postCreate:messageErrorCategory'))
+            return toast.error(translate('validateMessage:categoryRequired'))
         }
         if (!file) {
-            return toast.error(translate('postCreate:messageErrorFile'))
+            return toast.error(translate('validateMessage:fileRequired'))
         }
 
         const formData = new FormData()

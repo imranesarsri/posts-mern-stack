@@ -1,12 +1,13 @@
 import { useEffect } from "react";
 
-export default function Contact() {
+export default function Profile() {
 
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
 
+
     return (
-        <div>Contact page</div>
+        <div>Profile</div>
     )
 }

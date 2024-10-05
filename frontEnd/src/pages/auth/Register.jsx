@@ -22,21 +22,21 @@ export default function Register() {
         e.preventDefault();
 
         if (!userName) {
-            return toast.error("Username is required");
+            return toast.error(translate("validateMessage:userNameRequired"));
         } else if (userName.length < 3) {
-            return toast.error("Username must be at least 3 characters long");
+            return toast.error(translate("validateMessage:userNameInvalid"));
         }
 
         if (!email) {
-            return toast.error("Email is required");
+            return toast.error(translate("validateMessage:emailRequired"))
         } else if (!validateEmail(email)) {
-            return toast.error("Invalid email format");
+            return toast.error(translate("validateMessage:emailInvalid"))
         }
 
         if (!password) {
-            return toast.error("Password is required");
+            return toast.error(translate("validateMessage:passwordRequired"))
         } else if (password.length < 8) {
-            return toast.error("Password must be at least 8 characters long");
+            return toast.error(translate("validateMessage:passwordInvalid"))
         }
 
         console.log({ userName, email, password });
@@ -57,7 +57,7 @@ export default function Register() {
                 </div>
                 <div>
                     <FloatingLabel
-                        type="email"
+                        // type="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         variant="outlined"

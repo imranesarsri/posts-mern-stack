@@ -16,6 +16,8 @@ import CreatePosts from "./pages/posts/CreatePosts";
 import Footer from "./components/common/Footer";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import PostDetails from "./pages/posts/PostDetails";
+import Profile from "./pages/profile/Profile";
 
 // Use Context
 export const UseToggleDarkMode = createContext(null)
@@ -58,10 +60,12 @@ function App() {
           {(location.pathname !== '/login' && location.pathname !== '/register') && <NavBar />}
           <Routes>
             <Route path="/" element={<Home lang={lang} toggleLang={handleChangeLanguage} />} />
-            <Route path="/posts" element={<Post />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/posts" element={<Post />} />
             <Route path="/posts/create" element={<CreatePosts />} />
+            <Route path="/posts/details/:id" element={<PostDetails />} />
+            <Route path="/profile" element={<Profile />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="*" element={<Error404 />} />

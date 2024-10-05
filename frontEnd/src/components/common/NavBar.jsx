@@ -22,7 +22,7 @@ export default function NavBar() {
             <div className="fixed top-0 left-0 right-0 z-10 w-full dark:bg-Dark-backgroundPri bg-Light-backgroundPri shadow-md">
                 <Navbar fluid rounded className="dark:bg-Dark-backgroundPri bg-Light-backgroundPri container">
                     <Navbar.Brand href="/">
-                        <img src={mode === 'dark' ? ('images/logos/logo-dark.svg') : ('images/logos/logo-light.svg')} className="mr-3 h-9 sm:h-12" alt="Flowbite React Logo" />
+                        <img src={mode === 'dark' ? ('images/logos/logo-dark.svg') : ('images/logos/logo-light.svg')} className="mr-3 h-9 sm:h-12" alt="Postfy logo" />
                         <span className="self-center text-2xl font-semibold whitespace-nowrap text-Light-text dark:text-Dark-text ">
                             {translate('translation:appName')}
                         </span>

@@ -1,8 +1,14 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { UseToggleDarkMode } from "../App";
+import { useEffect } from "react";
 
 export default function Error404() {
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+    
     const { translate } = useContext(UseToggleDarkMode)
     return (
         <section
