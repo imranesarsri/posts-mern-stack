@@ -1,53 +1,79 @@
-import { FloatingLabel, useThemeMode } from "flowbite-react";
-import SubminButton from "../../components/buttons/SubminButton";
+import { FloatingLabel } from "flowbite-react";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { UseToggleDarkMode } from "../../App";
+import AuthBody from "./AuthBody";
+import FormButton from "../../components/buttons/FormButton";
+import { toast } from 'react-toastify';
 
 export default function Login() {
-    const { mode } = useThemeMode();
-    const { translate } = useContext(UseToggleDarkMode)
-    return (
+    const { translate } = useContext(UseToggleDarkMode);
 
-        <section className="bg-Light-backgroundSec dark:bg-Dark-backgroundSec">
-            <div className="flex flex-col items-center justify-center px-4 py-8 mx-auto md:h-screen lg:py-0">
-                <Link
-                    to="/"
-                    className="flex flex-col items-center text-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
-                >
-                    <img src={mode === 'dark' ? ('images/logos/logo-dark.svg') : ('images/logos/logo-light.svg')} className=" h-9 sm:h-12" alt="Flowbite React Logo" />
-                    <p className="normal-case">
-                        {translate('translation:appName')}
-                    </p>
-                </Link>
-                <div className="w-full bg-Light-backgroundPri dark:bg-Dark-backgroundPri border border-Light-primary dark:border-Dark-primary rounded-lg shadow  md:mt-0 sm:max-w-md xl:p-0 ">
-                    <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-                        <h1 className="normal-case text-xl font-semibold leading-tight tracking-tight text-Light-text dark:text-Dark-text md:text-xl">
-                            {translate('login:loginTitle')}
-                        </h1>
-                        <form className="space-y-4 md:space-y-6" action="">
-                            <div>
-                                <FloatingLabel variant="outlined" label={translate('login:email')} sizing="md" className="bg-Light-backgroundSec dark:bg-Dark-backgroundSec" />
-                            </div>
-                            <div>
-                                <FloatingLabel variant="outlined" type="password" label={translate('login:password')} sizing="md" className="bg-Light-backgroundSec dark:bg-Dark-backgroundSec" />
-                            </div>
-                            <SubminButton pathname="login" />
-                            <p className="normal-case text-sm font-light text-Light-textSec dark:text-Dark-textSec">
-                                {translate('login:haveAccount')}
-                                <Link
-                                    to='/register'
-                                    className="font-medium text-Light-text hover:underline dark:text-Dark-text"
-                                >
-                                    <span className="rtl:mr-2 ltr:ml-2">
-                                        {translate('buttons:registerButton')}
-                                    </span>
-                                </Link>
-                            </p>
-                        </form>
-                    </div>
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
+    const validateEmail = (email) => {
+        // Basic email format validation using regex
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+        return regex.test(email);
+    };
+
+    const formSubminHandler = (e) => {
+        e.preventDefault()
+
+        if (!email) {
+            return toast.error("Email is required")
+        } else if (!validateEmail(email)) {
+            return toast.error("Invalid email format")
+        }
+
+        if (!password) {
+            return toast.error("Password is required")
+        } else if (password.length < 8) {
+            return toast.error("Password must be at least 8 characters long")
+        }
+
+        console.log({ email, password })
+    }
+
+    return (
+        <AuthBody title={translate("login:loginTitle")}>
+            <form className="space-y-4 md:space-y-6" onSubmit={formSubminHandler}>
+                <div>
+                    <FloatingLabel
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        variant="outlined"
+                        label={translate("login:email")}
+                        sizing="md"
+                        className="bg-Light-backgroundSec dark:bg-Dark-backgroundSec"
+                    />
                 </div>
-            </div>
-        </section>
-    )
+                <div>
+                    <FloatingLabel
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        variant="outlined"
+                        type="password"
+                        label={translate("login:password")}
+                        sizing="md"
+                        className="bg-Light-backgroundSec dark:bg-Dark-backgroundSec"
+                    />
+                </div>
+                <FormButton title="login" />
+                <p className="normal-case text-sm font-light text-Light-textSec dark:text-Dark-textSec">
+                    {translate("login:haveAccount")}
+                    <Link
+                        to="/register"
+                        className="font-medium text-Light-text hover:underline dark:text-Dark-text"
+                    >
+                        <span className="rtl:mr-2 ltr:ml-2">
+                            {translate("buttons:registerButton")}
+                        </span>
+                    </Link>
+                </p>
+            </form>
+        </AuthBody>
+    );
 }
