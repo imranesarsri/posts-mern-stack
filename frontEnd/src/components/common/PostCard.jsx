@@ -1,13 +1,17 @@
-import { AiOutlineLike, AiFillLike } from "react-icons/ai";
+import { AiOutlineLike } from "react-icons/ai";
 import { GoComment } from "react-icons/go";
 import { Dropdown } from "flowbite-react";
 import { CiMenuKebab } from "react-icons/ci";
 import { MdOutlineDelete } from "react-icons/md";
 import { FaPenAlt } from "react-icons/fa";
+import { useContext } from "react";
+import { UseToggleDarkMode } from "../../App";
 
 export default function PostCard() {
+    const { translate } = useContext(UseToggleDarkMode)
+
     return (
-        <div className="lg:basis-3/4 bg-Light-backgroundPri dark:bg-Dark-backgroundPri border-2 border-x-Light-primary rounded-lg shadow dark:border-x-Dark-primary border-y-0 dark:border-y-0">
+        <div className="bg-Light-backgroundPri dark:bg-Dark-backgroundPri border-2 border-x-Light-primary rounded-lg shadow dark:border-x-Dark-primary border-y-0 dark:border-y-0">
             <div className="flex p-3">
                 <div className="min-w-8 lg:min-w-12 pt-1">
                     <img className="w-6 h-6 lg:w-10 lg:h-10 rounded-full" src="https://res.cloudinary.com/dvldvlezb/image/upload/v1726849372/lvvcskml0w7rcxuc8tf7.webp" alt="Rounded avatar" />
@@ -27,8 +31,18 @@ export default function PostCard() {
                                 <div>
                                     <div id="dropdawnMenu" className="bg-Light-backgroundSec py-1 px-1 dark:bg-Dark-backgroundSec">
                                         <Dropdown color="Gray" label={<CiMenuKebab id="deleteMargin" className=" text-lg  text-Light-text dark:text-Dark-text" />} dismissOnClick={false}>
-                                            <Dropdown.Item><MdOutlineDelete className="ltr:mr-2 rtl:ml-2" />Delete</Dropdown.Item>
-                                            <Dropdown.Item><FaPenAlt className="ltr:mr-2 rtl:ml-2" />Update</Dropdown.Item>
+                                            <Dropdown.Item>
+                                                <MdOutlineDelete className="ltr:mr-2 rtl:ml-2 text-lg capitalize" />
+                                                <span>
+                                                    {translate('postsPage:delete')}
+                                                </span>
+                                            </Dropdown.Item>
+                                            <Dropdown.Item>
+                                                <FaPenAlt className="ltr:mr-2 rtl:ml-2 capitalize" />
+                                                <span>
+                                                    {translate('postsPage:update')}
+                                                </span>
+                                            </Dropdown.Item>
                                         </Dropdown>
                                     </div >
                                 </div>

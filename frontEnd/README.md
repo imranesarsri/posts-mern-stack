@@ -38,3 +38,10 @@ npm install --save react-flagkit
 ```bash
 npm install react-router-dom@6
 ```
+
+## React Toastify
+- [react-toastify](https://fkhadra.github.io/react-toastify/installation)
+- **main.jsx** add this **import 'react-toastify/dist/ReactToastify.css'**
+```bash
+npm install --save react-toastify
+```

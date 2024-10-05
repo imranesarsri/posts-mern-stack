@@ -3,5 +3,9 @@
     "titleInput": "العنوان",
     "categoryInput": "الفئة",
     "descriptionInput": "الوصف",
-    "uploadImageInput": "رفع صورة"
+    "uploadImageInput": "رفع صورة",
+    "messageErrorTitle": "يجب أن يكون العنوان بين 2 و 200 حرف",
+    "messageErrorDescription": "يجب أن يكون الوصف بين 5 و 5000 حرف",
+    "messageErrorCategory": "الفئة مطلوبة",
+    "messageErrorFile": "يجب تحميل الصورة"
 }

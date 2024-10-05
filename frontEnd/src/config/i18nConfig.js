@@ -35,7 +35,8 @@ i18n
             'register',
             'login',
             'footer',
-            'postCreate'
+            'postCreate',
+            'postsPage'
         ],
         defaultNS: 'translation',
         react: {

@@ -1,7 +1,7 @@
 
 export default function ContainerPosts(params) {
     return (
-        <div className="w-full flex flex-col lg:flex-row md:w-2/3 lg:w-5/6 mx-auto px-3 sm:px-10 py-5 md:px-0">
+        <div className="mx-auto lg:grid lg:grid-cols-3 lg:gap-10 px-5 md:px-0 ms:w-10/12 md:w-5/6 py-10">
             {params.children}
         </div>
     )

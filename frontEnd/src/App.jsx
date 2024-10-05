@@ -6,14 +6,13 @@ import './config/i18nConfig';
 import Home from "./pages/Home";
 import { Flowbite } from "flowbite-react";
 import Main from "./components/layouts/Main";
-import Login from "./pages/forms/Login";
-import Register from "./pages/forms/Register";
+import Login from "./pages/auth/Login";
+import Register from "./pages/auth/Register";
 import { Route, Routes, useLocation } from "react-router-dom";
 import NavBar from "./components/common/NavBar";
 import Error404 from "./pages/Error404";
 import Post from "./pages/posts/Post";
 import CreatePosts from "./pages/posts/CreatePosts";
-import ContainerBady from "./components/layouts/ContainerBady";
 import Footer from "./components/common/Footer";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -57,18 +56,16 @@ function App() {
       <UseToggleDarkMode.Provider value={values}>
         <Main>
           {(location.pathname !== '/login' && location.pathname !== '/register') && <NavBar />}
-          <ContainerBady>
-            <Routes>
-              <Route path="/" element={<Home lang={lang} toggleLang={handleChangeLanguage} />} />
-              <Route path="/posts" element={<Post />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/posts/create" element={<CreatePosts />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="*" element={<Error404 />} />
-            </Routes>
-          </ContainerBady>
+          <Routes>
+            <Route path="/" element={<Home lang={lang} toggleLang={handleChangeLanguage} />} />
+            <Route path="/posts" element={<Post />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/posts/create" element={<CreatePosts />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="*" element={<Error404 />} />
+          </Routes>
           {(location.pathname !== '/login' && location.pathname !== '/register') && <Footer />}
         </Main>
       </UseToggleDarkMode.Provider>
