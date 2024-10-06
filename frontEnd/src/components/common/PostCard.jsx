@@ -14,7 +14,7 @@ const PostCard = (params) => {
 
     return (
         <div className="bg-Light-backgroundPri dark:bg-Dark-backgroundPri border-2 border-x-Light-primary rounded-lg shadow dark:border-x-Dark-primary border-y-0 dark:border-y-0">
-            <div className="flex p-5 justify-center">
+            <div className="flex p-2 md:p-5 justify-center">
                 <div className="block min-w-8 lg:min-w-12 pt-1">
                     <Link to="/profile" >
                         <img className="w-6 h-6 lg:w-10 lg:h-10 rounded-full" src={params.post.user.image} alt="Rounded avatar" />
