@@ -45,3 +45,9 @@ npm install react-router-dom@6
 ```bash
 npm install --save react-toastify
 ```
+
+## Tailwind Scrollbar
+- [library](https://adoxography.github.io/tailwind-scrollbar/examples)
+```bash
+npm install --save-dev tailwind-scrollbar
+```
