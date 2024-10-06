@@ -8,5 +8,6 @@
     "titleInvalid": "يجب أن يكون العنوان بين 2 و 200 حرف.",
     "descriptionInvalid": "يجب أن يكون الوصف بين 5 و 5000 حرف.",
     "categoryRequired": "التصنيف مطلوب.",
-    "fileRequired": "تحميل الصورة مطلوب."
+    "fileRequired": "تحميل الصورة مطلوب.",
+    "commentRequired": "التعليق مطلوب."
 }

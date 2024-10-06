@@ -7,6 +7,7 @@ import { FaPenAlt } from "react-icons/fa";
 import { useContext } from "react";
 import { UseToggleDarkMode } from "../../App";
 import { Link } from "react-router-dom";
+import ListComments from "../comments/ListComments";
 
 const PostCard = (params) => {
     const { translate } = useContext(UseToggleDarkMode)
@@ -14,9 +15,11 @@ const PostCard = (params) => {
     return (
         <div className="bg-Light-backgroundPri dark:bg-Dark-backgroundPri border-2 border-x-Light-primary rounded-lg shadow dark:border-x-Dark-primary border-y-0 dark:border-y-0">
             <div className="flex p-5 justify-center">
-                <Link to="/profile" className="block min-w-8 lg:min-w-12 pt-1">
-                    <img className="w-6 h-6 lg:w-10 lg:h-10 rounded-full" src={params.post.user.image} alt="Rounded avatar" />
-                </Link>
+                <div className="block min-w-8 lg:min-w-12 pt-1">
+                    <Link to="/profile" >
+                        <img className="w-6 h-6 lg:w-10 lg:h-10 rounded-full" src={params.post.user.image} alt="Rounded avatar" />
+                    </Link>
+                </div>
                 <div className="ltr:mr-3 rtl:ml-3 md:ltr:mr-10 md:rtl:ml-10">
                     <div className="">
                         <div>
@@ -70,6 +73,7 @@ const PostCard = (params) => {
                             <span>60</span>
                         </div>
                     </div>
+                    <ListComments />
                 </div>
             </div>
 

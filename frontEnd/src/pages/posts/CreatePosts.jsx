@@ -1,7 +1,7 @@
 import { useContext, useState, useEffect } from "react";
 import { UseToggleDarkMode } from "../../App";
 import FormButton from "../../components/buttons/FormButton";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 export default function CreatePosts() {
 
@@ -48,7 +48,6 @@ export default function CreatePosts() {
     }
     return (
         <div className="">
-            <ToastContainer position="top-center" theme="colored" />
             <form className="mx-5 py-5 md:py-8  sm:mx-10 md:mx-auto md:w-3/4" onSubmit={formSubminHandler}>
                 <div className="mb-5">
                     <h2 className="text-2xl font-bold capitalize text-Light-text dark:text-Dark-text">

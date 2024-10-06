@@ -37,7 +37,8 @@ i18n
             'footer',
             'postCreate',
             'postsPage',
-            'validateMessage'
+            'validateMessage',
+            'comment'
         ],
         defaultNS: 'translation',
         react: {

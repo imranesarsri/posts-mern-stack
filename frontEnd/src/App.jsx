@@ -18,6 +18,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import PostDetails from "./pages/posts/PostDetails";
 import Profile from "./pages/profile/Profile";
+import { ToastContainer } from 'react-toastify';
 
 // Use Context
 export const UseToggleDarkMode = createContext(null)
@@ -57,6 +58,8 @@ function App() {
     <Flowbite>
       <UseToggleDarkMode.Provider value={values}>
         <Main>
+          {/* ToastContainer is Alert Message */}
+          <ToastContainer position="top-center" theme="colored" />
           {(location.pathname !== '/login' && location.pathname !== '/register') && <NavBar />}
           <Routes>
             <Route path="/" element={<Home lang={lang} toggleLang={handleChangeLanguage} />} />

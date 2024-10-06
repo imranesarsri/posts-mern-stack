@@ -34,3 +34,20 @@
 #dropdawnMenu button span {
     padding: 0 !important;
 }
+
+/* button add comment post */
+/* Apply RTL-specific styles */
+html[dir="rtl"] .inputAddComment {
+    /* Adjust the label's position for RTL */
+    right: 0.25rem !important;
+    /* Instead of left-1 for LTR */
+    left: auto !important;
+}
+
+/* Additional adjustment for the floating label in RTL */
+html[dir="rtl"] .inputAddComment+label {
+    right: 0.25rem !important;
+    /* Move label to the right */
+    left: auto !important;
+    /* Remove left positioning */
+}

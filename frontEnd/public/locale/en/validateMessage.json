@@ -8,5 +8,6 @@
     "titleInvalid": "Title must be between 2 and 200 characters.",
     "descriptionInvalid": "Description must be between 5 and 5000 characters.",
     "categoryRequired": "Category is required.",
-    "fileRequired": "Upload image is required."
+    "fileRequired": "Upload image is required.",
+    "commentRequired": "Comment is required."
 }
