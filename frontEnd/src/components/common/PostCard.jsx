@@ -1,16 +1,11 @@
 import { AiOutlineLike } from "react-icons/ai";
 import { GoComment } from "react-icons/go";
-import { Dropdown } from "flowbite-react";
-import { CiMenuKebab } from "react-icons/ci";
-import { MdOutlineDelete } from "react-icons/md";
-import { FaPenAlt } from "react-icons/fa";
-import { useContext, useState } from "react";
-import { UseToggleDarkMode } from "../../App";
 import { Link } from "react-router-dom";
 import ListComments from "../comments/ListComments";
+import { useState } from "react";
+import DropdownForm from "../FormControls/DropdownForm";
 
 const PostCard = (params) => {
-    const { translate } = useContext(UseToggleDarkMode);
     const [comment, setComment] = useState(true);
     return (
         <div className="bg-Light-backgroundPri dark:bg-Dark-backgroundPri border-2 border-x-Light-primary rounded-lg shadow dark:border-x-Dark-primary border-y-0 dark:border-y-0">
@@ -36,32 +31,7 @@ const PostCard = (params) => {
                                         {params.post.category} . Sep 30
                                     </span>
                                 </Link>
-                                <div>
-                                    <div
-                                        id="dropdawnMenu"
-                                        className="bg-Light-backgroundSec py-1 px-1 dark:bg-Dark-backgroundSec"
-                                    >
-                                        <Dropdown
-                                            color="Gray"
-                                            label={
-                                                <CiMenuKebab
-                                                    id="deleteMargin"
-                                                    className=" text-lg  text-Light-text dark:text-Dark-text"
-                                                />
-                                            }
-                                            dismissOnClick={false}
-                                        >
-                                            <Dropdown.Item>
-                                                <MdOutlineDelete className="ltr:mr-2 rtl:ml-2 text-lg capitalize" />
-                                                <span>{translate("postsPage:delete")}</span>
-                                            </Dropdown.Item>
-                                            <Dropdown.Item>
-                                                <FaPenAlt className="ltr:mr-2 rtl:ml-2 capitalize" />
-                                                <span>{translate("postsPage:update")}</span>
-                                            </Dropdown.Item>
-                                        </Dropdown>
-                                    </div>
-                                </div>
+                                <DropdownForm actionType="post" />
                             </div>
                             <Link
                                 to={`/posts/details/${params.post._id}`}

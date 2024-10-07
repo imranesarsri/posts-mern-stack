@@ -1,0 +1,9 @@
+{
+    "titleComment": "تعديل تعليقك",
+    "inputLabel": "تعليقك",
+    "confirmButtonText": "تحديث",
+    "cancelButtonText": "إلغاء",
+    "errorMessageRequird": "يرجى إدخال تعليقك.",
+    "resultTitle": "تم تحديث التعليق!",
+    "resultText": "تم تحديث تعليقك بنجاح."
+}

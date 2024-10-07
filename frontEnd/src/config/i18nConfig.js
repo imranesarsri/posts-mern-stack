@@ -19,7 +19,7 @@ i18n
                 'sessionStorage',
                 'navigator',
                 'path',
-                'subdomain'
+                'subdomain',
             ],
             caches: ['cookie'],
         },
@@ -38,7 +38,9 @@ i18n
             'postCreate',
             'postsPage',
             'validateMessage',
-            'comment'
+            'comment',
+            'alertUpdate',
+            'alertDelete'
         ],
         defaultNS: 'translation',
         react: {

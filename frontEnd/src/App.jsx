@@ -19,6 +19,7 @@ import Contact from "./pages/Contact";
 import PostDetails from "./pages/posts/PostDetails";
 import Profile from "./pages/profile/Profile";
 import { ToastContainer } from 'react-toastify';
+import UpdatePost from "./pages/posts/UpdatePost";
 
 // Use Context
 export const UseToggleDarkMode = createContext(null)
@@ -67,6 +68,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/posts" element={<Post />} />
             <Route path="/posts/create" element={<CreatePosts />} />
+            <Route path="/posts/update" element={<UpdatePost />} />
             <Route path="/posts/details/:id" element={<PostDetails />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/login" element={<Login />} />

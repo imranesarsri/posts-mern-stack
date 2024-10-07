@@ -29,7 +29,7 @@ npm install react-icons
 ```
 
 ### Countrais Icons React
-- [link](https://github.com/stephenway/react-flagkit) 
+- [Library](https://github.com/stephenway/react-flagkit) 
 ```bash
 npm install --save react-flagkit
 ```
@@ -40,14 +40,21 @@ npm install react-router-dom@6
 ```
 
 ## React Toastify
-- [react-toastify](https://fkhadra.github.io/react-toastify/installation)
+- [Library](https://fkhadra.github.io/react-toastify/installation)
 - **main.jsx** add this **import 'react-toastify/dist/ReactToastify.css'**
 ```bash
 npm install --save react-toastify
 ```
 
 ## Tailwind Scrollbar
-- [library](https://adoxography.github.io/tailwind-scrollbar/examples)
+- [Library](https://adoxography.github.io/tailwind-scrollbar/examples)
 ```bash
 npm install --save-dev tailwind-scrollbar
+```
+
+## Sweetalert2 (ALERT)
+- [Library](https://sweetalert2.github.io/#download)
+```bash
+npm install sweetalert2
+
 ```

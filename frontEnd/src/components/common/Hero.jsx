@@ -9,7 +9,7 @@ export default function Hero() {
     const { translate } = useContext(UseToggleDarkMode)
 
     return (
-        <sectoin className="grid grid-cols-3 ">
+        <section className="grid grid-cols-3 ">
             <div className="p-5 lg:p-14 flex flex-col space-y-10 sm:space-y-16 col-span-3 sm:col-span-2 bg-Light-backgroundPri dark:bg-Dark-backgroundPri text-Light-text dark:text-Dark-text">
                 <div className="ltr:mr-0 ltr:sm:mr-5 ltr:md:mr-10 ltr:lg:mr-20  rtl:ml-0 rtl:sm:ml-5 rtl:md:ml-10 rtl:lg:ml-20">
                     <h1 className="mb-10 text-xl tracking-tight sm:text-2xl md:text-4xl lg:text-5xl font-bold capitalize">
@@ -49,7 +49,6 @@ export default function Hero() {
                     <img className="" src="images/sections/hero.svg" alt="hero image" />
                 </div>
             </div>
-
-        </sectoin>
+        </section>
     )
 }
