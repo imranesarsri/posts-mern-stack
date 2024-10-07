@@ -40,7 +40,8 @@ i18n
             'validateMessage',
             'comment',
             'alertUpdate',
-            'alertDelete'
+            'alertDelete',
+            'postUpdate'
         ],
         defaultNS: 'translation',
         react: {

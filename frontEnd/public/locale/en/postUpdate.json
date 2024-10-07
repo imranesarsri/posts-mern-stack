@@ -1,0 +1,11 @@
+{
+    "title": "Update the post",
+    "titleInput": "title",
+    "categoryInput": "category",
+    "descriptionInput": "description",
+    "uploadImageInput": "upload image",
+    "messageErrorTitle": "Title must be between 2 and 200 characters.",
+    "messageErrorDescription": "Description must be between 5 and 5000 characters.",
+    "messageErrorCategory": "Category is required.",
+    "messageErrorFile": "Upload image is required."
+}
