@@ -3,7 +3,7 @@ import { UseToggleDarkMode } from "../../App";
 import FormButton from "../../components/buttons/FormButton";
 import { toast } from 'react-toastify';
 
-export default function CreatePosts() {
+export default function CreatePost() {
 
     useEffect(() => {
         window.scrollTo(0, 0)

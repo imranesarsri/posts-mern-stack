@@ -12,7 +12,7 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import NavBar from "./components/common/NavBar";
 import Error404 from "./pages/Error404";
 import Post from "./pages/posts/Post";
-import CreatePosts from "./pages/posts/CreatePosts";
+import CreatePost from "./pages/posts/CreatePost";
 import Footer from "./components/common/Footer";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -67,7 +67,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/posts" element={<Post />} />
-            <Route path="/posts/create" element={<CreatePosts />} />
+            <Route path="/posts/create" element={<CreatePost />} />
             <Route path="/posts/update" element={<UpdatePost />} />
             <Route path="/posts/details/:id" element={<PostDetails />} />
             <Route path="/profile" element={<Profile />} />
