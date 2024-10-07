@@ -21,7 +21,7 @@ export default function DropdownForm(params) {
         },
     });
 
-    const { triggerDeleteAlert } = AlertDelete(); // Get the triggerDeleteAlert function
+    const { triggerDeleteAlert } = AlertDelete({ action: params.actionType }); // Get the triggerDeleteAlert function
 
     const handleClick = () => {
         switch (params.actionType) {

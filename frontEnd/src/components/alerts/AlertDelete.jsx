@@ -2,12 +2,12 @@ import { useContext } from "react";
 import Swal from "sweetalert2";
 import { UseToggleDarkMode } from "../../App";
 
-export default function AlertDelete() {
+export default function AlertDelete(params) {
     const { translate } = useContext(UseToggleDarkMode); // Context for translation
 
     const triggerDeleteAlert = () => {
         Swal.fire({
-            title: translate('alertDelete:titlePost'),
+            title: params.action === "comment" ? translate('alertDelete:titleComment') : translate('alertDelete:titlePost'),
             text: translate('alertDelete:text'),
             icon: "warning",
             showCancelButton: true,
