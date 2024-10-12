@@ -1,9 +1,10 @@
 import { useContext } from "react";
 import { UseToggleDarkMode } from "../../App";
+import { Link } from "react-router-dom";
 
-export default function SearchAndFilter() {
+export default function SearchAndFilter(params) {
     const { translate } = useContext(UseToggleDarkMode);
-
+    console.log(`ddddddd ${params.activeLink}`)
     return (
         <div className="lg:order-last mb-5 sm:mb-8 md:mb-10 lg:mb-0">
             <form className="block bg-Light-backgroundPri dark:bg-Dark-backgroundPri px-3 py-8 border-y-2 border-Light-primary dark:border-Dark-primary rounded-sm">
@@ -51,18 +52,29 @@ export default function SearchAndFilter() {
                         htmlFor="large"
                         className="block capitalize mb-2 text-base font-medium text-gray-900 dark:text-white"
                     >
-                        {translate("postsPage:category")}
                     </label>
-                    <select
-                        id="large"
-                        className="block w-full px-4 py-3 text-base text-gray-900 border border-gray-300 rounded-lg bg-Light-backgroundPri dark:bg-Dark-backgroundPri  focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                </div>
+                <div className="mt-5">
+                    <h2
+                        className="block capitalize mb-2 text-lg font-medium text-gray-900 dark:text-white"
                     >
-                        <option defaultValue>All category</option>
-                        <option value="US">sport</option>
-                        <option value="CA">Canada</option>
-                        <option value="FR">France</option>
-                        <option value="DE">Germany</option>
-                    </select>
+                        {translate("postsPage:category")}
+                    </h2>
+                    <div className={params.activeLink === 'sport' ? 'bg-Light-secondary dark:bg-Dark-secondary' : 'bg-Light-primary dark:bg-Dark-primary'}>
+                        <Link to={`/posts/category/sport`} className="block p-3 mb-3 cursor-pointer rounded-md text-center">
+                            <h3 className="capitalize text-Dark-text font-medium">sport</h3>
+                        </Link>
+                    </div>
+                    <div className={params.activeLink === 'technology' ? 'bg-Light-secondary dark:bg-Dark-secondary' : 'bg-Light-primary dark:bg-Dark-primary'}>
+                        <Link to={`/posts/category/technology`} className="block p-3 mb-3 cursor-pointer rounded-md text-center">
+                            <h3 className="capitalize text-Dark-text font-medium">technology</h3>
+                        </Link>
+                    </div>
+                    <div className={params.activeLink === 'music' ? 'bg-Light-secondary dark:bg-Dark-secondary' : 'bg-Light-primary dark:bg-Dark-primary'}>
+                        <Link to={`/posts/category/music`} className="block p-3 mb-3 cursor-pointer rounded-md text-center">
+                            <h3 className="capitalize text-Dark-text font-medium">music</h3>
+                        </Link>
+                    </div>
                 </div>
             </form>
         </div>

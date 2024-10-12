@@ -122,12 +122,11 @@ export default function CreatePost() {
                             value={description}
                             onChange={(e) => setDescription(e.target.value)}
                             className="block p-2.5 w-full text-sm text-Light-text bg-Light-backgroundSec rounded-lg border border-Light-primary focus:border-Light-primary dark:bg-Dark-backgroundSec dark:border-Dark-primary dark:placeholder-gray-400 dark:text-Dark-text dark:focus:border-Dark-primary"
-                            placeholder={`${translate('postCreate:descriptionInput')} ...`}
                         ></textarea>
 
                     </div>
                     <div className="mb-5">
-                        <FormButton title="Create" />
+                        <FormButton title={translate('postCreate:button')} />
                     </div>
                 </div>
             </form>

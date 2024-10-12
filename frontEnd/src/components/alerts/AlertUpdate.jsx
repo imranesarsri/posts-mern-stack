@@ -2,7 +2,7 @@ import { useContext } from "react";
 import Swal from "sweetalert2";
 import { UseToggleDarkMode } from "../../App";
 
-export default function AlertUpdate({ currentComment, onUpdate }) {
+export default function AlertUpdate({ comment, setTextComment, onUpdate }) {
     const { translate } = useContext(UseToggleDarkMode); // Context for translation
 
     const triggerAlert = () => {
@@ -10,7 +10,7 @@ export default function AlertUpdate({ currentComment, onUpdate }) {
             title: translate('alertUpdate:titleComment'),
             input: "textarea",
             inputLabel: translate('alertUpdate:inputLabel'),
-            inputValue: currentComment,
+            inputValue: comment.text,
             inputAttributes: {
                 autocapitalize: "off",
                 rows: 4,
@@ -24,6 +24,8 @@ export default function AlertUpdate({ currentComment, onUpdate }) {
                 if (!newComment) {
                     Swal.showValidationMessage(translate('alertUpdate:errorMessageRequird'));
                 } else {
+                    setTextComment(newComment)
+                    console.log(newComment)
                     return newComment;
                 }
             },

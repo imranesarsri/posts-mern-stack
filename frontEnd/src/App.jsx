@@ -20,6 +20,7 @@ import PostDetails from "./pages/posts/PostDetails";
 import Profile from "./pages/profile/Profile";
 import { ToastContainer } from 'react-toastify';
 import UpdatePost from "./pages/posts/UpdatePost";
+import Category from "./pages/posts/Category";
 
 // Use Context
 export const UseToggleDarkMode = createContext(null)
@@ -66,10 +67,13 @@ function App() {
             <Route path="/" element={<Home lang={lang} toggleLang={handleChangeLanguage} />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/posts" element={<Post />} />
-            <Route path="/posts/create" element={<CreatePost />} />
-            <Route path="/posts/update" element={<UpdatePost />} />
-            <Route path="/posts/details/:id" element={<PostDetails />} />
+            <Route path="posts">
+              <Route index element={<Post />} />
+              <Route path="create" element={<CreatePost />} />
+              <Route path="update/:id" element={<UpdatePost />} />
+              <Route path="details/:id" element={<PostDetails />} />
+              <Route path="category/:category" element={<Category />} />
+            </Route>
             <Route path="/profile" element={<Profile />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />

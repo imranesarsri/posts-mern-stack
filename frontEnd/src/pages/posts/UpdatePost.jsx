@@ -2,6 +2,7 @@ import { useContext, useState, useEffect } from "react";
 import { UseToggleDarkMode } from "../../App";
 import FormButton from "../../components/buttons/FormButton";
 import { toast } from 'react-toastify';
+import { useLocation } from "react-router-dom";
 
 
 export default function UpdatePost() {
@@ -9,12 +10,16 @@ export default function UpdatePost() {
         window.scrollTo(0, 0)
     }, [])
 
+
     const { translate } = useContext(UseToggleDarkMode)
 
-    const [title, setTitle] = useState('')
-    const [category, setCategory] = useState('')
-    const [description, setDescription] = useState('')
-    const [file, setFile] = useState(null)
+    const location = useLocation();
+    const { post } = location.state || {};
+
+    const [title, setTitle] = useState(post.title)
+    const [category, setCategory] = useState(post.category)
+    const [description, setDescription] = useState(post.description)
+    const [file, setFile] = useState(post.image)
 
 
     const formSubminHandler = (e) => {
@@ -48,22 +53,22 @@ export default function UpdatePost() {
     }
     return (
         <div>
-            <form className="block mx-5 py-5 md:py-8  sm:mx-10 md:mx-auto md:w-3/4 " onSubmit={formSubminHandler}>
-                <div className="bg-Light-backgroundPri dark:bg-Dark-backgroundPri p-10 rounded-md">
+            <form onSubmit={formSubminHandler} className="block mx-5 py-5 md:py-8  sm:mx-10 md:mx-auto md:w-3/4">
+                <div className="bg-Light-backgroundPri dark:bg-Dark-backgroundPri p-5 lg:p-10 rounded-md">
                     <div className="mb-5">
                         <h2 className="text-2xl font-bold capitalize text-Light-text dark:text-Dark-text">
                             {translate('postUpdate:title')}
                         </h2>
                     </div>
 
-                    <div className="lg:grid lg:grid-cols-2 lg:gap-4">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-4">
                         <div>
                             <div className="mb-5">
                                 <label
                                     htmlFor="base-input"
                                     className="capitalize block mb-2 text-sm font-medium text-Light-text dark:text-Dark-text"
                                 >
-                                    {translate('postCreate:titleInput')}
+                                    {translate('postUpdate:titleInput')}
                                 </label>
                                 <input
                                     type="text"
@@ -79,7 +84,7 @@ export default function UpdatePost() {
                                     htmlFor="category"
                                     className="capitalize block mb-2 text-sm font-medium text-Light-text dark:text-Dark-text"
                                 >
-                                    {translate('postCreate:categoryInput')}
+                                    {translate('postUpdate:categoryInput')}
                                 </label>
                                 <select
                                     id="category"
@@ -98,7 +103,7 @@ export default function UpdatePost() {
                                     htmlFor="message"
                                     className="capitalize block mb-2 text-sm font-medium text-Light-text dark:text-Dark-text"
                                 >
-                                    {translate('postCreate:descriptionInput')}
+                                    {translate('postUpdate:descriptionInput')}
                                 </label>
                                 <textarea
                                     id="message"
@@ -106,19 +111,24 @@ export default function UpdatePost() {
                                     value={description}
                                     onChange={(e) => setDescription(e.target.value)}
                                     className="block p-2.5 w-full text-sm text-Light-text bg-Light-backgroundSec rounded-lg border border-Light-primary focus:border-Light-primary dark:bg-Dark-backgroundSec dark:border-Dark-primary dark:placeholder-gray-400 dark:text-Dark-text dark:focus:border-Dark-primary"
-                                    placeholder={`${translate('postCreate:descriptionInput')} ...`}
                                 ></textarea>
 
                             </div>
                         </div>
-                        <div>
-                            <div className="mb-5">
+                        <div className="">
+                            <div className="mb-3">
                                 <label
                                     className="capitalize block mb-2 text-sm font-medium text-Light-text dark:text-Dark-text"
                                     htmlFor="user_avatar"
                                 >
-                                    {translate('postCreate:uploadImageInput')}
+                                    {translate('postUpdate:uploadImageInput')}
                                 </label>
+                                <img
+                                    className="w-full"
+                                    src={file && file instanceof Blob ? URL.createObjectURL(file) : post.image} alt=""
+                                />
+                            </div>
+                            <div className="mb-5">
                                 <input
                                     onChange={(e) => setFile(e.target.files[0])}
                                     className="block w-full text-sm text-Light-text border border-Light-primary rounded-lg cursor-pointer bg-Light-backgroundSec dark:text-Dark-text focus:outline-none dark:bg-Dark-backgroundSec dark:border-Dark-primary dark:placeholder-gray-400"
@@ -126,18 +136,11 @@ export default function UpdatePost() {
                                     id="user_avatar"
                                     type="file"
                                 />
-
                             </div>
                         </div>
                     </div>
-
-
-
-
-
-
                     <div className="mb-5">
-                        <FormButton title="Create" />
+                        <FormButton title={translate('postUpdate:button')} />
                     </div>
                 </div>
             </form>

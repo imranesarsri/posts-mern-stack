@@ -31,7 +31,7 @@ const PostCard = (params) => {
                                         {params.post.category} . Sep 30
                                     </span>
                                 </Link>
-                                <DropdownForm actionType="post" />
+                                <DropdownForm actionType="post" post={params.post} />
                             </div>
                             <Link
                                 to={`/posts/details/${params.post._id}`}

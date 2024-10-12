@@ -14,7 +14,8 @@ export default function DropdownForm(params) {
     let navigate = useNavigate(); // Replaces useHistory with useNavigate
 
     const alertUpdateInstance = AlertUpdate({
-        currentComment: "This is the current comment",
+        comment: params.comment,
+        setTextComment: params.setTextComment,
         onUpdate: (newComment) => {
             console.log("New Comment:", newComment);
             // Handle the updated comment (e.g., send it to the server)
@@ -23,13 +24,13 @@ export default function DropdownForm(params) {
 
     const { triggerDeleteAlert } = AlertDelete({ action: params.actionType }); // Get the triggerDeleteAlert function
 
-    const handleClick = () => {
+    const handleUpdateAlert = () => {
         switch (params.actionType) {
             case "comment":
                 alertUpdateInstance.triggerAlert(); // Show the comment update alert
                 break;
             case "post":
-                navigate("/posts/update"); // Redirect to the update page
+                navigate(`/posts/update/${params.post._id}`, { state: { post: params.post } }); // Redirect to the update page
                 break;
             default:
                 console.log("Unknown action type");
@@ -56,7 +57,7 @@ export default function DropdownForm(params) {
                         <MdOutlineDelete className="ltr:mr-2 rtl:ml-2 text-lg capitalize" />
                         <span className="block capitalize">{translate("postsPage:delete")}</span>
                     </Dropdown.Item>
-                    <Dropdown.Item onClick={handleClick}>
+                    <Dropdown.Item onClick={handleUpdateAlert}>
                         <FaPenAlt className="ltr:mr-2 rtl:ml-2 capitalize" />
                         <span className="block capitalize">{translate("postsPage:update")}</span>
                     </Dropdown.Item>
