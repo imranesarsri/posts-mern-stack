@@ -37,6 +37,7 @@ module.exports = {
           'primary': '#1782fd',
           'secondary': '#9176fe',
           'accent': '#8e49fd',
+          'red': '#B8001F',
         },
         Dark: {
           'text': '#e5f1ff',
@@ -61,6 +62,7 @@ module.exports = {
         'hero-dark-ltr': "url('/images/sections/hero/heroBackgroundDarkLTR.svg')",
         'hero-light-rtl': "url('/images/sections/hero/heroBackgroundLightRTL.svg')",
         'hero-dark-rtl': "url('/images/sections/hero/heroBackgroundDarkRTL.svg')",
+        'profileBackground': "url('/images/sections/profile/profileBackground.svg')",
       },
       spacing: {
         '18': '4rem',
