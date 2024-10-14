@@ -9,6 +9,7 @@ import { PiPasswordBold } from "react-icons/pi";
 import { RiDeleteBin4Fill } from "react-icons/ri";
 // import BackgroundImage from "../../components/modals/profile/BackgroundImage";
 import ProfileUser from "../../components/modals/profile/ProfileUser";
+import BackgroundImage from "../../components/modals/profile/BackgroundImage";
 
 export default function Profile() {
     useEffect(() => {
@@ -16,7 +17,8 @@ export default function Profile() {
     }, []);
 
     // Change user information 
-    const [openModal, setOpenModal] = useState(false);
+    const [openModalProfileUser, setOpenModalProfileUser] = useState(false);
+    const [openModalBackgroundImage, setOpenModalBackgroundImage] = useState(false);
 
     return (
         <div className="p-5 sm:p-10 md:p-15 lg:p-20 flex flex-col gap-10">
@@ -24,7 +26,7 @@ export default function Profile() {
                 <div className="drop-shadow-md bg-Light-backgroundPri dark:bg-Dark-backgroundPri rounded-xl">
                     <div className="bg-profileBackground h-72 relative rounded-t-xl">
                         <div className="absolute top-0 right-0 bg-Light-backgroundPri pr-1 pl-3 py-3 mr-2 mt-2 rounded-full cursor-pointer hover:bg-Light-backgroundSec dark:text-Light-text hover:text-Light-primary dark:hover:text-Dark-primary">
-                            <FaPenAlt className="ltr:mr-2 rtl:ml-2 capitalize text-lg" />
+                            <FaPenAlt onClick={() => setOpenModalBackgroundImage(true)} className="ltr:mr-2 rtl:ml-2 capitalize text-lg" />
                         </div>
                         <div className="absolute -bottom-16 ltr:left-5 rtl:right-5">
                             <img
@@ -32,6 +34,9 @@ export default function Profile() {
                                 src="/images/user-avatar.png"
                                 alt=""
                             />
+                            <div className="absolute top-0 right-0 bg-Light-backgroundPri pr-1 pl-3 py-3 mr-2 mt-2 rounded-full cursor-pointer hover:bg-Light-backgroundSec dark:text-Light-text hover:text-Light-primary dark:hover:text-Dark-primary">
+                                <FaPenAlt onClick={() => setOpenModalBackgroundImage(true)} className="ltr:mr-2 rtl:ml-2 capitalize text-lg" />
+                            </div>
                         </div>
                     </div>
                     <div className="flex justify-between lg:ltr:pl-52 lg:rtl:pr-52 pt-20 lg:pt-5  p-5 ">
@@ -93,8 +98,7 @@ export default function Profile() {
                                         </div>
                                     </div>
                                     <div className="">
-                                        <FaPenAlt onClick={() => setOpenModal(true)} className="ltr:mr-2 rtl:ml-2 capitalize text-lg hover:text-Light-primary dark:hover:text-Dark-primary" />
-                                        <ProfileUser openModal={openModal} setOpenModal={setOpenModal} />
+                                        <FaPenAlt onClick={() => setOpenModalProfileUser(true)} className="ltr:mr-2 rtl:ml-2 capitalize text-lg hover:text-Light-primary dark:hover:text-Dark-primary" />
                                     </div>
                                 </div>
                             </div>
@@ -114,6 +118,11 @@ export default function Profile() {
                     </div>
                 </div>
             </div>
+
+            {/* Models */}
+            <ProfileUser openModal={openModalProfileUser} setOpenModal={setOpenModalProfileUser} />
+            <BackgroundImage openModal={openModalBackgroundImage} setOpenModal={setOpenModalBackgroundImage} />
+
             <div>
                 <h2 className="text-3xl uppercase font-bold mb-5">
                     <span className="text-Light-primary dark:text-Dark-primary">

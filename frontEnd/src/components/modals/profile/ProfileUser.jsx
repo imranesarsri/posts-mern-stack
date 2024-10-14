@@ -107,17 +107,7 @@ export default function ProfileUser(params) {
             </div>
 
             <div className="w-full">
-                {/* <Button
-                            onClick={() =>
-                                params.handleUpdate({ fullName, city, country, description })
-                            }
-                        >
-                            Save Changes
-                        </Button> */}
                 <DefaultButton
-                    // onClick={() =>
-                    //     params.handleUpdate({ fullName, city, country, description })
-                    // }
                     title={translate('modalProfileUser:button')}
                 />
             </div>
