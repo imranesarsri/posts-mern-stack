@@ -6,7 +6,7 @@ import { Dropdown } from "flowbite-react";
 import { UseToggleDarkMode } from "../../App";
 import AlertUpdate from "../modals/AlertUpdate";
 import { useNavigate } from "react-router-dom"; // Use useNavigate instead of useHistory
-import AlertDelete from "../modals/AlertDelete";
+import ModalDelete from "../modals/ModalDelete";
 
 export default function DropdownForm(params) {
 
@@ -22,7 +22,7 @@ export default function DropdownForm(params) {
         },
     });
 
-    const { triggerDeleteAlert } = AlertDelete({ action: params.actionType }); // Get the triggerDeleteAlert function
+    const { triggerDeleteAlert } = ModalDelete({ action: params.actionType }); // Get the triggerDeleteAlert function
 
     const handleUpdateAlert = () => {
         switch (params.actionType) {

@@ -2,7 +2,7 @@ import { useContext } from "react";
 import Swal from "sweetalert2";
 import { UseToggleDarkMode } from "../../App";
 
-export default function AlertDelete(params) {
+export default function ModalDelete(params) {
     const { translate } = useContext(UseToggleDarkMode); // Context for translation
 
     const triggerDeleteAlert = () => {
