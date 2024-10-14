@@ -1,0 +1,10 @@
+{
+    "titleModel": "تخصيص الملف الشخصي",
+    "labelFullName": "الاسم الكامل",
+    "labelOccupation": "المهنة",
+    "placeholderOccupation": "مثال: مطور ويب",
+    "labelCountry": "البلد",
+    "labelCity": "المدينة",
+    "labelDescription": "الوصف",
+    "button": "حفظ التغييرات"
+}

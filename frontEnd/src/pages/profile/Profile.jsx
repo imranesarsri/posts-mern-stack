@@ -54,9 +54,9 @@ export default function Profile() {
                             </p>
                         </div>
                         <div>
-                            <div className="cursor-pointer hover:bg-Light-backgroundSec dark:hover:bg-Dark-backgroundSec pr-1 pl-3 py-3 rounded-full">
-                                <div className="flex flex-col gap-5 justify-center text-center">
-                                    <div>
+                            <div className="cursor-pointer hover:bg-Light-backgroundSec dark:hover:bg-Dark-backgroundSec ltr:pr-1 ltr:pl-3 rtl:pl-1 rtl:pr-3 py-3 rounded-full">
+                                <div className="flex flex-col gap-5 justify-center  text-center">
+                                    <div className="">
                                         <div
                                             id="dropdawnMenu"
                                             className=""
@@ -92,7 +92,7 @@ export default function Profile() {
                                             </Dropdown>
                                         </div>
                                     </div>
-                                    <div>
+                                    <div className="">
                                         <FaPenAlt onClick={() => setOpenModal(true)} className="ltr:mr-2 rtl:ml-2 capitalize text-lg hover:text-Light-primary dark:hover:text-Dark-primary" />
                                         <ProfileUser openModal={openModal} setOpenModal={setOpenModal} />
                                     </div>
