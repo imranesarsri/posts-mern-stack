@@ -1,13 +1,10 @@
-import {
-    Button,
-    Label,
-    Modal,
-    Textarea,
-    FileInput,
-} from "flowbite-react";
+import { Label, Modal } from "flowbite-react";
 import { useState } from "react";
 import SelectForm from "../../FormControls/SelectForm";
 import InputForm from "../../FormControls/InputsForm";
+import TextareaForm from "../../FormControls/TextareaForm";
+import InputFileForm from "../../FormControls/InputFileForm";
+import FormButton from "../../buttons/FormButton";
 
 export default function ProfileUser(params) {
     const [profileImage, setProfileImage] = useState("/images/user-avatar.png");
@@ -45,47 +42,62 @@ export default function ProfileUser(params) {
 
                     {/* Image profile */}
                     <div>
-                        <div className="mb-2 block">
+                        <div className="mb-1 block">
                             <Label htmlFor="profileImage" value="Image profile" />
                         </div>
                         <div className="flex justify-center mb-2 items-center rounded-lg">
                             <img
                                 className="block w-32"
-                                src={typeof profileImage === 'object' ? URL.createObjectURL(profileImage) : profileImage}
+                                src={
+                                    typeof profileImage === "object"
+                                        ? URL.createObjectURL(profileImage)
+                                        : profileImage
+                                }
                                 alt="Profile"
                             />
                         </div>
-                        <FileInput
-                            onChange={handleImageUpload} // Remove value prop
-                            id="profileImage"
-                        />
+                        <InputFileForm id="profileImage" onChange={handleImageUpload} />
                     </div>
 
                     {/* Full Name */}
                     <div>
-                        <div className="mb-2 block">
+                        <div className="mb-1 block">
                             <Label htmlFor="fullName" value="Full Name" />
                         </div>
-                        <InputForm id="fullName" type="text" placeholder="Enter your full name" value={fullName} onChange={(e) => setFullName(e.target.value)} />
-
+                        <InputForm
+                            id="fullName"
+                            type="text"
+                            placeholder="Enter your full name"
+                            value={fullName}
+                            onChange={(e) => setFullName(e.target.value)}
+                        />
                     </div>
 
                     {/* Occupation */}
                     <div>
-                        <div className="mb-2 block">
+                        <div className="mb-1 block">
                             <Label htmlFor="occupation" value="Occupation" />
                         </div>
 
-                        <InputForm id="occupation" type="text" placeholder="e.g., Web Developer" value={occupation} onChange={(e) => setOccupation(e.target.value)} />
-
+                        <InputForm
+                            id="occupation"
+                            type="text"
+                            placeholder="e.g., Web Developer"
+                            value={occupation}
+                            onChange={(e) => setOccupation(e.target.value)}
+                        />
                     </div>
 
                     {/* Country */}
                     <div>
-                        <div className="mb-2 block">
+                        <div className="mb-1 block">
                             <Label htmlFor="country" value="Country" />
                         </div>
-                        <SelectForm id="country" value={country} onChange={(e) => setCountry(e.target.value)} >
+                        <SelectForm
+                            id="country"
+                            value={country}
+                            onChange={(e) => setCountry(e.target.value)}
+                        >
                             <option value="">Select your country</option>
                             <option value="USA">USA</option>
                             <option value="Canada">Canada</option>
@@ -95,10 +107,14 @@ export default function ProfileUser(params) {
 
                     {/* City */}
                     <div>
-                        <div className="mb-2 block">
+                        <div className="mb-1 block">
                             <Label htmlFor="city" value="City" />
                         </div>
-                        <SelectForm id="city" value={city} onChange={(e) => setCity(e.target.value)} >
+                        <SelectForm
+                            id="city"
+                            value={city}
+                            onChange={(e) => setCity(e.target.value)}
+                        >
                             <option value="">Select your city</option>
                             <option value="New York">New York</option>
                             <option value="Toronto">Toronto</option>
@@ -108,27 +124,30 @@ export default function ProfileUser(params) {
 
                     {/* Description */}
                     <div>
-                        <div className="mb-2 block">
+                        <div className="mb-1 block">
                             <Label htmlFor="description" value="Description" />
                         </div>
-                        <Textarea
+                        <TextareaForm
                             id="description"
-                            placeholder="Tell us more about your profession or specialty"
                             value={description}
                             onChange={(event) => setDescription(event.target.value)}
-                            rows={4}
-                            required
                         />
                     </div>
 
                     <div className="w-full">
-                        <Button
+                        {/* <Button
                             onClick={() =>
                                 params.handleUpdate({ fullName, city, country, description })
                             }
                         >
                             Save Changes
-                        </Button>
+                        </Button> */}
+                        <FormButton
+                            // onClick={() =>
+                            //     params.handleUpdate({ fullName, city, country, description })
+                            // }
+                            title="Save Changes"
+                        />
                     </div>
                 </div>
             </Modal.Body>
