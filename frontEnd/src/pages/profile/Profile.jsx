@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { FaPenAlt, FaSignOutAlt } from "react-icons/fa";
 import { IoMdSettings } from "react-icons/io";
 import { posts } from "../../Data/dummyData";
@@ -7,11 +7,16 @@ import { Dropdown } from "flowbite-react";
 import { MdOutlineMail } from "react-icons/md";
 import { PiPasswordBold } from "react-icons/pi";
 import { RiDeleteBin4Fill } from "react-icons/ri";
+// import BackgroundImage from "../../components/alerts/profile/BackgroundImage";
+import ProfileUser from "../../components/alerts/profile/ProfileUser";
 
 export default function Profile() {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
+
+    // Change user information 
+    const [openModal, setOpenModal] = useState(false);
 
     return (
         <div className="p-5 sm:p-10 md:p-15 lg:p-20 flex flex-col gap-10">
@@ -88,12 +93,14 @@ export default function Profile() {
                                         </div>
                                     </div>
                                     <div>
-                                        <FaPenAlt className="ltr:mr-2 rtl:ml-2 capitalize text-lg hover:text-Light-primary dark:hover:text-Dark-primary" />
+                                        <FaPenAlt onClick={() => setOpenModal(true)} className="ltr:mr-2 rtl:ml-2 capitalize text-lg hover:text-Light-primary dark:hover:text-Dark-primary" />
+                                        <ProfileUser openModal={openModal} setOpenModal={setOpenModal} />
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                     <div className="px-5 pb-10">
                         <p className="text-justify">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
