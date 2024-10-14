@@ -5,12 +5,12 @@ import { useThemeMode } from 'flowbite-react';
 import { FaRegSun, FaRegMoon } from "react-icons/fa";
 import Flag from 'react-flagkit';
 import { Dropdown } from "flowbite-react";
-import LoginButton from "../buttons/LoginButton"
 import { Link } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
 import { MdLibraryBooks } from "react-icons/md";
 import { GiNotebook } from "react-icons/gi";
 import { RiAdminFill } from "react-icons/ri";
+import { LoginButton } from "../FormControls/ButtonsForm";
 
 export default function NavBar() {
 

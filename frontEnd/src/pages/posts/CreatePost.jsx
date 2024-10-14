@@ -1,11 +1,11 @@
 import { useContext, useState, useEffect } from "react";
 import { UseToggleDarkMode } from "../../App";
-import FormButton from "../../components/buttons/FormButton";
 import { toast } from "react-toastify";
 import InputForm from "../../components/FormControls/InputsForm";
 import SelectForm from "../../components/FormControls/SelectForm.jsx";
 import TextareaForm from "../../components/FormControls/TextareaForm.jsx";
 import InputFileForm from "../../components/FormControls/InputFileForm.jsx";
+import DefaultButton from "../../components/FormControls/ButtonsForm.jsx";
 
 export default function CreatePost() {
     useEffect(() => {
@@ -118,7 +118,7 @@ export default function CreatePost() {
                         />
                     </div>
                     <div className="mb-5">
-                        <FormButton title={translate("postCreate:button")} />
+                        <DefaultButton title={translate("postCreate:button")} />
                     </div>
                 </div>
             </form>

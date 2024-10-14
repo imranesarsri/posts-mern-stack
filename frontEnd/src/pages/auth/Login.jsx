@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
 import { UseToggleDarkMode } from "../../App";
 import AuthBody from "./AuthBody";
-import FormButton from "../../components/buttons/FormButton";
 import { toast } from "react-toastify";
 import { InputAuthForm } from "../../components/FormControls/InputsForm";
+import DefaultButton from "../../components/FormControls/ButtonsForm";
 
 export default function Login() {
     const { translate } = useContext(UseToggleDarkMode);
@@ -55,7 +55,7 @@ export default function Login() {
                         label={translate("login:password")}
                     />
                 </div>
-                <FormButton title="login" />
+                <DefaultButton title="login" />
                 <p className="normal-case text-sm font-light text-Light-textSec dark:text-Dark-textSec">
                     {translate("login:haveAccount")}
                     <Link

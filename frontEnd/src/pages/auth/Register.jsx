@@ -3,8 +3,8 @@ import { useContext, useState } from "react";
 import { UseToggleDarkMode } from "../../App";
 import AuthBody from "./AuthBody";
 import { toast } from "react-toastify";
-import FormButton from "../../components/buttons/FormButton";
 import { InputAuthForm } from "../../components/FormControls/InputsForm";
+import DefaultButton from "../../components/FormControls/ButtonsForm";
 
 export default function Register() {
     const { translate } = useContext(UseToggleDarkMode);
@@ -68,7 +68,7 @@ export default function Register() {
                         label={translate("register:password")}
                     />
                 </div>
-                <FormButton title="register" />
+                <DefaultButton title="register" />
 
                 <p className="text-sm font-light text-Light-textSec dark:text-Dark-textSec">
                     {translate("register:haveAccount")}

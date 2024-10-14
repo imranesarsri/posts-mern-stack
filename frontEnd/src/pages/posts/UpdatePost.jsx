@@ -1,12 +1,12 @@
 import { useContext, useState, useEffect } from "react";
 import { UseToggleDarkMode } from "../../App";
-import FormButton from "../../components/buttons/FormButton";
 import { toast } from "react-toastify";
 import { useLocation } from "react-router-dom";
 import InputForm from "../../components/FormControls/InputsForm";
 import SelectForm from "../../components/FormControls/SelectForm";
 import TextareaForm from "../../components/FormControls/TextareaForm";
 import InputFileForm from "../../components/FormControls/InputFileForm";
+import DefaultButton from "../../components/FormControls/ButtonsForm";
 
 export default function UpdatePost() {
     useEffect(() => {
@@ -138,7 +138,7 @@ export default function UpdatePost() {
                         </div>
                     </div>
                     <div className="mb-5">
-                        <FormButton title={translate("postUpdate:button")} />
+                        <DefaultButton title={translate("postUpdate:button")} />
                     </div>
                 </div>
             </form>

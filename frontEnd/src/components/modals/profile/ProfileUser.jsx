@@ -3,7 +3,7 @@ import { useState } from "react";
 import SelectForm from "../../FormControls/SelectForm";
 import InputForm from "../../FormControls/InputsForm";
 import TextareaForm from "../../FormControls/TextareaForm";
-import FormButton from "../../buttons/FormButton";
+import DefaultButton from "../../FormControls/ButtonsForm";
 
 export default function ProfileUser(params) {
     const [fullName, setFullName] = useState("");
@@ -113,7 +113,7 @@ export default function ProfileUser(params) {
                         >
                             Save Changes
                         </Button> */}
-                        <FormButton
+                        <DefaultButton
                             // onClick={() =>
                             //     params.handleUpdate({ fullName, city, country, description })
                             // }
