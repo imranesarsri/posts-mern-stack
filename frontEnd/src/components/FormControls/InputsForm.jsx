@@ -3,9 +3,10 @@ import { FloatingLabel } from "flowbite-react"
 export default function InputForm(params) {
     return (
         <input
+            id={params.id}
             type={params.type}
-            id="base-input"
             value={params.value}
+            placeholder={params.placeholder}
             onChange={params.onChange}
             className="bg-Light-backgroundSec border border-Light-primary text-Light-text text-sm rounded-lg focus:border-blue-500 block w-full p-2.5 dark:bg-Dark-backgroundSec dark:border-Dark-primary dark:placeholder-gray-400 dark:text-Dark-text dark:focus:border-blue-500"
         />)
@@ -14,6 +15,7 @@ export default function InputForm(params) {
 export function InputAuthForm(params) {
     return (
         <FloatingLabel
+            id={params.id}
             type={params.type}
             value={params.value}
             onChange={params.onChange}

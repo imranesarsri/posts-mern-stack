@@ -3,6 +3,7 @@ import { UseToggleDarkMode } from "../../App";
 import FormButton from "../../components/buttons/FormButton";
 import { toast } from 'react-toastify';
 import InputForm from "../../components/FormControls/InputsForm";
+import SelectForm from "../../components/FormControls/SelectForm.jsx"
 
 export default function CreatePost() {
 
@@ -59,12 +60,12 @@ export default function CreatePost() {
 
                     <div className="mb-5">
                         <label
-                            htmlFor="base-input"
+                            htmlFor="title"
                             className="capitalize block mb-2 text-sm font-medium text-Light-text dark:text-Dark-text"
                         >
                             {translate('postCreate:titleInput')}
                         </label>
-                        <InputForm type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+                        <InputForm id="title" type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
                     </div>
                     <div className="mb-5">
                         <label
@@ -73,17 +74,13 @@ export default function CreatePost() {
                         >
                             {translate('postCreate:categoryInput')}
                         </label>
-                        <select
-                            id="category"
-                            value={category}
-                            onChange={(e) => setCategory(e.target.value)}
-                            className="bg-Light-backgroundSec border border-Light-primary text-Light-text text-sm rounded-lg  focus:border-Light-primary block w-full p-2.5 dark:bg-Dark-backgroundSec dark:border-Dark-primary dark:placeholder-gray-400 dark:text-Dark-text dark:focus:border-Dark-primary"
-                        >
+
+                        <SelectForm id="category" value={category} onChange={(e) => setCategory(e.target.value)} >
                             <option>United States</option>
                             <option>Canada</option>
                             <option>France</option>
                             <option>Germany</option>
-                        </select>
+                        </SelectForm>
                     </div>
 
                     <div className="mb-5">

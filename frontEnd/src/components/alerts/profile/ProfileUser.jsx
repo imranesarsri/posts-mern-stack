@@ -2,12 +2,12 @@ import {
     Button,
     Label,
     Modal,
-    TextInput,
-    Select,
     Textarea,
     FileInput,
 } from "flowbite-react";
 import { useState } from "react";
+import SelectForm from "../../FormControls/SelectForm";
+import InputForm from "../../FormControls/InputsForm";
 
 export default function ProfileUser(params) {
     const [profileImage, setProfileImage] = useState("/images/user-avatar.png");
@@ -66,13 +66,8 @@ export default function ProfileUser(params) {
                         <div className="mb-2 block">
                             <Label htmlFor="fullName" value="Full Name" />
                         </div>
-                        <TextInput
-                            id="fullName"
-                            placeholder="Enter your full name"
-                            value={fullName}
-                            onChange={(event) => setFullName(event.target.value)}
-                            required
-                        />
+                        <InputForm id="fullName" type="text" placeholder="Enter your full name" value={fullName} onChange={(e) => setFullName(e.target.value)} />
+
                     </div>
 
                     {/* Occupation */}
@@ -80,13 +75,9 @@ export default function ProfileUser(params) {
                         <div className="mb-2 block">
                             <Label htmlFor="occupation" value="Occupation" />
                         </div>
-                        <TextInput
-                            id="occupation"
-                            placeholder="e.g., Web Developer"
-                            value={occupation}
-                            onChange={(event) => setOccupation(event.target.value)}
-                            required
-                        />
+
+                        <InputForm id="occupation" type="text" placeholder="e.g., Web Developer" value={occupation} onChange={(e) => setOccupation(e.target.value)} />
+
                     </div>
 
                     {/* Country */}
@@ -94,18 +85,12 @@ export default function ProfileUser(params) {
                         <div className="mb-2 block">
                             <Label htmlFor="country" value="Country" />
                         </div>
-                        <Select
-                            id="country"
-                            value={country}
-                            onChange={(event) => setCountry(event.target.value)}
-                            required
-                        >
+                        <SelectForm id="country" value={country} onChange={(e) => setCountry(e.target.value)} >
                             <option value="">Select your country</option>
                             <option value="USA">USA</option>
                             <option value="Canada">Canada</option>
                             <option value="UK">UK</option>
-                            {/* Add more options as needed */}
-                        </Select>
+                        </SelectForm>
                     </div>
 
                     {/* City */}
@@ -113,18 +98,12 @@ export default function ProfileUser(params) {
                         <div className="mb-2 block">
                             <Label htmlFor="city" value="City" />
                         </div>
-                        <Select
-                            id="city"
-                            value={city}
-                            onChange={(event) => setCity(event.target.value)}
-                            required
-                        >
+                        <SelectForm id="city" value={city} onChange={(e) => setCity(e.target.value)} >
                             <option value="">Select your city</option>
                             <option value="New York">New York</option>
                             <option value="Toronto">Toronto</option>
                             <option value="London">London</option>
-                            {/* Add more options as needed */}
-                        </Select>
+                        </SelectForm>
                     </div>
 
                     {/* Description */}
