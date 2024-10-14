@@ -4,7 +4,7 @@ import { MdOutlineDelete } from "react-icons/md";
 import { useContext } from "react";
 import { Dropdown } from "flowbite-react";
 import { UseToggleDarkMode } from "../../App";
-import AlertUpdate from "../modals/AlertUpdate";
+import ModalUpdate from "../modals/ModalUpdate";
 import { useNavigate } from "react-router-dom"; // Use useNavigate instead of useHistory
 import ModalDelete from "../modals/ModalDelete";
 
@@ -13,7 +13,7 @@ export default function DropdownForm(params) {
     const { translate } = useContext(UseToggleDarkMode);
     let navigate = useNavigate(); // Replaces useHistory with useNavigate
 
-    const alertUpdateInstance = AlertUpdate({
+    const modalUpdateInstance = ModalUpdate({
         comment: params.comment,
         setTextComment: params.setTextComment,
         onUpdate: (newComment) => {
@@ -27,7 +27,7 @@ export default function DropdownForm(params) {
     const handleUpdateAlert = () => {
         switch (params.actionType) {
             case "comment":
-                alertUpdateInstance.triggerAlert(); // Show the comment update alert
+                modalUpdateInstance.triggerAlert(); // Show the comment update alert
                 break;
             case "post":
                 navigate(`/posts/update/${params.post._id}`, { state: { post: params.post } }); // Redirect to the update page

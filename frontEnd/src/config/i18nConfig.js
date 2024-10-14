@@ -39,8 +39,8 @@ i18n
             'postsPage',
             'validateMessage',
             'comment',
-            'alertUpdate',
-            'alertDelete',
+            'modalDelete',
+            'modalUpdate',
             'postUpdate'
         ],
         defaultNS: 'translation',

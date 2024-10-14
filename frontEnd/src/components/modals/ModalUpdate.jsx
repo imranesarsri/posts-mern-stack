@@ -2,14 +2,14 @@ import { useContext } from "react";
 import Swal from "sweetalert2";
 import { UseToggleDarkMode } from "../../App";
 
-export default function AlertUpdate({ comment, setTextComment, onUpdate }) {
+export default function ModalUpdate({ comment, setTextComment, onUpdate }) {
     const { translate } = useContext(UseToggleDarkMode); // Context for translation
 
     const triggerAlert = () => {
         Swal.fire({
-            title: translate('alertUpdate:titleComment'),
+            title: translate('modalUpdate:titleComment'),
             input: "textarea",
-            inputLabel: translate('alertUpdate:inputLabel'),
+            inputLabel: translate('modalUpdate:inputLabel'),
             inputValue: comment.text,
             inputAttributes: {
                 autocapitalize: "off",
@@ -17,12 +17,12 @@ export default function AlertUpdate({ comment, setTextComment, onUpdate }) {
             },
             showCancelButton: true,
             confirmButtonColor: "#1782fd",
-            confirmButtonText: translate('alertUpdate:confirmButtonText'),
-            cancelButtonText: translate('alertUpdate:cancelButtonText'),
+            confirmButtonText: translate('modalUpdate:confirmButtonText'),
+            cancelButtonText: translate('modalUpdate:cancelButtonText'),
             showLoaderOnConfirm: false,
             preConfirm: (newComment) => {
                 if (!newComment) {
-                    Swal.showValidationMessage(translate('alertUpdate:errorMessageRequird'));
+                    Swal.showValidationMessage(translate('modalUpdate:errorMessageRequird'));
                 } else {
                     setTextComment(newComment)
                     console.log(newComment)
@@ -34,8 +34,8 @@ export default function AlertUpdate({ comment, setTextComment, onUpdate }) {
             if (result.isConfirmed && onUpdate) {
                 onUpdate(result.value); // Call the update callback with the new comment
                 Swal.fire({
-                    title: translate('alertUpdate:resultTitle'),
-                    text: translate('alertUpdate:resultText'),
+                    title: translate('modalUpdate:resultTitle'),
+                    text: translate('modalUpdate:resultText'),
                     icon: "success",
                 });
             }
