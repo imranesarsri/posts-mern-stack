@@ -7,8 +7,8 @@ import { Dropdown } from "flowbite-react";
 import { MdOutlineMail } from "react-icons/md";
 import { PiPasswordBold } from "react-icons/pi";
 import { RiDeleteBin4Fill } from "react-icons/ri";
-// import BackgroundImage from "../../components/alerts/profile/BackgroundImage";
-import ProfileUser from "../../components/alerts/profile/ProfileUser";
+// import BackgroundImage from "../../components/modals/profile/BackgroundImage";
+import ProfileUser from "../../components/modals/profile/ProfileUser";
 
 export default function Profile() {
     useEffect(() => {

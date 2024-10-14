@@ -3,24 +3,15 @@ import { useState } from "react";
 import SelectForm from "../../FormControls/SelectForm";
 import InputForm from "../../FormControls/InputsForm";
 import TextareaForm from "../../FormControls/TextareaForm";
-import InputFileForm from "../../FormControls/InputFileForm";
 import FormButton from "../../buttons/FormButton";
 
 export default function ProfileUser(params) {
-    const [profileImage, setProfileImage] = useState("/images/user-avatar.png");
     const [fullName, setFullName] = useState("");
     const [occupation, setOccupation] = useState("");
     const [city, setCity] = useState("");
     const [country, setCountry] = useState("");
     const [description, setDescription] = useState("");
 
-    // Handle image upload
-    const handleImageUpload = (event) => {
-        const file = event.target.files[0]; // Get the selected file
-        if (file) {
-            setProfileImage(file); // Set the profile image to the uploaded file
-        }
-    };
 
     function onCloseModal() {
         params.setOpenModal(false);
@@ -28,36 +19,16 @@ export default function ProfileUser(params) {
         setCity("");
         setCountry("");
         setDescription("");
-        setProfileImage("/images/user-avatar.png"); // Reset profile image on close
     }
 
     return (
         <Modal show={params.openModal} size="md" onClose={onCloseModal} popup>
             <Modal.Header />
             <Modal.Body>
-                <div className="space-y-6">
+                <div className="space-y-4">
                     <h3 className="text-xl font-medium text-gray-900 dark:text-white">
                         Profile Personalization
                     </h3>
-
-                    {/* Image profile */}
-                    <div>
-                        <div className="mb-1 block">
-                            <Label htmlFor="profileImage" value="Image profile" />
-                        </div>
-                        <div className="flex justify-center mb-2 items-center rounded-lg">
-                            <img
-                                className="block w-32"
-                                src={
-                                    typeof profileImage === "object"
-                                        ? URL.createObjectURL(profileImage)
-                                        : profileImage
-                                }
-                                alt="Profile"
-                            />
-                        </div>
-                        <InputFileForm id="profileImage" onChange={handleImageUpload} />
-                    </div>
 
                     {/* Full Name */}
                     <div>

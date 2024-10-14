@@ -4,9 +4,9 @@ import { MdOutlineDelete } from "react-icons/md";
 import { useContext } from "react";
 import { Dropdown } from "flowbite-react";
 import { UseToggleDarkMode } from "../../App";
-import AlertUpdate from "../alerts/AlertUpdate";
+import AlertUpdate from "../modals/AlertUpdate";
 import { useNavigate } from "react-router-dom"; // Use useNavigate instead of useHistory
-import AlertDelete from "../alerts/AlertDelete";
+import AlertDelete from "../modals/AlertDelete";
 
 export default function DropdownForm(params) {
 
