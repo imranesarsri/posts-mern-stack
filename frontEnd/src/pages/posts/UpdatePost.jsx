@@ -3,6 +3,7 @@ import { UseToggleDarkMode } from "../../App";
 import FormButton from "../../components/buttons/FormButton";
 import { toast } from 'react-toastify';
 import { useLocation } from "react-router-dom";
+import InputForm from "../../components/FormControls/InputsForm";
 
 
 export default function UpdatePost() {
@@ -70,13 +71,7 @@ export default function UpdatePost() {
                                 >
                                     {translate('postUpdate:titleInput')}
                                 </label>
-                                <input
-                                    type="text"
-                                    id="base-input"
-                                    value={title}
-                                    onChange={(e) => setTitle(e.target.value)}
-                                    className=" bg-Light-backgroundSec border border-Light-primary text-Light-text text-sm rounded-lg focus:border-blue-500 block w-full p-2.5 dark:bg-Dark-backgroundSec dark:border-Dark-primary dark:placeholder-gray-400 dark:text-Dark-text dark:focus:border-blue-500"
-                                />
+                                <InputForm type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
                             </div>
 
                             <div className="mb-5">
