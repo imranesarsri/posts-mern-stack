@@ -1,0 +1,14 @@
+{
+    "titleModelProfileUser": "Profile Personalization",
+    "titleModelBackgroundImage": "Change profile background image",
+    "titleModelImageProfile": "Change profile image",
+    "labelFullName": "Full Name",
+    "labelOccupation": "Occupation",
+    "placeholderOccupation": "e.g., Web Developer",
+    "labelCountry": "Country",
+    "labelCity": "City",
+    "labelDescription": "Description",
+    "button": "Save Changes",
+    "labelBackgroundImage": "Profile background image",
+    "labelImageProfile": "Profile image"
+}

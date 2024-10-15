@@ -30,12 +30,12 @@ export default function ProfileUser(params) {
         <ModalApp
             openModal={params.openModal}
             onCloseModal={onCloseModal}
-            title={translate('modalProfileUser:titleModel')}
+            title={translate('modalsProfilePage:titleModelProfileUser')}
         >
             {/* Full Name */}
             <div>
                 <div className="mb-1 block">
-                    <Label htmlFor="fullName" value={translate('modalProfileUser:labelFullName')} />
+                    <Label htmlFor="fullName" value={translate('modalsProfilePage:labelFullName')} />
                 </div>
                 <InputForm
                     id="fullName"
@@ -48,13 +48,13 @@ export default function ProfileUser(params) {
             {/* Occupation */}
             <div>
                 <div className="mb-1 block">
-                    <Label htmlFor="occupation" value={translate('modalProfileUser:labelOccupation')} />
+                    <Label htmlFor="occupation" value={translate('modalsProfilePage:labelOccupation')} />
                 </div>
 
                 <InputForm
                     id="occupation"
                     type="text"
-                    placeholder={translate('modalProfileUser:placeholderOccupation')}
+                    placeholder={translate('modalsProfilePage:placeholderOccupation')}
                     value={occupation}
                     onChange={(e) => setOccupation(e.target.value)}
                 />
@@ -63,7 +63,7 @@ export default function ProfileUser(params) {
             {/* Country */}
             <div>
                 <div className="mb-1 block">
-                    <Label htmlFor="country" value={translate('modalProfileUser:labelCountry')} />
+                    <Label htmlFor="country" value={translate('modalsProfilePage:labelCountry')} />
                 </div>
                 <SelectForm
                     id="country"
@@ -80,7 +80,7 @@ export default function ProfileUser(params) {
             {/* City */}
             <div>
                 <div className="mb-1 block">
-                    <Label htmlFor="city" value={translate('modalProfileUser:labelCity')} />
+                    <Label htmlFor="city" value={translate('modalsProfilePage:labelCity')} />
                 </div>
                 <SelectForm
                     id="city"
@@ -97,7 +97,7 @@ export default function ProfileUser(params) {
             {/* Description */}
             <div>
                 <div className="mb-1 block">
-                    <Label htmlFor="description" value={translate('modalProfileUser:labelDescription')} />
+                    <Label htmlFor="description" value={translate('modalsProfilePage:labelDescription')} />
                 </div>
                 <TextareaForm
                     id="description"
@@ -108,7 +108,7 @@ export default function ProfileUser(params) {
 
             <div className="w-full">
                 <DefaultButton
-                    title={translate('modalProfileUser:button')}
+                    title={translate('modalsProfilePage:button')}
                 />
             </div>
         </ModalApp>

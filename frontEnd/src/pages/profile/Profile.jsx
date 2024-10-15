@@ -10,6 +10,7 @@ import { RiDeleteBin4Fill } from "react-icons/ri";
 // import BackgroundImage from "../../components/modals/profile/BackgroundImage";
 import ProfileUser from "../../components/modals/profile/ProfileUser";
 import BackgroundImage from "../../components/modals/profile/BackgroundImage";
+import ImageProfile from "../../components/modals/profile/ImageProfile";
 
 export default function Profile() {
     useEffect(() => {
@@ -19,13 +20,14 @@ export default function Profile() {
     // Change user information 
     const [openModalProfileUser, setOpenModalProfileUser] = useState(false);
     const [openModalBackgroundImage, setOpenModalBackgroundImage] = useState(false);
+    const [openModalImageProfile, setOpenModalImageProfile] = useState(false);
 
     return (
         <div className="p-5 sm:p-10 md:p-15 lg:p-20 flex flex-col gap-10">
             <div className="">
                 <div className="drop-shadow-md bg-Light-backgroundPri dark:bg-Dark-backgroundPri rounded-xl">
                     <div className="bg-profileBackground h-72 relative rounded-t-xl">
-                        <div className="absolute top-0 right-0 bg-Light-backgroundPri pr-1 pl-3 py-3 mr-2 mt-2 rounded-full cursor-pointer hover:bg-Light-backgroundSec dark:text-Light-text hover:text-Light-primary dark:hover:text-Dark-primary">
+                        <div className="absolute top-0 ltr:right-0 rtl:left-0 bg-Light-backgroundPri dark:bg-Dark-backgroundPri ltr:pr-1 rtl:pl-1 ltr:pl-3 rtl:pr-3 py-3 ltr:mr-2 rtl:ml-2 mt-2 rounded-full cursor-pointer hover:text-Light-primary dark:hover:text-Dark-primary">
                             <FaPenAlt onClick={() => setOpenModalBackgroundImage(true)} className="ltr:mr-2 rtl:ml-2 capitalize text-lg" />
                         </div>
                         <div className="absolute -bottom-16 ltr:left-5 rtl:right-5">
@@ -34,8 +36,8 @@ export default function Profile() {
                                 src="/images/user-avatar.png"
                                 alt=""
                             />
-                            <div className="absolute top-0 right-0 bg-Light-backgroundPri pr-1 pl-3 py-3 mr-2 mt-2 rounded-full cursor-pointer hover:bg-Light-backgroundSec dark:text-Light-text hover:text-Light-primary dark:hover:text-Dark-primary">
-                                <FaPenAlt onClick={() => setOpenModalBackgroundImage(true)} className="ltr:mr-2 rtl:ml-2 capitalize text-lg" />
+                            <div className="absolute top-16 ltr:-right-5 rtl:-left-5 bg-Light-backgroundPri dark:bg-Dark-backgroundPri ltr:pr-1 rtl:pl-1 ltr:pl-3 rtl:pr-3 py-3 ltr:mr-2 rtl:ml-2 mt-2 rounded-full cursor-pointer hover:text-Light-primary dark:hover:text-Dark-primary">
+                                <FaPenAlt onClick={() => setOpenModalImageProfile(true)} className="ltr:mr-2 rtl:ml-2 capitalize text-lg" />
                             </div>
                         </div>
                     </div>
@@ -122,6 +124,7 @@ export default function Profile() {
             {/* Models */}
             <ProfileUser openModal={openModalProfileUser} setOpenModal={setOpenModalProfileUser} />
             <BackgroundImage openModal={openModalBackgroundImage} setOpenModal={setOpenModalBackgroundImage} />
+            <ImageProfile openModal={openModalImageProfile} setOpenModal={setOpenModalImageProfile} />
 
             <div>
                 <h2 className="text-3xl uppercase font-bold mb-5">

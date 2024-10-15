@@ -42,7 +42,7 @@ i18n
             'modalDelete',
             'modalUpdate',
             'postUpdate',
-            'modalProfileUser'
+            'modalsProfilePage'
         ],
         defaultNS: 'translation',
         react: {

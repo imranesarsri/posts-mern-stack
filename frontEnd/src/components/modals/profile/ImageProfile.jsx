@@ -5,9 +5,8 @@ import ModalApp from "../ModalApp";
 import { UseToggleDarkMode } from "../../../App";
 import InputFileForm from "../../FormControls/InputFileForm";
 
-export default function BackgroundImage(params) {
-
-    const [profileImage, setProfileImage] = useState("/images/sections/profile/profileBackground.svg");
+export default function ImageProfile(params) {
+    const [profileImage, setProfileImage] = useState("/images/user-avatar.png");
 
     function onCloseModal() {
         params.setOpenModal(false);
@@ -21,16 +20,16 @@ export default function BackgroundImage(params) {
         <ModalApp
             openModal={params.openModal}
             onCloseModal={onCloseModal}
-            title={translate('modalsProfilePage:titleModelBackgroundImage')}
+            title={translate('modalsProfilePage:titleModelImageProfile')}
         >
             {/* Image profile */}
             <div>
                 <div className="mb-1 block">
-                    <Label htmlFor="profileImage" value={translate('modalsProfilePage:labelBackgroundImage')} />
+                    <Label htmlFor="profileImage" value={translate('modalsProfilePage:labelImageProfile')} />
                 </div>
                 <div className="mb-2 flex justify-center" >
                     <img
-                        className="block w-full h-36"
+                        className="block w-36 h-36 rounded-full"
                         src={
                             profileImage && (profileImage instanceof Blob || profileImage instanceof File)
                                 ? URL.createObjectURL(profileImage)
