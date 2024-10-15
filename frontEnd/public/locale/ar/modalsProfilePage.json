@@ -2,6 +2,8 @@
     "titleModelProfileUser": "تخصيص الملف الشخصي",
     "titleModelBackgroundImage": "تغيير صورة خلفية الملف الشخصي",
     "titleModelImageProfile": "تغيير صورة الملف الشخصي",
+    "titleModelChangeEmail": "تغيير البريد الإلكتروني",
+    "titleModelChangePassword": "تغيير كلمة المرور",
     "labelFullName": "الاسم الكامل",
     "labelOccupation": "المهنة",
     "placeholderOccupation": "مثال: مطور ويب",
@@ -10,5 +12,7 @@
     "labelDescription": "الوصف",
     "button": "حفظ التغييرات",
     "labelBackgroundImage": "صورة خلفية الملف الشخصي",
-    "labelImageProfile": "صورة الملف الشخصي"
+    "labelImageProfile": "صورة الملف الشخصي",
+    "labelCurrentPassword": "البريد الالكتروني الحالي",
+    "labelNewPassword": "البريد الالكتروني الجديد"
 }

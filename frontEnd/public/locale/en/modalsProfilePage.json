@@ -2,6 +2,8 @@
     "titleModelProfileUser": "Profile Personalization",
     "titleModelBackgroundImage": "Change profile background image",
     "titleModelImageProfile": "Change profile image",
+    "titleModelChangeEmail": "Change email",
+    "titleModelChangePassword": "Change Password",
     "labelFullName": "Full Name",
     "labelOccupation": "Occupation",
     "placeholderOccupation": "e.g., Web Developer",
@@ -9,6 +11,6 @@
     "labelCity": "City",
     "labelDescription": "Description",
     "button": "Save Changes",
-    "labelBackgroundImage": "Profile background image",
-    "labelImageProfile": "Profile image"
+    "labelCurrentPassword": "Current Email",
+    "labelNewPassword": "New Email"
 }

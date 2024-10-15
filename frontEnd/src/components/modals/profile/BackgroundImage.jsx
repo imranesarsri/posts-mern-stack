@@ -1,4 +1,3 @@
-import { Label } from "flowbite-react";
 import { useContext, useState } from "react";
 import DefaultButton from "../../FormControls/ButtonsForm";
 import ModalApp from "../ModalApp";
@@ -25,9 +24,6 @@ export default function BackgroundImage(params) {
         >
             {/* Image profile */}
             <div>
-                <div className="mb-1 block">
-                    <Label htmlFor="profileImage" value={translate('modalsProfilePage:labelBackgroundImage')} />
-                </div>
                 <div className="mb-2 flex justify-center" >
                     <img
                         className="block w-full h-36"

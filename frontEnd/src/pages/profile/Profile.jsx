@@ -11,6 +11,8 @@ import { RiDeleteBin4Fill } from "react-icons/ri";
 import ProfileUser from "../../components/modals/profile/ProfileUser";
 import BackgroundImage from "../../components/modals/profile/BackgroundImage";
 import ImageProfile from "../../components/modals/profile/ImageProfile";
+import ChangeEmail from "../../components/modals/profile/ChangeEmail";
+import ChangePassword from "../../components/modals/profile/ChangePassword";
 
 export default function Profile() {
     useEffect(() => {
@@ -21,14 +23,16 @@ export default function Profile() {
     const [openModalProfileUser, setOpenModalProfileUser] = useState(false);
     const [openModalBackgroundImage, setOpenModalBackgroundImage] = useState(false);
     const [openModalImageProfile, setOpenModalImageProfile] = useState(false);
+    const [openModalChangeEmail, setOpenModalChangeEmail] = useState(false);
+    const [openModalChangePassword, setOpenModalChangePassword] = useState(false);
 
     return (
         <div className="p-5 sm:p-10 md:p-15 lg:p-20 flex flex-col gap-10">
             <div className="">
                 <div className="drop-shadow-md bg-Light-backgroundPri dark:bg-Dark-backgroundPri rounded-xl">
                     <div className="bg-profileBackground h-72 relative rounded-t-xl">
-                        <div className="absolute top-0 ltr:right-0 rtl:left-0 bg-Light-backgroundPri dark:bg-Dark-backgroundPri ltr:pr-1 rtl:pl-1 ltr:pl-3 rtl:pr-3 py-3 ltr:mr-2 rtl:ml-2 mt-2 rounded-full cursor-pointer hover:text-Light-primary dark:hover:text-Dark-primary">
-                            <FaPenAlt onClick={() => setOpenModalBackgroundImage(true)} className="ltr:mr-2 rtl:ml-2 capitalize text-lg" />
+                        <div onClick={() => setOpenModalBackgroundImage(true)} className="absolute top-0 ltr:right-0 rtl:left-0 bg-Light-backgroundPri dark:bg-Dark-backgroundPri ltr:pr-1 rtl:pl-1 ltr:pl-3 rtl:pr-3 py-3 ltr:mr-2 rtl:ml-2 mt-2 rounded-full cursor-pointer hover:text-Light-primary dark:hover:text-Dark-primary">
+                            <FaPenAlt className="ltr:mr-2 rtl:ml-2 capitalize text-lg" />
                         </div>
                         <div className="absolute -bottom-16 ltr:left-5 rtl:right-5">
                             <img
@@ -36,8 +40,8 @@ export default function Profile() {
                                 src="/images/user-avatar.png"
                                 alt=""
                             />
-                            <div className="absolute top-16 ltr:-right-5 rtl:-left-5 bg-Light-backgroundPri dark:bg-Dark-backgroundPri ltr:pr-1 rtl:pl-1 ltr:pl-3 rtl:pr-3 py-3 ltr:mr-2 rtl:ml-2 mt-2 rounded-full cursor-pointer hover:text-Light-primary dark:hover:text-Dark-primary">
-                                <FaPenAlt onClick={() => setOpenModalImageProfile(true)} className="ltr:mr-2 rtl:ml-2 capitalize text-lg" />
+                            <div onClick={() => setOpenModalImageProfile(true)} className="absolute top-16 ltr:-right-5 rtl:-left-5 bg-Light-backgroundPri dark:bg-Dark-backgroundPri ltr:pr-1 rtl:pl-1 ltr:pl-3 rtl:pr-3 py-3 ltr:mr-2 rtl:ml-2 mt-2 rounded-full cursor-pointer hover:text-Light-primary dark:hover:text-Dark-primary">
+                                <FaPenAlt className="ltr:mr-2 rtl:ml-2 capitalize text-lg" />
                             </div>
                         </div>
                     </div>
@@ -78,11 +82,11 @@ export default function Profile() {
                                                 }
                                                 dismissOnClick={false}
                                             >
-                                                <Dropdown.Item>
+                                                <Dropdown.Item onClick={() => setOpenModalChangeEmail(true)}>
                                                     <MdOutlineMail className="ltr:mr-2 rtl:ml-2 text-lg capitalize" />
                                                     <span className="block capitalize">Change Email</span>
                                                 </Dropdown.Item>
-                                                <Dropdown.Item>
+                                                <Dropdown.Item onClick={() => setOpenModalChangePassword(true)}>
                                                     <PiPasswordBold className="ltr:mr-2 rtl:ml-2 capitalize text-lg" />
                                                     <span className="block capitalize">Change Password</span>
                                                 </Dropdown.Item>
@@ -99,8 +103,8 @@ export default function Profile() {
                                             </Dropdown>
                                         </div>
                                     </div>
-                                    <div className="">
-                                        <FaPenAlt onClick={() => setOpenModalProfileUser(true)} className="ltr:mr-2 rtl:ml-2 capitalize text-lg hover:text-Light-primary dark:hover:text-Dark-primary" />
+                                    <div onClick={() => setOpenModalProfileUser(true)}>
+                                        <FaPenAlt className="ltr:mr-2 rtl:ml-2 capitalize text-lg hover:text-Light-primary dark:hover:text-Dark-primary" />
                                     </div>
                                 </div>
                             </div>
@@ -125,6 +129,8 @@ export default function Profile() {
             <ProfileUser openModal={openModalProfileUser} setOpenModal={setOpenModalProfileUser} />
             <BackgroundImage openModal={openModalBackgroundImage} setOpenModal={setOpenModalBackgroundImage} />
             <ImageProfile openModal={openModalImageProfile} setOpenModal={setOpenModalImageProfile} />
+            <ChangeEmail openModal={openModalChangeEmail} setOpenModal={setOpenModalChangeEmail} />
+            <ChangePassword openModal={openModalChangePassword} setOpenModal={setOpenModalChangePassword} />
 
             <div>
                 <h2 className="text-3xl uppercase font-bold mb-5">
