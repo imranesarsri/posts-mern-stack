@@ -26,5 +26,5 @@ export default function ModalDelete(params) {
         });
     }
 
-    return { triggerDeleteAlert }; // Return the function
+    return { triggerDeleteAlert };
 }

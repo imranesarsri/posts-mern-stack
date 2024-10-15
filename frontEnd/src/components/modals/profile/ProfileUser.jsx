@@ -1,9 +1,9 @@
 import { Label } from "flowbite-react";
 import { useContext, useState } from "react";
-import SelectForm from "../../FormControls/SelectForm";
-import InputForm from "../../FormControls/InputsForm";
-import TextareaForm from "../../FormControls/TextareaForm";
-import DefaultButton from "../../FormControls/ButtonsForm";
+import SelectForm from "../../formControls/SelectForm";
+import InputForm from "../../formControls/InputsForm";
+import TextareaForm from "../../formControls/TextareaForm";
+import DefaultButton from "../../formControls/ButtonsForm";
 import ModalApp from "../ModalApp";
 import { UseToggleDarkMode } from "../../../App";
 

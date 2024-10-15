@@ -1,6 +1,6 @@
 import { useContext } from "react"
 import { UseToggleDarkMode } from "../../App"
-import { LoginButton, RegisterButton } from "../FormControls/ButtonsForm"
+import { LoginButton, RegisterButton } from "../formControls/ButtonsForm"
 
 
 

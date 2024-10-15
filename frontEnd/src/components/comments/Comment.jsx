@@ -1,5 +1,5 @@
 import { useState } from "react";
-import DropdownForm from "../FormControls/DropdownForm";
+import DropdownForm from "../formControls/DropdownForm";
 
 export default function Comment(params) {
     const [textComment, setTextComment] = useState(params.comment.text)

@@ -3,8 +3,8 @@ import { useContext, useState } from "react";
 import { UseToggleDarkMode } from "../../App";
 import AuthBody from "./AuthBody";
 import { toast } from "react-toastify";
-import { InputAuthForm } from "../../components/FormControls/InputsForm";
-import DefaultButton from "../../components/FormControls/ButtonsForm";
+import { InputAuthForm } from "../../components/formControls/InputsForm";
+import DefaultButton from "../../components/formControls/ButtonsForm";
 
 export default function Register() {
     const { translate } = useContext(UseToggleDarkMode);

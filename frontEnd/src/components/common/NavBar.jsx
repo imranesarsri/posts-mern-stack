@@ -10,7 +10,7 @@ import { FaHome } from "react-icons/fa";
 import { MdLibraryBooks } from "react-icons/md";
 import { GiNotebook } from "react-icons/gi";
 import { RiAdminFill } from "react-icons/ri";
-import { LoginButton } from "../FormControls/ButtonsForm";
+import { LoginButton } from "../formControls/ButtonsForm";
 
 export default function NavBar() {
 

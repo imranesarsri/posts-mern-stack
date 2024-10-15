@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
 import ModalApp from "../ModalApp";
 import { UseToggleDarkMode } from "../../../App";
-import DefaultButton from "../../FormControls/ButtonsForm";
-import InputForm from "../../FormControls/InputsForm";
+import DefaultButton from "../../formControls/ButtonsForm";
+import InputForm from "../../formControls/InputsForm";
 import { Label } from "flowbite-react";
 
 export default function ChangePassword(params) {

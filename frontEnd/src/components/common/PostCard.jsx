@@ -3,7 +3,7 @@ import { GoComment } from "react-icons/go";
 import { Link } from "react-router-dom";
 import ListComments from "../comments/ListComments";
 import { useState } from "react";
-import DropdownForm from "../FormControls/DropdownForm";
+import DropdownForm from "../formControls/DropdownForm";
 
 const PostCard = (params) => {
     const [comment, setComment] = useState(true);

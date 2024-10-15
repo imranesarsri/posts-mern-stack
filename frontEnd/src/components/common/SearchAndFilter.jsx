@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { UseToggleDarkMode } from "../../App";
 import { Link } from "react-router-dom";
-import { InputSearchForm } from "../FormControls/InputsForm";
+import { InputSearchForm } from "../formControls/InputsForm";
 
 export default function SearchAndFilter(params) {
     const { translate } = useContext(UseToggleDarkMode);

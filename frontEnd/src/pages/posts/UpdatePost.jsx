@@ -2,11 +2,11 @@ import { useContext, useState, useEffect } from "react";
 import { UseToggleDarkMode } from "../../App";
 import { toast } from "react-toastify";
 import { useLocation } from "react-router-dom";
-import InputForm from "../../components/FormControls/InputsForm";
-import SelectForm from "../../components/FormControls/SelectForm";
-import TextareaForm from "../../components/FormControls/TextareaForm";
-import InputFileForm from "../../components/FormControls/InputFileForm";
-import DefaultButton from "../../components/FormControls/ButtonsForm";
+import InputForm from "../../components/formControls/InputsForm";
+import SelectForm from "../../components/formControls/SelectForm";
+import TextareaForm from "../../components/formControls/TextareaForm";
+import InputFileForm from "../../components/formControls/InputFileForm";
+import DefaultButton from "../../components/formControls/ButtonsForm";
 
 export default function UpdatePost() {
     useEffect(() => {

@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
-import DefaultButton from "../../FormControls/ButtonsForm";
+import DefaultButton from "../../formControls/ButtonsForm";
 import ModalApp from "../ModalApp";
 import { UseToggleDarkMode } from "../../../App";
-import InputFileForm from "../../FormControls/InputFileForm";
+import InputFileForm from "../../formControls/InputFileForm";
 
 export default function BackgroundImage(params) {
 
