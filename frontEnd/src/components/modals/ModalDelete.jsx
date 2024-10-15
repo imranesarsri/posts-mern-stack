@@ -12,7 +12,7 @@ export default function ModalDelete(params) {
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#1782fd",
-            cancelButtonColor: "#d33",
+            cancelButtonColor: "#4B5563",
             cancelButtonText: translate('modalDelete:cancelButtonText'),
             confirmButtonText: translate('modalDelete:confirmButtonText')
         }).then((result) => {
