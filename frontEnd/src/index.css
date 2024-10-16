@@ -51,3 +51,13 @@ html[dir="rtl"] .inputAddComment+label {
     left: auto !important;
     /* Remove left positioning */
 }
+
+
+/* navBar application name */
+
+
+@media (min-width: 400px) {
+    #appName {
+        display: block;
+    }
+}

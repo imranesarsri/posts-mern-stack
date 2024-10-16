@@ -9,8 +9,9 @@ import { Link } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
 import { MdLibraryBooks } from "react-icons/md";
 import { GiNotebook } from "react-icons/gi";
-import { RiAdminFill } from "react-icons/ri";
 import { LoginButton } from "../formControls/ButtonsForm";
+import ProfileDropdown from "../profile/ProfileDropdown";
+
 
 export default function NavBar() {
 
@@ -22,12 +23,12 @@ export default function NavBar() {
             <div className="fixed top-0 left-0 right-0 z-10 w-full dark:bg-Dark-backgroundPri bg-Light-backgroundPri shadow-md">
                 <Navbar fluid rounded className="dark:bg-Dark-backgroundPri bg-Light-backgroundPri container">
                     <Navbar.Brand href="/">
-                        <img src={mode === 'dark' ? ('images/logos/logo-dark.svg') : ('images/logos/logo-light.svg')} className="mr-3 h-9 sm:h-12" alt="Postfy logo" />
-                        <span className="self-center text-2xl font-semibold whitespace-nowrap text-Light-text dark:text-Dark-text ">
+                        <img src={mode === 'dark' ? ('images/logos/logo-dark.svg') : ('images/logos/logo-light.svg')} className="ltr:mr-3 rtl:ml-3 h-9 sm:h-12" alt="Postfy logo" />
+                        <span id="appName" className="hidden self-center text-2xl font-semibold whitespace-nowrap text-Light-text dark:text-Dark-text ">
                             {translate('translation:appName')}
                         </span>
                     </Navbar.Brand>
-                    <div className="flex md:order-2">
+                    <div className="flex space-x-2 md:space-x-0 md:order-2">
                         <div className="flex shadow-inside bg-Light-backgroundSec dark:bg-Dark-backgroundSec rtl:ml-5 ltr:mr-5 rounded-3xl text-center items-center">
                             <button className="px-3 py-2"
                                 onClick={toggleMode}
@@ -56,16 +57,20 @@ export default function NavBar() {
                                 </Dropdown>
                             </div>
                         </div>
-                        <div className="hidden md:flex justify-end ">
+
+                        {/* <div className="hidden md:flex justify-end ">
                             <LoginButton />
-                        </div>
+                        </div> */}
+                        <ProfileDropdown />
+
+
                         <Navbar.Toggle />
                     </div>
                     <Navbar.Collapse>
                         <Navbar.Link className="rtl:md:ml-8 capitalize" active={location.pathname === '/'}>
                             <Link to="/" className="flex ltr:space-x-2">
                                 <FaHome className="text-xl" />
-                                <span className="block rtl:mr-2 md:hidden lg:block">
+                                <span className="block rtl:mr-2">
                                     {translate('navBar:home')}
                                 </span>
                             </Link>
@@ -74,7 +79,7 @@ export default function NavBar() {
                         <Navbar.Link className="capitalize" active={location.pathname === '/posts'}>
                             <Link to="/posts" className="flex ltr:space-x-2">
                                 <MdLibraryBooks className="text-xl" />
-                                <span className="block rtl:mr-2 md:hidden lg:block">
+                                <span className="block rtl:mr-2">
                                     {translate('navBar:posts')}
                                 </span>
                             </Link>
@@ -82,18 +87,8 @@ export default function NavBar() {
                         <Navbar.Link className="capitalize" active={location.pathname === '/posts/create'}>
                             <Link to="/posts/create" className="flex ltr:space-x-2">
                                 <GiNotebook className="text-xl" />
-                                <span className="block rtl:mr-2 md:hidden lg:block">
+                                <span className="block rtl:mr-2">
                                     {translate('navBar:createPosts')}
-                                </span>
-                            </Link>
-                        </Navbar.Link>
-
-                        {/* Only admin */}
-                        <Navbar.Link className="capitalize">
-                            <Link to="/admin" className="flex ltr:space-x-2">
-                                <RiAdminFill className="text-xl" />
-                                <span className="block rtl:mr-2 md:hidden lg:block">
-                                    {translate('navBar:adminDashboard')}
                                 </span>
                             </Link>
                         </Navbar.Link>
