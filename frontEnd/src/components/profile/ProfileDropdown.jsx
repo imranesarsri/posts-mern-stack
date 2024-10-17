@@ -1,8 +1,12 @@
 import { Avatar, Dropdown } from "flowbite-react";
+import { useContext } from "react";
 import { HiCog, HiLogout, HiViewGrid } from "react-icons/hi";
 import { Link } from "react-router-dom";
+import { UseToggleDarkMode } from "../../App";
 
 export default function ProfileDropdown() {
+    const { translate } = useContext(UseToggleDarkMode);
+
     return (
         <div className="flex">
             <div
@@ -20,13 +24,13 @@ export default function ProfileDropdown() {
                     <span className="block truncate text-sm font-medium">imrane@example.com</span>
                 </Dropdown.Header>
                 <Link to="admin/dashboard">
-                    <Dropdown.Item icon={HiViewGrid}>Dashboard</Dropdown.Item>
+                    <Dropdown.Item icon={HiViewGrid}>{translate("navBar:dashboard")}</Dropdown.Item>
                 </Link>
                 <Link to="profile">
-                    <Dropdown.Item icon={HiCog}>Profile</Dropdown.Item>
+                    <Dropdown.Item icon={HiCog}>{translate("navBar:profile")}</Dropdown.Item>
                 </Link>
                 <Dropdown.Divider />
-                <Dropdown.Item icon={HiLogout}>Sign out</Dropdown.Item>
+                <Dropdown.Item icon={HiLogout}>{translate("navBar:signOut")}</Dropdown.Item>
             </Dropdown>
         </div>
     )

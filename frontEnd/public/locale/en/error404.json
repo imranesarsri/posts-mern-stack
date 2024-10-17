@@ -2,5 +2,6 @@
     "404": "404",
     "pageNotFound": "oops page not found",
     "sorryMessage": "sorry, we can't find that page. You'll find lots to explore on the home page.",
-    "backToHomepage": "Back to Home page"
+    "backToHomepage": "Back to Home page",
+    "backToDashboard": "Back to Dashboard"
 }

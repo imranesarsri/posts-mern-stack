@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 import { UseToggleDarkMode } from "../App";
 import { useEffect } from "react";
 
-export default function Error404() {
+export default function Error404(params) {
 
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
-    
+
     const { translate } = useContext(UseToggleDarkMode)
     return (
         <section
@@ -32,10 +32,10 @@ export default function Error404() {
                     </p>
 
                     <Link
-                        to="/"
+                        to={params.path === "admin" ? "/admin/dashboard" : "/"}
                         className="block w-full text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                     >
-                        {translate('error404:backToHomepage')}
+                        {params.path === "admin" ? translate('error404:backToDashboard') : translate('error404:backToHomepage')}
                     </Link>
                 </div>
             </div>

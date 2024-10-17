@@ -3,5 +3,8 @@
     "posts": "posts",
     "createPosts": "create post",
     "english": "English",
-    "arabic": "Arabic"
+    "arabic": "Arabic",
+    "dashboard": "Dashboard",
+    "profile": "Profile",
+    "signOut": "Sign out"
 }
