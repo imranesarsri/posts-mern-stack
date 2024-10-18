@@ -104,8 +104,6 @@ function App() {
 
             {/* Admin Routes */}
             <Route path="admin/*">
-              <Route path="dashboard" element={<Dashboard />} />
-              {/* Add more admin-specific routes here */}
             </Route>
 
             {/* Catch-All Route for 404 */}
