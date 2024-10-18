@@ -1,3 +1,63 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+[dir="rtl"] button[data-testid="flowbite-dropdown-target"] span svg.ml-2 {
+    margin-left: 0 !important;
+    margin-right: 0.5rem !important;
+}
+
+
+/* Assuming you're using a stylesheet linked to your component */
+@media (max-width: 768px) {
+
+    /* Tailwind's md breakpoint is 768px */
+    .md\:bg-transparent {
+        background-color: #1782fd !important;
+    }
+}
+
+@media (min-width: 768px) {
+
+    /* Tailwind's md breakpoint is 768px */
+    .md\:bg-transparent {
+        color: #1782fd !important;
+    }
+}
+
+/* dropdawn menu */
+#dropdawnMenu button svg[aria-hidden="true"] {
+    display: none;
+}
+
+#dropdawnMenu button span {
+    padding: 0 !important;
+}
+
+/* button add comment post */
+/* Apply RTL-specific styles */
+html[dir="rtl"] .inputAddComment {
+    /* Adjust the label's position for RTL */
+    right: 0.25rem !important;
+    /* Instead of left-1 for LTR */
+    left: auto !important;
+}
+
+/* Additional adjustment for the floating label in RTL */
+html[dir="rtl"] .inputAddComment+label {
+    right: 0.25rem !important;
+    /* Move label to the right */
+    left: auto !important;
+    /* Remove left positioning */
+}
+
+
+/* navBar application name */
+
+
+@media (min-width: 400px) {
+    #appName {
+        display: block;
+    }
+}

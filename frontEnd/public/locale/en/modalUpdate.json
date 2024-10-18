@@ -1,0 +1,9 @@
+{
+    "titleComment": "Edit Your Comment",
+    "inputLabel": "Your Comment",
+    "confirmButtonText": "Update",
+    "cancelButtonText": "Cancel",
+    "errorMessageRequird": "Please enter your comment.",
+    "resultTitle": "Comment Updated!",
+    "resultText": "Your comment has been successfully updated."
+}

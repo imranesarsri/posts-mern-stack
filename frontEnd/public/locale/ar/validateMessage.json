@@ -1,0 +1,13 @@
+{
+    "userNameRequired": "اسم المستخدم مطلوب",
+    "userNameInvalid": "يجب أن يكون اسم المستخدم 3 أحرف على الأقل",
+    "emailRequired": "البريد الإلكتروني مطلوب",
+    "emailInvalid": "تنسيق البريد الإلكتروني غير صالح",
+    "passwordRequired": "كلمة المرور مطلوبة",
+    "passwordInvalid": "يجب أن تكون كلمة المرور 8 أحرف على الأقل",
+    "titleInvalid": "يجب أن يكون العنوان بين 2 و 200 حرف.",
+    "descriptionInvalid": "يجب أن يكون الوصف بين 5 و 5000 حرف.",
+    "categoryRequired": "التصنيف مطلوب.",
+    "fileRequired": "تحميل الصورة مطلوب.",
+    "commentRequired": "التعليق مطلوب."
+}

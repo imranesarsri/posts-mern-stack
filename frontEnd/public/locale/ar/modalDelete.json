@@ -1,0 +1,9 @@
+{
+    "titlePost": "هل أنت متأكد أنك تريد حذف هذا المنشور؟",
+    "titleComment": "هل أنت متأكد أنك تريد حذف هذا التعليق؟",
+    "text": "لا يمكن التراجع عن هذا الإجراء.",
+    "confirmButtonText": "احذفه!",
+    "cancelButtonText": "إلغاء",
+    "resultTitle": "تم الحذف!",
+    "resultText": "تم حذفه بنجاح."
+}

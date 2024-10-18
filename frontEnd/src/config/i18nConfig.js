@@ -19,14 +19,31 @@ i18n
                 'sessionStorage',
                 'navigator',
                 'path',
-                'subdomain'
+                'subdomain',
             ],
             caches: ['cookie'],
         },
         backend: {
             loadPath: '/locale/{{lng}}/{{ns}}.json',
         },
-        ns: ['translation', 'welcome'],
+        ns: [
+            'translation',
+            'hero',
+            'buttons',
+            'navBar',
+            'error404',
+            'register',
+            'login',
+            'footer',
+            'postCreate',
+            'postsPage',
+            'validateMessage',
+            'comment',
+            'modalDelete',
+            'modalUpdate',
+            'postUpdate',
+            'modalsProfilePage'
+        ],
         defaultNS: 'translation',
         react: {
             useSuspense: false,

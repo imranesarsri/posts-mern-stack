@@ -11,27 +11,66 @@ module.exports = {
     extend: {
       container: {
         center: true,
-        // padding: '2rem',
+        padding: {
+          DEFAULT: '1rem',
+          sm: '2rem',
+          lg: '4rem',
+          xl: '5rem',
+          '2xl': '6rem',
+        },
       },
       boxShadow: {
         'custom': '0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12)',
+        'inside': 'rgba(50, 50, 93, 0.25) 0px 3px 6px -2px inset, rgba(0, 0, 0, 0.3) 0px 8px 3px -2px inset',
+        'bottom': 'rgba(0, 0, 0, 0.45) 0px 25px 20px -20px'
       },
       fontSize: {
         '10xl': '5rem',
         '9xl': '4rem',
       },
       colors: {
-        Default: {
-          primary: '#6A7CF6',
-          secondary: '#EB5153',
-          tertiary: '#F6F8FA',
-          quaternary: '#222566',
-          quinary: '#F9FAFB'
+        Light: {
+          'text': '#000c1a',
+          'textSec': '#4b5563',
+          'backgroundPri': '#f0f6ff',
+          'backgroundSec': '#EBF3FF',
+          'primary': '#1782fd',
+          'secondary': '#9176fe',
+          'accent': '#8e49fd',
+          'red': '#B8001F',
+        },
+        Dark: {
+          'text': '#e5f1ff',
+          'textSec': '#e5f1ff', //!change
+          'backgroundPri': '#00060f',
+          'backgroundSec': '#00183d',
+          'primary': '#026ee8',
+          'secondary': '#1c0189',
+          'accent': '#4702b6',
+        },
+        GradientsLight: {
+          light: '#8e49fd', // Start color
+          dark: '#1782fd',  // End color
+        },
+        GradientsDark: {
+          light: '#4702b6',
+          dark: '#1c0189',
         },
       },
+      backgroundImage: {
+        'hero-light-ltr': "url('/images/sections/hero/heroBackgroundLightLTR.svg')",
+        'hero-dark-ltr': "url('/images/sections/hero/heroBackgroundDarkLTR.svg')",
+        'hero-light-rtl': "url('/images/sections/hero/heroBackgroundLightRTL.svg')",
+        'hero-dark-rtl': "url('/images/sections/hero/heroBackgroundDarkRTL.svg')",
+        'profileBackground': "url('/images/sections/profile/profileBackground.svg')",
+      },
+      spacing: {
+        '18': '4rem',
+      }
     },
   },
   plugins: [
     flowbite.plugin(),
+    require('tailwind-scrollbar')({ preferredStrategy: 'pseudoelements' }),
   ],
 };
