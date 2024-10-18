@@ -58,3 +58,15 @@ npm install --save-dev tailwind-scrollbar
 npm install sweetalert2
 
 ```
+___
+
+## API
+### Redux Toolkit
+```bash
+npm install @reduxjs/toolkit
+```
+
+### React redux
+```bash
+npm install react-redux
+```

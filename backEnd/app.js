@@ -1,7 +1,7 @@
 const express = require('express')
 const connectDB = require('./config/connect');
 const { errorHandler, notFound } = require('./middlewares/error');
-
+const cors = require('cors')
 
 // Connected to database
 connectDB().then(() => {
@@ -19,6 +19,11 @@ const app = express()
 
 // Middlewares
 app.use(express.json())
+
+// Cors policy
+app.use(cors({
+    origin: "http://localhost:5173"
+}))
 
 // Routes
 app.use('/auth', require('./routes/authRoute'))
