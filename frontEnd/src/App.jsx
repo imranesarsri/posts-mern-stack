@@ -55,7 +55,7 @@ function App(params) {
           <Route path="details/:id" element={<PostDetails />} />
           <Route path="category/:category" element={<Category />} />
         </Route>
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile/:userId" element={<Profile />} />
         {/* Auth Routes */}
         <Route path="/login" element={!user ? <Login /> : <Navigate to="/" />} />
         <Route path="/register" element={!user ? <Register /> : <Navigate to="/" />} />

@@ -5,7 +5,7 @@ import InputForm from "../../formControls/InputsForm";
 import { UseToggleDarkMode } from "../../../main";
 
 export default function ChangeEmail(params) {
-    const [changeEmail, setChangeEmail] = useState("sarsri.imrane@gmail.com");
+    const [changeEmail, setChangeEmail] = useState(params.email);
 
     function onCloseModal() {
         params.setOpenModal(false);

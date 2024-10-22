@@ -7,17 +7,32 @@ import { Dropdown } from "flowbite-react";
 import { MdOutlineMail } from "react-icons/md";
 import { PiPasswordBold } from "react-icons/pi";
 import { RiDeleteBin4Fill } from "react-icons/ri";
-// import BackgroundImage from "../../components/modals/profile/BackgroundImage";
 import ProfileUser from "../../components/modals/profile/ProfileUser";
 import BackgroundImage from "../../components/modals/profile/BackgroundImage";
 import ImageProfile from "../../components/modals/profile/ImageProfile";
 import ChangeEmail from "../../components/modals/profile/ChangeEmail";
 import ChangePassword from "../../components/modals/profile/ChangePassword";
+import { useDispatch, useSelector } from "react-redux"
+import { getUserProfile } from "../../redux/apiCalls/profileApiCall";
+import { useParams } from "react-router-dom"
+
 
 export default function Profile() {
+
+    const { userId } = useParams()
+    const dispatch = useDispatch()
+    const { profile } = useSelector(state => state.profile)
     useEffect(() => {
+        dispatch(getUserProfile(userId))
         window.scrollTo(0, 0);
-    }, []);
+    }, [userId]);
+
+    const formattedDate = new Date(profile?.createdAt).toLocaleDateString('en-CA', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+    }).replace(/-/g, '/');
+
 
     // Change user information 
     const [openModalProfileUser, setOpenModalProfileUser] = useState(false);
@@ -37,7 +52,7 @@ export default function Profile() {
                         <div className="absolute -bottom-16 ltr:left-5 rtl:right-5">
                             <img
                                 className="w-40 h-40 rounded-full border-4 border-Light-backgroundPri dark:border-Dark-backgroundPri"
-                                src="/images/user-avatar.png"
+                                src={profile?.profilePhoto.url}
                                 alt=""
                             />
                             <div onClick={() => setOpenModalImageProfile(true)} className="absolute top-16 ltr:-right-5 rtl:-left-5 bg-Light-backgroundPri dark:bg-Dark-backgroundPri ltr:pr-1 rtl:pl-1 ltr:pl-3 rtl:pr-3 py-3 ltr:mr-2 rtl:ml-2 mt-2 rounded-full cursor-pointer hover:text-Light-primary dark:hover:text-Dark-primary">
@@ -48,7 +63,7 @@ export default function Profile() {
                     <div className="flex justify-between lg:ltr:pl-52 lg:rtl:pr-52 pt-20 lg:pt-5  p-5 ">
                         <div>
                             <h2 className="text-xl md:text-2xl font-bold uppercase text-Light-primary dark:text-Dark-primary">
-                                imrane sarsri
+                                {profile?.userName}
                             </h2>
                             <h3 className="capitalize text-base md:text-lg font-semibold">
                                 full stack web development
@@ -60,7 +75,7 @@ export default function Profile() {
                                 <span>Date joined :</span>
                                 <span className="text-Light-primary dark:text-Dark-primary">
                                     {" "}
-                                    2024/04/12
+                                    {new Date(profile?.createdAt).toDateString()}
                                 </span>
                             </p>
                         </div>
@@ -129,13 +144,13 @@ export default function Profile() {
             <ProfileUser openModal={openModalProfileUser} setOpenModal={setOpenModalProfileUser} />
             <BackgroundImage openModal={openModalBackgroundImage} setOpenModal={setOpenModalBackgroundImage} />
             <ImageProfile openModal={openModalImageProfile} setOpenModal={setOpenModalImageProfile} />
-            <ChangeEmail openModal={openModalChangeEmail} setOpenModal={setOpenModalChangeEmail} />
+            <ChangeEmail openModal={openModalChangeEmail} setOpenModal={setOpenModalChangeEmail} email={profile?.email} />
             <ChangePassword openModal={openModalChangePassword} setOpenModal={setOpenModalChangePassword} />
 
             <div>
                 <h2 className="text-3xl uppercase font-bold mb-5">
                     <span className="text-Light-primary dark:text-Dark-primary">
-                        Imrane{" "}
+                        email={profile?.userName}{" "}
                     </span>
                     posts
                 </h2>

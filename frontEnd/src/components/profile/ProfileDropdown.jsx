@@ -39,7 +39,7 @@ export default function ProfileDropdown(params) {
                         )
                     }
                 </Link>
-                <Link to="profile">
+                <Link to={`/profile/${user._id}`}>
                     <Dropdown.Item icon={HiCog}>{translate("navBar:profile")}</Dropdown.Item>
                 </Link>
                 <Dropdown.Divider />
