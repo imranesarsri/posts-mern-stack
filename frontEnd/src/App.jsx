@@ -23,6 +23,8 @@ import UpdatePost from "./pages/posts/UpdatePost";
 import Category from "./pages/posts/Category";
 import Dashboard from "./pages/admin/Dashboard";
 import SideBar from "./components/common/admin/SideBar";
+import store from "./redux/store"
+import { Provider } from "react-redux"
 
 // Use Context
 export const UseToggleDarkMode = createContext(null)
@@ -62,58 +64,60 @@ function App() {
 
   return (
     <Flowbite>
-      <UseToggleDarkMode.Provider value={values}>
-        <Main>
-          {/* ToastContainer is Alert Message */}
-          <ToastContainer position="top-center" theme="colored" />
+      <Provider store={store}>
+        <UseToggleDarkMode.Provider value={values}>
+          <Main>
+            {/* ToastContainer is Alert Message */}
+            <ToastContainer position="top-center" theme="colored" />
 
-          {/* Show SideBar if the path starts with 'admin/' */}
-          {path.startsWith('/admin/') && (
-            <SideBar>
-              <Routes>
-                <Route path="/admin/dashboard" element={<Dashboard />} />
-                <Route path="*" element={<Error404 path="admin" />} />
-                {/* Add more admin routes here if needed */}
-              </Routes>
-            </SideBar>
-          )}
+            {/* Show SideBar if the path starts with 'admin/' */}
+            {path.startsWith('/admin/') && (
+              <SideBar>
+                <Routes>
+                  <Route path="/admin/dashboard" element={<Dashboard />} />
+                  <Route path="*" element={<Error404 path="admin" />} />
+                  {/* Add more admin routes here if needed */}
+                </Routes>
+              </SideBar>
+            )}
 
-          {/* Show NavBar for posts, profile, and root path */}
-          {(path.includes('/posts') || path.includes('/profile') || path === '/') && <NavBar />}
+            {/* Show NavBar for posts, profile, and root path */}
+            {(path.includes('/posts') || path.includes('/profile') || path === '/') && <NavBar />}
 
-          {/* Main Routes */}
-          <Routes>
-            <Route path="/" element={<Home lang={lang} toggleLang={handleChangeLanguage} />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
+            {/* Main Routes */}
+            <Routes>
+              <Route path="/" element={<Home lang={lang} toggleLang={handleChangeLanguage} />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
 
-            {/* Posts and Profile Routes */}
-            <Route path="posts">
-              <Route index element={<Post />} />
-              <Route path="create" element={<CreatePost />} />
-              <Route path="update/:id" element={<UpdatePost />} />
-              <Route path="details/:id" element={<PostDetails />} />
-              <Route path="category/:category" element={<Category />} />
-            </Route>
+              {/* Posts and Profile Routes */}
+              <Route path="posts">
+                <Route index element={<Post />} />
+                <Route path="create" element={<CreatePost />} />
+                <Route path="update/:id" element={<UpdatePost />} />
+                <Route path="details/:id" element={<PostDetails />} />
+                <Route path="category/:category" element={<Category />} />
+              </Route>
 
-            <Route path="/profile" element={<Profile />} />
+              <Route path="/profile" element={<Profile />} />
 
-            {/* Auth Routes */}
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
+              {/* Auth Routes */}
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
 
-            {/* Admin Routes */}
-            <Route path="admin/*">
-            </Route>
+              {/* Admin Routes */}
+              <Route path="admin/*">
+              </Route>
 
-            {/* Catch-All Route for 404 */}
-            <Route path="*" element={<Error404 path="user" />} />
-          </Routes>
+              {/* Catch-All Route for 404 */}
+              <Route path="*" element={<Error404 path="user" />} />
+            </Routes>
 
-          {/* Conditionally show Footer if not on login/register */}
-          {(location.pathname !== '/login' && location.pathname !== '/register') && <Footer />}
-        </Main>
-      </UseToggleDarkMode.Provider>
+            {/* Conditionally show Footer if not on login/register */}
+            {(location.pathname !== '/login' && location.pathname !== '/register') && <Footer />}
+          </Main>
+        </UseToggleDarkMode.Provider>
+      </Provider>
     </Flowbite>
   );
 

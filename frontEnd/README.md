@@ -70,3 +70,8 @@ npm install @reduxjs/toolkit
 ```bash
 npm install react-redux
 ```
+
+### Axios
+```bash
+npm i axios
+```

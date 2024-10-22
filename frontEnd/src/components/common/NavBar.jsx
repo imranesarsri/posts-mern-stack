@@ -11,6 +11,7 @@ import { MdLibraryBooks } from "react-icons/md";
 import { GiNotebook } from "react-icons/gi";
 import { LoginButton } from "../formControls/ButtonsForm";
 import ProfileDropdown from "../profile/ProfileDropdown";
+import { useSelector } from "react-redux"
 
 
 export default function NavBar() {
@@ -18,6 +19,7 @@ export default function NavBar() {
     const { lang, handleChangeLanguage, translate, location } = useContext(UseToggleDarkMode)
     const { mode, toggleMode } = useThemeMode(); // Get the current mode and the toggle function
 
+    const { user } = useSelector(state => state.auth)
     return (
         <div className="mt-14 lg:mt-18">
             <div className="fixed top-0 left-0 right-0 z-10 w-full dark:bg-Dark-backgroundPri bg-Light-backgroundPri shadow-md">
@@ -58,11 +60,13 @@ export default function NavBar() {
                             </div>
                         </div>
 
-                        {/* <div className="hidden md:flex justify-end ">
-                            <LoginButton />
-                        </div> */}
-                        <ProfileDropdown />
-
+                        {user ?
+                            <ProfileDropdown userName={user?.userName} email={user?.email} />
+                            :
+                            <div className="hidden md:flex justify-end ">
+                                <LoginButton />
+                            </div>
+                        }
 
                         <Navbar.Toggle />
                     </div>

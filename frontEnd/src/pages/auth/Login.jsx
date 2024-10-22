@@ -5,6 +5,8 @@ import AuthBody from "./AuthBody";
 import { toast } from "react-toastify";
 import { InputAuthForm } from "../../components/formControls/InputsForm";
 import DefaultButton from "../../components/formControls/ButtonsForm";
+import { useDispatch } from "react-redux"
+import { loginUser } from "../../redux/apiCalls/authApiCall";
 
 export default function Login() {
     const { translate } = useContext(UseToggleDarkMode);
@@ -12,6 +14,7 @@ export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+    const dispatch = useDispatch()
     const validateEmail = (email) => {
         // Basic email format validation using regex
         const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
@@ -33,7 +36,8 @@ export default function Login() {
             return toast.error(translate("validateMessage:passwordInvalid"));
         }
 
-        console.log({ email, password });
+        // console.log({ email, password });
+        dispatch(loginUser({ email, password }))
     };
 
     return (

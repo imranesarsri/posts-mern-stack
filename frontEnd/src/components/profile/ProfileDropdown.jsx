@@ -4,7 +4,7 @@ import { HiCog, HiLogout, HiViewGrid } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import { UseToggleDarkMode } from "../../App";
 
-export default function ProfileDropdown() {
+export default function ProfileDropdown(params) {
     const { translate } = useContext(UseToggleDarkMode);
 
     return (
@@ -20,8 +20,12 @@ export default function ProfileDropdown() {
 
             <Dropdown id="dropdownClick" inline>
                 <Dropdown.Header>
-                    <span className="block text-sm">Imrane Sarsri</span>
-                    <span className="block truncate text-sm font-medium">imrane@example.com</span>
+                    <span className="block text-sm">
+                        {params.userName}
+                    </span>
+                    <span className="block truncate text-sm font-medium">
+                        {params.email}
+                    </span>
                 </Dropdown.Header>
                 <Link to="admin/dashboard">
                     <Dropdown.Item icon={HiViewGrid}>{translate("navBar:dashboard")}</Dropdown.Item>
