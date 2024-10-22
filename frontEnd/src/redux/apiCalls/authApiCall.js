@@ -12,7 +12,20 @@ export function loginUser(user) {
             toast.success('Login successful!')
         } catch (e) {
             toast.error(e.response.data.message)
-            console.log(e)
+        }
+    }
+}
+
+// Login user
+export function regesterUser(user) {
+    return async (dispatch) => {
+        try {
+            const { data } = await request.post('/api/auth/register', user)
+            dispatch(authActions.regester(data))
+            localStorage.setItem("userInfo", JSON.stringify(data))
+            toast.success('regester successful!')
+        } catch (e) {
+            toast.error(e.response.data.message)
         }
     }
 }

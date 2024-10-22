@@ -14,6 +14,9 @@ const authSlice = createSlice({
         login(state, action) {
             state.user = action.payload
         },
+        regester(state, action) {
+            state.user = action.payload
+        },
         signOut(state) {
             state.user = null
         }

@@ -5,8 +5,11 @@ import AuthBody from "./AuthBody";
 import { toast } from "react-toastify";
 import { InputAuthForm } from "../../components/formControls/InputsForm";
 import DefaultButton from "../../components/formControls/ButtonsForm";
+import { useDispatch } from "react-redux"
+import { regesterUser } from "../../redux/apiCalls/authApiCall";
 
 export default function Register() {
+    const dispatch = useDispatch()
     const { translate } = useContext(UseToggleDarkMode);
     const [userName, setUserName] = useState("");
     const [email, setEmail] = useState("");
@@ -39,7 +42,8 @@ export default function Register() {
             return toast.error(translate("validateMessage:passwordInvalid"));
         }
 
-        console.log({ userName, email, password });
+        // console.log({ userName, email, password });
+        dispatch(regesterUser({ userName, email, password }))
     };
     return (
         <AuthBody title={translate("register:registerTitle")}>
