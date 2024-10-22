@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import Swal from "sweetalert2";
-import { UseToggleDarkMode } from "../../App";
+import { UseToggleDarkMode } from "../../main";
 
 export default function ModalUpdate({ comment, setTextComment, onUpdate }) {
     const { translate } = useContext(UseToggleDarkMode); // Context for translation

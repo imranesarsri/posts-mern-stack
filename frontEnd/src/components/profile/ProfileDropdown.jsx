@@ -2,9 +2,9 @@ import { Avatar, Dropdown } from "flowbite-react";
 import { useContext } from "react";
 import { HiCog, HiLogout, HiViewGrid } from "react-icons/hi";
 import { Link } from "react-router-dom";
-import { UseToggleDarkMode } from "../../App";
 import { signOutUser } from "../../redux/apiCalls/authApiCall";
 import { useDispatch } from "react-redux";
+import { UseToggleDarkMode } from "../../main";
 
 export default function ProfileDropdown(params) {
     const { translate } = useContext(UseToggleDarkMode);

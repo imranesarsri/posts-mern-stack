@@ -1,11 +1,12 @@
 import { useContext } from "react";
-import { UseToggleDarkMode } from "../../App";
 import { Link } from "react-router-dom";
 import { InputSearchForm } from "../formControls/InputsForm";
+import { UseToggleDarkMode } from "../../main";
+
 
 export default function SearchAndFilter(params) {
     const { translate } = useContext(UseToggleDarkMode);
-    console.log(`ddddddd ${params.activeLink}`);
+    console.log(` ${params.activeLink}`);
 
     return (
         <div className="lg:order-last mb-5 sm:mb-8 md:mb-10 lg:mb-0">

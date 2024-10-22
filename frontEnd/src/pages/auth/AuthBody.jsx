@@ -1,6 +1,6 @@
 import { useThemeMode } from "flowbite-react";
 import { useContext } from "react";
-import { UseToggleDarkMode } from "../../App";
+import { UseToggleDarkMode } from "../../main";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 
@@ -15,7 +15,7 @@ export default function AuthBody(params) {
 
     return (
         <section className="bg-Light-backgroundSec dark:bg-Dark-backgroundSec">
-            
+
             <div className="flex flex-col items-center justify-center px-4 py-8 mx-auto md:h-screen lg:py-0">
                 <Link
                     to="/"

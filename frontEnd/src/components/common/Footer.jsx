@@ -1,10 +1,10 @@
 import { useThemeMode } from "flowbite-react";
 import { useContext } from "react";
-import { UseToggleDarkMode } from "../../App";
 import { Link } from "react-router-dom";
 import { FaGithub, FaHome, FaLinkedinIn } from "react-icons/fa";
 import { MdContacts, MdLibraryBooks } from "react-icons/md";
 import { FcAbout } from "react-icons/fc";
+import { UseToggleDarkMode } from "../../main";
 
 export default function Footer() {
     const { translate } = useContext(UseToggleDarkMode)

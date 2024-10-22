@@ -3,11 +3,11 @@ import { HiArrowSmRight, HiChartPie, HiInbox, HiOutlineMinusSm, HiOutlinePlusSm,
 import { twMerge } from "tailwind-merge";
 import { Navbar } from "flowbite-react";
 import { useContext } from "react";
-import { UseToggleDarkMode } from "../../../App";
 import Flag from "react-flagkit";
 import ProfileDropdown from "../../profile/ProfileDropdown";
 import { FaRegMoon, FaRegSun } from "react-icons/fa";
 import { RiMenuFoldLine } from "react-icons/ri";
+import { UseToggleDarkMode } from "../../../main";
 // import { RiMenuUnfoldLine } from "react-icons/ri";
 
 

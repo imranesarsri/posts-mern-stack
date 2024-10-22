@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import Swal from "sweetalert2";
-import { UseToggleDarkMode } from "../../App";
+import { UseToggleDarkMode } from "../../main";
 
 export default function ModalDelete(params) {
     const { translate } = useContext(UseToggleDarkMode); // Context for translation

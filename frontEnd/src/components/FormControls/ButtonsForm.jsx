@@ -1,6 +1,7 @@
 import { useContext } from "react"
-import { UseToggleDarkMode } from "../../App"
 import { Link } from "react-router-dom"
+import { UseToggleDarkMode } from "../../main"
+
 
 export default function DefaultButton(params) {
     return (

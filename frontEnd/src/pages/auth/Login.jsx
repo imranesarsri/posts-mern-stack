@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
-import { UseToggleDarkMode } from "../../App";
+import { UseToggleDarkMode } from "../../main";
 import AuthBody from "./AuthBody";
 import { toast } from "react-toastify";
 import { InputAuthForm } from "../../components/formControls/InputsForm";

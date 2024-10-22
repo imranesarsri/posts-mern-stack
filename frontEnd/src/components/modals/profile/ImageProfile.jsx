@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import DefaultButton from "../../formControls/ButtonsForm";
 import ModalApp from "../ModalApp";
-import { UseToggleDarkMode } from "../../../App";
+import { UseToggleDarkMode } from "../../../main";
 import InputFileForm from "../../formControls/InputFileForm";
 
 export default function ImageProfile(params) {

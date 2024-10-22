@@ -1,6 +1,5 @@
 import { Navbar } from "flowbite-react";
 import { useContext } from "react";
-import { UseToggleDarkMode } from "../../App"
 import { useThemeMode } from 'flowbite-react';
 import { FaRegSun, FaRegMoon } from "react-icons/fa";
 import Flag from 'react-flagkit';
@@ -12,11 +11,12 @@ import { GiNotebook } from "react-icons/gi";
 import { LoginButton } from "../formControls/ButtonsForm";
 import ProfileDropdown from "../profile/ProfileDropdown";
 import { useSelector } from "react-redux"
+import { UseToggleDarkMode } from "../../main";
 
 
 export default function NavBar() {
 
-    const { lang, handleChangeLanguage, translate, location } = useContext(UseToggleDarkMode)
+    const { lang, handleChangeLanguage, translate, path } = useContext(UseToggleDarkMode)
     const { mode, toggleMode } = useThemeMode(); // Get the current mode and the toggle function
 
     const { user } = useSelector(state => state.auth)
@@ -71,7 +71,7 @@ export default function NavBar() {
                         <Navbar.Toggle />
                     </div>
                     <Navbar.Collapse>
-                        <Navbar.Link className="rtl:md:ml-8 capitalize" active={location.pathname === '/'}>
+                        <Navbar.Link className="rtl:md:ml-8 capitalize" active={path === '/'}>
                             <Link to="/" className="flex ltr:space-x-2">
                                 <FaHome className="text-xl" />
                                 <span className="block rtl:mr-2">
@@ -80,7 +80,7 @@ export default function NavBar() {
                             </Link>
 
                         </Navbar.Link>
-                        <Navbar.Link className="capitalize" active={location.pathname === '/posts'}>
+                        <Navbar.Link className="capitalize" active={path === '/posts'}>
                             <Link to="/posts" className="flex ltr:space-x-2">
                                 <MdLibraryBooks className="text-xl" />
                                 <span className="block rtl:mr-2">
@@ -88,7 +88,7 @@ export default function NavBar() {
                                 </span>
                             </Link>
                         </Navbar.Link>
-                        <Navbar.Link className="capitalize" active={location.pathname === '/posts/create'}>
+                        <Navbar.Link className="capitalize" active={path === '/posts/create'}>
                             <Link to="/posts/create" className="flex ltr:space-x-2">
                                 <GiNotebook className="text-xl" />
                                 <span className="block rtl:mr-2">

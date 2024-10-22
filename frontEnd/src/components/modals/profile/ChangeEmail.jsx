@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
 import DefaultButton from "../../formControls/ButtonsForm";
 import ModalApp from "../ModalApp";
-import { UseToggleDarkMode } from "../../../App";
 import InputForm from "../../formControls/InputsForm";
+import { UseToggleDarkMode } from "../../../main";
 
 export default function ChangeEmail(params) {
     const [changeEmail, setChangeEmail] = useState("sarsri.imrane@gmail.com");
