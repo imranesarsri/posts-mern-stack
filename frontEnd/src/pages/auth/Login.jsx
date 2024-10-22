@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { UseToggleDarkMode } from "../../App";
 import AuthBody from "./AuthBody";
@@ -15,6 +15,9 @@ export default function Login() {
     const [password, setPassword] = useState("");
 
     const dispatch = useDispatch()
+    const navigate = useNavigate(); // Get the navigate function
+
+
     const validateEmail = (email) => {
         // Basic email format validation using regex
         const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
@@ -36,8 +39,12 @@ export default function Login() {
             return toast.error(translate("validateMessage:passwordInvalid"));
         }
 
+
         // console.log({ email, password });
-        dispatch(loginUser({ email, password }))
+        dispatch(loginUser({ email, password })).then(() => {
+            // Handle navigation after login success
+            navigate('/');
+        });
     };
 
     return (

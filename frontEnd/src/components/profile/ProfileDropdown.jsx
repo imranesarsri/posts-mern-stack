@@ -3,10 +3,12 @@ import { useContext } from "react";
 import { HiCog, HiLogout, HiViewGrid } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import { UseToggleDarkMode } from "../../App";
+import { signOutUser } from "../../redux/apiCalls/authApiCall";
+import { useDispatch } from "react-redux";
 
 export default function ProfileDropdown(params) {
     const { translate } = useContext(UseToggleDarkMode);
-
+    const dispatch = useDispatch()
     return (
         <div className="flex">
             <div
@@ -34,7 +36,7 @@ export default function ProfileDropdown(params) {
                     <Dropdown.Item icon={HiCog}>{translate("navBar:profile")}</Dropdown.Item>
                 </Link>
                 <Dropdown.Divider />
-                <Dropdown.Item icon={HiLogout}>{translate("navBar:signOut")}</Dropdown.Item>
+                <Dropdown.Item onClick={() => { dispatch(signOutUser()) }} icon={HiLogout}>{translate("navBar:signOut")}</Dropdown.Item>
             </Dropdown>
         </div>
     )
