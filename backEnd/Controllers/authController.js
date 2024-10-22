@@ -36,7 +36,7 @@ const register = asyncHandler(async (req, res) => {
 
     // Create token
     const token = newUser.generateToken()
-    const { password, isAdmin, ...other } = result._doc;
+    const { password, ...other } = result._doc;
 
     // Send a response to client
     return res.status(201).json({ ...other, token });
@@ -74,7 +74,7 @@ const login = asyncHandler(async (req, res) => {
 
     // generate token
     const token = user.generateToken()
-    const { password, isAdmin, ...other } = user._doc;
+    const { password, ...other } = user._doc;
 
     // Send a response to client
     return res.status(201).json({ ...other, token })

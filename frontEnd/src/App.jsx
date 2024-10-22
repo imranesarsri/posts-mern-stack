@@ -1,4 +1,3 @@
-import './config/i18nConfig';
 import Home from "./pages/Home";
 import Main from "./components/layouts/Main";
 import Login from "./pages/auth/Login";
@@ -21,11 +20,9 @@ import SideBar from "./components/common/admin/SideBar";
 import { useSelector } from "react-redux"
 
 
-
 function App(params) {
 
   const { user } = useSelector(state => state.auth)
-
   const location = useLocation();
   const path = location.pathname
 
@@ -37,7 +34,7 @@ function App(params) {
       {path.startsWith('/admin/') && (
         <SideBar>
           <Routes>
-            <Route path="/admin/dashboard" element={<Dashboard />} />
+            <Route path="/admin/dashboard" element={user?.isAdmin ? <Dashboard /> : <Navigate to="/" />} />
             <Route path="*" element={<Error404 path="admin" />} />
             {/* Add more admin routes here if needed */}
           </Routes>
@@ -53,7 +50,7 @@ function App(params) {
         {/* Posts and Profile Routes */}
         <Route path="posts">
           <Route index element={<Post />} />
-          <Route path="create" element={<CreatePost />} />
+          <Route path="create" element={user ? <CreatePost /> : <Navigate to="/login" />} />
           <Route path="update/:id" element={<UpdatePost />} />
           <Route path="details/:id" element={<PostDetails />} />
           <Route path="category/:category" element={<Category />} />
@@ -72,7 +69,7 @@ function App(params) {
       {(location.pathname !== '/login' && location.pathname !== '/register') && <Footer />}
     </Main>
   );
-
 }
+
 
 export default App;

@@ -1,3 +1,6 @@
+import './config/i18nConfig.js';
+import i18n from "i18next";
+import cookies from 'js-cookie';
 import { StrictMode, useEffect, useState, createContext } from 'react';
 import { createRoot } from 'react-dom/client';
 import 'react-toastify/dist/ReactToastify.css';
@@ -7,8 +10,7 @@ import { BrowserRouter, useLocation } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './redux/store.js';
 import { Flowbite } from 'flowbite-react';
-import i18n from "i18next";
-import cookies from 'js-cookie';
+
 
 // Use Context
 export const UseToggleDarkMode = createContext(null);

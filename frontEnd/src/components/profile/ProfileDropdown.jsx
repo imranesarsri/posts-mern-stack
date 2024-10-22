@@ -3,12 +3,15 @@ import { useContext } from "react";
 import { HiCog, HiLogout, HiViewGrid } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import { signOutUser } from "../../redux/apiCalls/authApiCall";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { UseToggleDarkMode } from "../../main";
 
+
 export default function ProfileDropdown(params) {
+    const { user } = useSelector(state => state.auth)
     const { translate } = useContext(UseToggleDarkMode);
     const dispatch = useDispatch()
+
     return (
         <div className="flex">
             <div
@@ -30,7 +33,11 @@ export default function ProfileDropdown(params) {
                     </span>
                 </Dropdown.Header>
                 <Link to="admin/dashboard">
-                    <Dropdown.Item icon={HiViewGrid}>{translate("navBar:dashboard")}</Dropdown.Item>
+                    {
+                        user?.isAdmin && (
+                            <Dropdown.Item icon={HiViewGrid}>{translate("navBar:dashboard")}</Dropdown.Item>
+                        )
+                    }
                 </Link>
                 <Link to="profile">
                     <Dropdown.Item icon={HiCog}>{translate("navBar:profile")}</Dropdown.Item>
