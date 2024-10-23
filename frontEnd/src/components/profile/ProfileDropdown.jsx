@@ -1,14 +1,16 @@
-import { Avatar, Dropdown } from "flowbite-react";
+import { Dropdown } from "flowbite-react";
 import { useContext } from "react";
 import { HiCog, HiLogout, HiViewGrid } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import { signOutUser } from "../../redux/apiCalls/authApiCall";
 import { useDispatch, useSelector } from "react-redux";
 import { UseToggleDarkMode } from "../../App";
+import AvatarRounded from "../Avatars/AvatarRounded";
 
 
 export default function ProfileDropdown(params) {
     const { user } = useSelector(state => state.auth)
+    const { profile } = useSelector(state => state.profile)
     const { translate } = useContext(UseToggleDarkMode);
     const dispatch = useDispatch()
 
@@ -20,7 +22,7 @@ export default function ProfileDropdown(params) {
                 aria-hidden="true"
                 className="flex flex-wrap gap-2 items-center cursor-pointer"
             >
-                <Avatar img="/images/user-avatar.png" alt="avatar of Jese" rounded />
+                <AvatarRounded src={profile?.profilePhoto.url} alt="avatar of profile" />
             </div>
 
             <Dropdown id="dropdownClick" inline>

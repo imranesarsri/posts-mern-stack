@@ -25,7 +25,7 @@ export function UploadProfileImage(newImage) {
             const { data } = await request
                 .post(`/api/users/profile-photo-upload`, newImage, {
                     headers: {
-                        token: `Bearer ${token}`,
+                        token: `${token}`,
                         "Content-Type": "multipart/form-data"
                     }
                 })

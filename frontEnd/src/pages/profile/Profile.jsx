@@ -45,9 +45,9 @@ export default function Profile() {
                         </div>
                         <div className="absolute -bottom-16 ltr:left-5 rtl:right-5">
                             <img
-                                className="w-40 h-40 rounded-full border-4 border-Light-backgroundPri dark:border-Dark-backgroundPri"
+                                className="w-40 h-40 rounded-full border-4 border-Light-backgroundPri dark:border-Dark-backgroundPri object-cover shadow-lg"
                                 src={profile?.profilePhoto.url}
-                                alt=""
+                                alt="Profile Image"
                             />
                             <div onClick={() => setOpenModalImageProfile(true)} className="absolute top-16 ltr:-right-5 rtl:-left-5 bg-Light-backgroundPri dark:bg-Dark-backgroundPri ltr:pr-1 rtl:pl-1 ltr:pl-3 rtl:pr-3 py-3 ltr:mr-2 rtl:ml-2 mt-2 rounded-full cursor-pointer hover:text-Light-primary dark:hover:text-Dark-primary">
                                 <FaPenAlt className="ltr:mr-2 rtl:ml-2 capitalize text-lg" />
@@ -144,7 +144,7 @@ export default function Profile() {
             <div>
                 <h2 className="text-3xl uppercase font-bold mb-5">
                     <span className="text-Light-primary dark:text-Dark-primary">
-                        email={profile?.userName}{" "}
+                        {profile?.userName}{" "}
                     </span>
                     posts
                 </h2>
