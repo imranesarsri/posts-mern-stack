@@ -1,6 +1,6 @@
 import { useContext } from "react"
 import { LoginButton, RegisterButton } from "../formControls/ButtonsForm"
-import { UseToggleDarkMode } from "../../main"
+import { UseToggleDarkMode } from "../../App"
 
 
 export default function Hero() {

@@ -6,7 +6,7 @@ import { Dropdown } from "flowbite-react";
 import ModalUpdate from "../modals/ModalUpdate";
 import { useNavigate } from "react-router-dom"; // Use useNavigate instead of useHistory
 import ModalDelete from "../modals/ModalDelete";
-import { UseToggleDarkMode } from "../../main";
+import { UseToggleDarkMode } from "../../App";
 
 
 export default function DropdownForm(params) {

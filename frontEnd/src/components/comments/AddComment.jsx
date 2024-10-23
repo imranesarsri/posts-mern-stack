@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import AvatarSquare from "../profile/AvatarSquare";
 import { toast } from "react-toastify";
 import { InputCommentForm } from "../formControls/InputsForm";
-import { UseToggleDarkMode } from "../../main";
+import { UseToggleDarkMode } from "../../App";
 
 export default function AddComment() {
     const [addComment, setAddComment] = useState("");

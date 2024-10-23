@@ -11,7 +11,7 @@ import { GiNotebook } from "react-icons/gi";
 import { LoginButton } from "../formControls/ButtonsForm";
 import ProfileDropdown from "../profile/ProfileDropdown";
 import { useSelector } from "react-redux"
-import { UseToggleDarkMode } from "../../main";
+import { UseToggleDarkMode } from "../../App";
 
 
 export default function NavBar() {

@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { UseToggleDarkMode } from "../../main";
+import { UseToggleDarkMode } from "../../App";
 
 export default function ShowMore(params) {
     const location = useLocation();

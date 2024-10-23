@@ -1,5 +1,5 @@
 import { useContext, useState, useEffect } from "react";
-import { UseToggleDarkMode } from "../../main";
+import { UseToggleDarkMode } from "../../App";
 import { toast } from "react-toastify";
 import InputForm from "../../components/formControls/InputsForm.jsx";
 import SelectForm from "../../components/formControls/SelectForm.jsx";

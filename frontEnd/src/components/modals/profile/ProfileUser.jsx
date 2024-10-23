@@ -5,7 +5,7 @@ import InputForm from "../../formControls/InputsForm";
 import TextareaForm from "../../formControls/TextareaForm";
 import DefaultButton from "../../formControls/ButtonsForm";
 import ModalApp from "../ModalApp";
-import { UseToggleDarkMode } from "../../../main";
+import { UseToggleDarkMode } from "../../../App";
 
 export default function ProfileUser(params) {
 

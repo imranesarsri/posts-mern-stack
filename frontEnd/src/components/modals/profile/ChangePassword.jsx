@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import ModalApp from "../ModalApp";
-import { UseToggleDarkMode } from "../../../main";
+import { UseToggleDarkMode } from "../../../App";
 import DefaultButton from "../../formControls/ButtonsForm";
 import InputForm from "../../formControls/InputsForm";
 import { Label } from "flowbite-react";

@@ -4,7 +4,7 @@ import { HiCog, HiLogout, HiViewGrid } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import { signOutUser } from "../../redux/apiCalls/authApiCall";
 import { useDispatch, useSelector } from "react-redux";
-import { UseToggleDarkMode } from "../../main";
+import { UseToggleDarkMode } from "../../App";
 
 
 export default function ProfileDropdown(params) {

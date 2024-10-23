@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
-import { UseToggleDarkMode } from "../main";
+import { UseToggleDarkMode } from "../App";
 
 export default function Error404(params) {
 

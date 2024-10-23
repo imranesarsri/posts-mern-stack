@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { FaGithub, FaHome, FaLinkedinIn } from "react-icons/fa";
 import { MdContacts, MdLibraryBooks } from "react-icons/md";
 import { FcAbout } from "react-icons/fc";
-import { UseToggleDarkMode } from "../../main";
+import { UseToggleDarkMode } from "../../App";
 
 export default function Footer() {
     const { translate } = useContext(UseToggleDarkMode)

@@ -1,6 +1,6 @@
 import { useThemeMode } from "flowbite-react";
 import { useContext } from "react";
-import { UseToggleDarkMode } from "../../main";
+import { UseToggleDarkMode } from "../../App";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 
