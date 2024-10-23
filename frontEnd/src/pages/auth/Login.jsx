@@ -41,10 +41,7 @@ export default function Login() {
 
 
         // console.log({ email, password });
-        dispatch(loginUser({ email, password })).then(() => {
-            // Handle navigation after login success
-            navigate('/');
-        });
+        dispatch(loginUser({ email, password }, navigate))
     };
 
     return (

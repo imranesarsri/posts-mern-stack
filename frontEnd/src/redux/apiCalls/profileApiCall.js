@@ -13,3 +13,27 @@ export function getUserProfile(userID) {
         }
     }
 }
+
+
+// Upload profile image
+export function UploadProfileImage(newImage) {
+    return async (dispatch, getState) => {
+        try {
+            const token = getState().auth.user.token;
+            console.log('Token being sent:', token);  // Log the token
+
+            const { data } = await request
+                .post(`/api/users/profile-photo-upload`, newImage, {
+                    headers: {
+                        token: `Bearer ${token}`,
+                        "Content-Type": "multipart/form-data"
+                    }
+                })
+
+            dispatch(profileActions.setProfileImage(data.profilePhoto))
+            toast.success(data.message)
+        } catch (e) {
+            toast.error(e.response.data.message)
+        }
+    }
+}

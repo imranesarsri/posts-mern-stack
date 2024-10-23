@@ -3,13 +3,14 @@ import { authActions } from '../slices/authSlice'
 import { toast } from 'react-toastify'
 
 // Login user
-export function loginUser(user) {
+export function loginUser(user, navigate) {
     return async (dispatch) => {
         try {
             const { data } = await request.post('/api/auth/login', user)
             dispatch(authActions.login(data))
             localStorage.setItem("userInfo", JSON.stringify(data))
             toast.success('Login successful!')
+            navigate('/');
         } catch (e) {
             toast.error(e.response.data.message)
         }

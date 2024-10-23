@@ -19,19 +19,13 @@ import { useParams } from "react-router-dom"
 
 export default function Profile() {
 
-    const { userId } = useParams()
+    const { id } = useParams()
     const dispatch = useDispatch()
     const { profile } = useSelector(state => state.profile)
     useEffect(() => {
-        dispatch(getUserProfile(userId))
+        dispatch(getUserProfile(id))
         window.scrollTo(0, 0);
-    }, [userId]);
-
-    const formattedDate = new Date(profile?.createdAt).toLocaleDateString('en-CA', {
-        year: 'numeric',
-        month: '2-digit',
-        day: '2-digit',
-    }).replace(/-/g, '/');
+    }, [id]);
 
 
     // Change user information 
