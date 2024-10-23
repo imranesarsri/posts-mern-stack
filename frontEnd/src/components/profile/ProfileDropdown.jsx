@@ -10,7 +10,6 @@ import AvatarRounded from "../Avatars/AvatarRounded";
 
 export default function ProfileDropdown(params) {
     const { user } = useSelector(state => state.auth)
-    const { profile } = useSelector(state => state.profile)
     const { translate } = useContext(UseToggleDarkMode);
     const dispatch = useDispatch()
 
@@ -22,7 +21,7 @@ export default function ProfileDropdown(params) {
                 aria-hidden="true"
                 className="flex flex-wrap gap-2 items-center cursor-pointer"
             >
-                <AvatarRounded src={profile?.profilePhoto.url} alt="avatar of profile" />
+                <AvatarRounded src={user?.profilePhoto?.url} alt="avatar of profile" />
             </div>
 
             <Dropdown id="dropdownClick" inline>

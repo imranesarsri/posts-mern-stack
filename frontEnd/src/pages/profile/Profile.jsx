@@ -19,21 +19,20 @@ import { useParams } from "react-router-dom"
 
 export default function Profile() {
 
-    const { id } = useParams()
-    const dispatch = useDispatch()
-    const { profile } = useSelector(state => state.profile)
-    useEffect(() => {
-        dispatch(getUserProfile(id))
-        window.scrollTo(0, 0);
-    }, [id]);
-
-
     // Change user information 
     const [openModalProfileUser, setOpenModalProfileUser] = useState(false);
     const [openModalBackgroundImage, setOpenModalBackgroundImage] = useState(false);
     const [openModalImageProfile, setOpenModalImageProfile] = useState(false);
     const [openModalChangeEmail, setOpenModalChangeEmail] = useState(false);
     const [openModalChangePassword, setOpenModalChangePassword] = useState(false);
+
+    const { id } = useParams()
+    const dispatch = useDispatch()
+    const { profile } = useSelector(state => state.profile)
+    useEffect(() => {
+        dispatch(getUserProfile(id))
+        window.scrollTo(0, 0);
+    }, [id, openModalImageProfile]);
 
     return (
         <div className="p-5 sm:p-10 md:p-15 lg:p-20 flex flex-col gap-10">
