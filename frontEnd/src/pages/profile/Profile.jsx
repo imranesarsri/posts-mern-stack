@@ -32,7 +32,7 @@ export default function Profile() {
     useEffect(() => {
         dispatch(getUserProfile(id))
         window.scrollTo(0, 0);
-    }, [id, openModalImageProfile]);
+    }, [id, openModalImageProfile, openModalProfileUser]);
 
     return (
         <div className="p-5 sm:p-10 md:p-15 lg:p-20 flex flex-col gap-10">
@@ -45,7 +45,7 @@ export default function Profile() {
                         <div className="absolute -bottom-16 ltr:left-5 rtl:right-5">
                             <img
                                 className="w-40 h-40 rounded-full border-4 border-Light-backgroundPri dark:border-Dark-backgroundPri object-cover shadow-lg"
-                                src={profile?.profilePhoto.url}
+                                src={profile?.profilePhoto?.url}
                                 alt="Profile Image"
                             />
                             <div onClick={() => setOpenModalImageProfile(true)} className="absolute top-16 ltr:-right-5 rtl:-left-5 bg-Light-backgroundPri dark:bg-Dark-backgroundPri ltr:pr-1 rtl:pl-1 ltr:pl-3 rtl:pr-3 py-3 ltr:mr-2 rtl:ml-2 mt-2 rounded-full cursor-pointer hover:text-Light-primary dark:hover:text-Dark-primary">
@@ -59,10 +59,10 @@ export default function Profile() {
                                 {profile?.userName}
                             </h2>
                             <h3 className="capitalize text-base md:text-lg font-semibold">
-                                full stack web development
+                                {profile?.bio}
                             </h3>
                             <h4 className="capitalize text-md md:text-base font-normal">
-                                Tangier, Morocco
+                                {profile?.profile?.city}, {profile?.profile?.country}
                             </h4>
                             <p className="capitalize text-sm md:text-md font-medium mt-2">
                                 <span>Date joined :</span>
@@ -121,24 +121,18 @@ export default function Profile() {
 
                     <div className="px-5 pb-10">
                         <p className="text-justify">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
-                            porro nesciunt, tempore dolorum temporibus soluta dolore aperiam
-                            totam impedit id a quisquam consectetur atque eum ipsam Lorem
-                            ipsum dolor sit amet consectetur adipisicing elit. Aliquid porro
-                            nesciunt, tempore dolorum temporibus soluta dolore aperiam totam
-                            impedit id a quisquam consectetur atque eum ipsam tenetur quae
-                            debitis quos!
+                            {profile?.profile?.description}
                         </p>
                     </div>
                 </div>
             </div>
 
             {/* Models */}
-            <ProfileUser openModal={openModalProfileUser} setOpenModal={setOpenModalProfileUser} />
-            <BackgroundImage openModal={openModalBackgroundImage} setOpenModal={setOpenModalBackgroundImage} />
-            <ImageProfile openModal={openModalImageProfile} setOpenModal={setOpenModalImageProfile} />
-            <ChangeEmail openModal={openModalChangeEmail} setOpenModal={setOpenModalChangeEmail} email={profile?.email} />
-            <ChangePassword openModal={openModalChangePassword} setOpenModal={setOpenModalChangePassword} />
+            <ProfileUser profile={profile} openModal={openModalProfileUser} setOpenModal={setOpenModalProfileUser} />
+            <BackgroundImage profile={profile} openModal={openModalBackgroundImage} setOpenModal={setOpenModalBackgroundImage} />
+            <ImageProfile profile={profile} openModal={openModalImageProfile} setOpenModal={setOpenModalImageProfile} />
+            <ChangeEmail profile={profile} openModal={openModalChangeEmail} setOpenModal={setOpenModalChangeEmail} email={profile?.email} />
+            <ChangePassword profile={profile} openModal={openModalChangePassword} setOpenModal={setOpenModalChangePassword} />
 
             <div>
                 <h2 className="text-3xl uppercase font-bold mb-5">

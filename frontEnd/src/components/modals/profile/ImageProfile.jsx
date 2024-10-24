@@ -1,31 +1,54 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import DefaultButton from "../../formControls/ButtonsForm";
 import ModalApp from "../ModalApp";
 import { UseToggleDarkMode } from "../../../App";
 import InputFileForm from "../../formControls/InputFileForm";
 import { useDispatch } from "react-redux"
 import { UploadProfileImage } from "../../../redux/apiCalls/profileApiCall";
-export default function ImageProfile(params) {
-    const [profileImage, setProfileImage] = useState("/images/user-avatar.png");
-    const dispatch = useDispatch()
 
+
+export default function ImageProfile(params) {
+
+    // Hooks and State
+    const { translate } = useContext(UseToggleDarkMode);
+    const [profileImage, setProfileImage] = useState(""); // Default is empty
+    const dispatch = useDispatch();
+
+    // UseEffect to update state when params.profile changes
+    useEffect(() => {
+        if (params.profile) {
+            setProfileImage(params.profile?.profilePhoto?.url || '/images/user-avatar.png');
+        }
+    }, [params.profile]);
+
+    // Close Modal Function
     function onCloseModal() {
         params.setOpenModal(false);
     }
 
-    const { translate } = useContext(UseToggleDarkMode)
+    // Form Submit Handler
+    const formSubmitHandler = (e) => {
+        e.preventDefault();
 
-    function handlerImageProfile() {
+        if (!profileImage) {
+            return alert("Please select a profile image.");
+        }
+
         const formData = new FormData()
         formData.append('image', profileImage)
         dispatch(UploadProfileImage(formData))
+
+        // Optionally close the modal after successful upload
+        // onCloseModal();
     }
+
 
     return (
         <ModalApp
             openModal={params.openModal}
             onCloseModal={onCloseModal}
             title={translate('modalsProfilePage:titleModelImageProfile')}
+            onSubmit={formSubmitHandler}
         >
             {/* Image profile */}
             <div>
@@ -47,7 +70,6 @@ export default function ImageProfile(params) {
             </div>
             <div className="w-full">
                 <DefaultButton
-                    onClick={handlerImageProfile}
                     title={translate('modalsProfilePage:button')}
                 />
             </div>

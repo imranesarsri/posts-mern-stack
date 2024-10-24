@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { verifyToken, verifyTokenAndAuthorization, verifyTokenAndAdmin, verifyTokenAndOnlyUser } = require('../middlewares/verifyToken');
-const { getAllUsers, getUser, getUsersCountCtrl, profilePhotoUpload, updateUser, deleteUserProfile } = require('../Controllers/usersController')
+const { getAllUsers, getUser, getUsersCountCtrl, profilePhotoUpload, updateUser, deleteUserProfile, profileBackgroundImageUpload } = require('../Controllers/usersController')
 const { validateUserID } = require('../middlewares/validateUserId')
 const photoUpload = require('../middlewares/photoUpload')
 
@@ -12,8 +12,11 @@ router.get('/', verifyTokenAndAdmin, getAllUsers)
 // Get count users
 router.get('/count', verifyTokenAndAdmin, getUsersCountCtrl)
 
-// Update profile photo
+// Update profile image
 router.post('/profile-photo-upload', verifyToken, photoUpload.single('image'), profilePhotoUpload)
+
+// Update backgound image
+router.put('/profile-background-image-upload', verifyToken, photoUpload.single('image'), profileBackgroundImageUpload);
 
 /**
  * Get User By ID

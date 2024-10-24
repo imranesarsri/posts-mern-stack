@@ -13,6 +13,9 @@ const profileSlice = createSlice({
         },
         setProfileImage(state, action) {
             state.profile.profileImage = action.payload
+        },
+        updateProfile(state, action) {
+            state.profile = action.payload
         }
     }
 })

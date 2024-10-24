@@ -43,6 +43,15 @@ const UserSchema = mongoose.Schema({
     toObject: { virtuals: true }
 })
 
+
+// Virtual to reference Profile
+UserSchema.virtual('profile', {
+    ref: 'Profile',
+    localField: '_id',
+    foreignField: 'user',
+    justOne: true, // 1-to-1 relationship
+});
+
 // Populate Posts That Belongs To This User When he/she Get his/her Profile
 UserSchema.virtual("posts", {
     ref: "Post",
@@ -81,8 +90,6 @@ function validationLoginUser(obj) {
 function validationUpdateUser(obj) {
     const schema = Joi.object({
         userName: Joi.string().trim().min(3).max(100),
-        email: Joi.string().trim().min(3).max(100).email(),
-        password: Joi.string().trim().min(8),
         bio: Joi.string(),
     })
     return schema.validate(obj)

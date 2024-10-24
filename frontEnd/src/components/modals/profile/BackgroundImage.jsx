@@ -24,9 +24,9 @@ export default function BackgroundImage(params) {
         >
             {/* Image profile */}
             <div>
-                <div className="mb-2 flex justify-center" >
+                <div className="mb-2 ">
                     <img
-                        className="block w-full h-36"
+                        className="block "
                         src={
                             profileImage && (profileImage instanceof Blob || profileImage instanceof File)
                                 ? URL.createObjectURL(profileImage)
@@ -36,10 +36,12 @@ export default function BackgroundImage(params) {
                         }
                         alt="Profile"
                     />
-
                 </div>
-                <InputFileForm id="profileImage" onChange={(e) => setProfileImage(e.target.files[0])} />
+                <div>
+                    <InputFileForm id="profileImage" onChange={(e) => setProfileImage(e.target.files[0])} />
+                </div>
             </div>
+
             <div className="w-full">
                 <DefaultButton
                     title={translate('modalsProfilePage:button')}

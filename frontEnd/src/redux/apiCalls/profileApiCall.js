@@ -43,3 +43,27 @@ export function UploadProfileImage(newImage) {
         }
     }
 }
+
+// Update profile
+export function UpdateProfile(userID, profileData) {
+    return async (dispatch, getState) => {
+        try {
+            const token = getState().auth.user.token;
+            console.log(userID)
+            const { data } = await request.put(`/api/users/${userID}`, profileData, {
+                headers: {
+                    token: `${token}`,
+                }
+            })
+            dispatch(profileActions.updateProfile(data))
+            dispatch(authActions.setUserUserName(data.userName))
+            toast.success("Updated successfully")
+            // Update userName profile in localStorage
+            const user = JSON.parse(localStorage.getItem("userInfo"))
+            user.userName = data?.userName
+            localStorage.setItem("userInfo", JSON.stringify(user))
+        } catch (e) {
+            toast.error(e.response.data.message)
+        }
+    }
+}

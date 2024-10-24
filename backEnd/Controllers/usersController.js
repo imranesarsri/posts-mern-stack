@@ -6,6 +6,7 @@ const { cloudinaryUploadImage, cloudinaryRemoveImage, cloudinaryRemoveMultipleIm
 const fs = require('fs')
 const { Comment } = require("../models/Comment");
 const { Post } = require('../models/Post');
+const Profile = require('../models/Profile');
 
 
 /** ----------------------------------------------------------------- 
@@ -35,12 +36,19 @@ const getUser = asyncHandler(
         const { id } = req.params;
 
         // Find the user by ID, excluding the password and isAdmin fields
-        const user = await User.findById(id).select('-password -isAdmin').populate('posts');
+        const user = await User.findById(id)
+            .select('-password -isAdmin')
+            .populate('posts')
+            .populate('profile');  // Populating the profile field
 
         // If the user is found, return a 200 status with the user data
-        return res.status(200).json(user);
+        if (user) {
+            return res.status(200).json(user);
+        } else {
+            return res.status(404).json({ message: 'User not found' });
+        }
     }
-)
+);
 
 
 /**----------------------------------------------------------------- 
@@ -115,51 +123,163 @@ const profilePhotoUpload = asyncHandler(
 );
 
 
+
+/**----------------------------------------------------------------- 
+ * @desc Profile background image upload
+ * @route /profile-background-image-upload
+ * @method POST 
+ * @access private (only logged in user)
+    ---------------------------------------------------------------*/
+
+const profileBackgroundImageUpload = asyncHandler(
+    async (req, res) => {
+
+        // Validation: check if the file exists
+        if (!req.file) {
+            return res.status(400).json({ message: 'No file provided' });
+        }
+
+        // Get the path to the uploaded image
+        const imagePath = path.join(__dirname, `../upload/${req.file.filename}`);
+
+        // Upload the image to Cloudinary
+        const result = await cloudinaryUploadImage(imagePath);
+
+        // Get the User from the DB
+        const user = await User.findById(req.user.id).populate('profile');
+
+        // Ensure that the profile exists
+        if (!user.profile) {
+            return res.status(404).json({ message: 'User profile not found' });
+        }
+
+        // Delete the old background image if it exists
+        const backgroundImageID = user.profile.backgroundImage?.publicID;
+        if (backgroundImageID) {
+            await cloudinaryRemoveImage(backgroundImageID);
+        }
+
+        // Update the backgroundImage field in the profile schema
+        user.profile.backgroundImage = {
+            url: result.secure_url,
+            publicID: result.public_id
+        };
+
+        // Save the updated profile
+        await user.profile.save();
+
+        // Send response to the client
+        res.status(200).json({
+            message: 'Your background image was updated successfully',
+            backgroundImage: {
+                url: result.secure_url,
+                publicID: result.public_id
+            }
+        });
+
+        // Remove the uploaded image from the server
+        fs.unlinkSync(imagePath);
+    }
+);
+
+
+
 /** ----------------------------------------------------------------- 
  * @desc Update user
  * @route /users/:id
  * @method PUT 
  * @access private (Only user himself)
     --------------------------------------------------------------- */
-
 const updateUser = asyncHandler(async (req, res) => {
     const { id } = req.params;
-    const { email } = req.body;
+    const { userName, bio, city, country, description } = req.body;
 
-    // Validate the request body
-    const { error } = validationUpdateUser(req.body);
+    // Validate the request body for user details
+    const { error } = validationUpdateUser({ userName });
     if (error) {
         return res.status(400).json({ message: error.message });
     }
 
-    // Hash password if it is provided
-    if (req.body.password) {
-        const salt = await bcrypt.genSalt(10);
-        req.body.password = await bcrypt.hash(req.body.password, salt);
-    }
-
-    // Check if the email is already in use by another user
-    const emailExiste = await User.findOne({ email });
-    if (emailExiste && emailExiste._id.toString() !== id) {
-        return res.status(400).json({ message: 'This email is already in use by another user' });
-    }
-
-    // Update the user with the new details
+    // Find the user and update their User information
     const userUpdate = await User.findByIdAndUpdate(
         id,
         {
             $set: {
-                userName: req.body.userName,
-                email: req.body.email,
-                password: req.body.password,
-                bio: req.body.bio,
+                userName: userName,
+                // email: email,
+                // password: hashedPassword || undefined, // Only update if password is provided
+                bio: bio,
             },
         },
         { new: true }
     ).select('-password -isAdmin');
 
-    return res.status(200).json(userUpdate);
+    if (!userUpdate) {
+        return res.status(404).json({ message: 'User not found' });
+    }
+
+    // Find the associated profile and update Profile information
+    const profileUpdate = await Profile.findOneAndUpdate(
+        { user: id }, // Reference the user by their ID in the Profile schema
+        {
+            $set: {
+                city: city || undefined,
+                country: country || undefined,
+                description: description || undefined,
+            },
+        },
+        { new: true }
+    );
+
+    if (!profileUpdate) {
+        profileUpdate = await Profile.create({
+            user: id,
+            city: city || undefined,
+            country: country || undefined,
+            description: description || undefined,
+        })
+    }
+
+    return res.status(200).json({
+        user: userUpdate,
+        profile: profileUpdate
+    });
 });
+
+
+/** ----------------------------------------------------------------- 
+ * @desc update email user profile (Account)
+ * @route /users/updateEmail/:id
+ * @method PUT 
+ * @access private (Only user himself)
+    ---------------------------------------------------------------- */
+
+const UpdateEmailProfile = asyncHandler(
+    async (req, res) => {
+        // Check if the email is already in use by another user
+        // const emailExiste = await User.findOne({ email });
+        // if (emailExiste && emailExiste._id.toString() !== id) {
+        //     return res.status(400).json({ message: 'This email is already in use by another user' });
+        // }
+    })
+
+
+/** ----------------------------------------------------------------- 
+ * @desc update email user profile (Account)
+ * @route /users/updateEmail/:id
+ * @method PUT 
+ * @access private (Only user himself)
+    ---------------------------------------------------------------- */
+
+const UpdatePasswordProfile = asyncHandler(
+    async (req, res) => {
+        // Hash password if it is provided
+        // let hashedPassword;
+        // if (password) {
+        //     const salt = await bcrypt.genSalt(10);
+        //     hashedPassword = await bcrypt.hash(password, salt);
+        // }
+    })
 
 
 /** ----------------------------------------------------------------- 
@@ -210,6 +330,7 @@ module.exports = {
     getUser,
     getUsersCountCtrl,
     profilePhotoUpload,
+    profileBackgroundImageUpload,
     updateUser,
     deleteUserProfile
 }
