@@ -32,13 +32,13 @@ export default function Profile() {
     useEffect(() => {
         dispatch(getUserProfile(id))
         window.scrollTo(0, 0);
-    }, [id, openModalImageProfile, openModalProfileUser]);
+    }, [id, openModalImageProfile, openModalProfileUser, openModalBackgroundImage, openModalImageProfile, openModalChangeEmail, openModalChangePassword]);
 
     return (
         <div className="p-5 sm:p-10 md:p-15 lg:p-20 flex flex-col gap-10">
             <div className="">
                 <div className="drop-shadow-md bg-Light-backgroundPri dark:bg-Dark-backgroundPri rounded-xl">
-                    <div className="bg-profileBackground h-72 relative rounded-t-xl">
+                    <div style={{ backgroundImage: `url(${profile?.profile?.backgroundImage?.url})` }} className="h-72 relative rounded-t-xl">
                         <div onClick={() => setOpenModalBackgroundImage(true)} className="absolute top-0 ltr:right-0 rtl:left-0 bg-Light-backgroundPri dark:bg-Dark-backgroundPri ltr:pr-1 rtl:pl-1 ltr:pl-3 rtl:pr-3 py-3 ltr:mr-2 rtl:ml-2 mt-2 rounded-full cursor-pointer hover:text-Light-primary dark:hover:text-Dark-primary">
                             <FaPenAlt className="ltr:mr-2 rtl:ml-2 capitalize text-lg" />
                         </div>

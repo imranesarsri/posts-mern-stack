@@ -14,6 +14,9 @@ const profileSlice = createSlice({
         setProfileImage(state, action) {
             state.profile.profileImage = action.payload
         },
+        setBackgoundProfileImage(state, action) {
+            state.profile.profile.backgroundImage = action.payload
+        },
         updateProfile(state, action) {
             state.profile = action.payload
         }

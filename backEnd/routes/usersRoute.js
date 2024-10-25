@@ -13,7 +13,7 @@ router.get('/', verifyTokenAndAdmin, getAllUsers)
 router.get('/count', verifyTokenAndAdmin, getUsersCountCtrl)
 
 // Update profile image
-router.post('/profile-photo-upload', verifyToken, photoUpload.single('image'), profilePhotoUpload)
+router.put('/profile-photo-upload', verifyToken, photoUpload.single('image'), profilePhotoUpload)
 
 // Update backgound image
 router.put('/profile-background-image-upload', verifyToken, photoUpload.single('image'), profileBackgroundImageUpload);

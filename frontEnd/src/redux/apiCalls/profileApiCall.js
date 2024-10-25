@@ -20,36 +20,69 @@ export function getUserProfile(userID) {
 export function UploadProfileImage(newImage) {
     return async (dispatch, getState) => {
         try {
-            const token = getState().auth.user.token;
-            console.log('Token being sent:', token);  // Log the token
+            const { auth } = getState(); // Destructure auth from state
+            const token = auth.user.token;
 
-            const { data } = await request.post(`/api/users/profile-photo-upload`, newImage, {
+            const { data } = await request.put('/api/users/profile-photo-upload', newImage, {
+                headers: {
+                    token, // No need for template literals here
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
+
+            // Update profile image in the state
+            dispatch(profileActions.setProfileImage(data.profilePhoto));
+            dispatch(authActions.setUserProfile(data.profilePhoto));
+            toast.success(data.message);
+
+            // Update user profile in localStorage, ensuring it exists
+            const user = JSON.parse(localStorage.getItem('userInfo'));
+            if (user) {
+                user.profilePhoto = data.profilePhoto;
+                localStorage.setItem('userInfo', JSON.stringify(user));
+            }
+
+        } catch (e) {
+            // Gracefully handle any missing error message
+            const errorMessage = e.response?.data?.message || 'Failed to upload profile image';
+            toast.error(errorMessage);
+        }
+    };
+}
+
+
+
+export function UploadBackgroundProfileImage(newBackgroundImage) {
+    return async (dispatch, getState) => {
+        try {
+            const token = getState().auth.user.token;
+
+            const { data } = await request.put(`/api/users/profile-background-image-upload`, newBackgroundImage, {
                 headers: {
                     token: `${token}`,
                     "Content-Type": "multipart/form-data"
                 }
-            })
+            });
 
-            dispatch(profileActions.setProfileImage(data.profilePhoto))
-            dispatch(authActions.setUserProfile(data.profilePhoto))
-            toast.success(data.message)
+            // Update the profile background image
+            dispatch(profileActions.setBackgoundProfileImage(data.backgroundImage)); // Access backgroundImage directly
 
-            // Update user profile in localStorage
-            const user = JSON.parse(localStorage.getItem("userInfo"))
-            user.profilePhoto = data?.profilePhoto
-            localStorage.setItem("userInfo", JSON.stringify(user))
+            // Display the success message
+            toast.success(data.message); // Message should be directly in 'data'
+
         } catch (e) {
-            toast.error(e.response.data.message)
+            toast.error(e.response?.data?.message || "An error occurred");
         }
-    }
+    };
 }
+
 
 // Update profile
 export function UpdateProfile(userID, profileData) {
     return async (dispatch, getState) => {
         try {
             const token = getState().auth.user.token;
-            console.log(userID)
+
             const { data } = await request.put(`/api/users/${userID}`, profileData, {
                 headers: {
                     token: `${token}`,

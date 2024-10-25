@@ -5,6 +5,7 @@ import { UseToggleDarkMode } from "../../../App";
 import InputFileForm from "../../formControls/InputFileForm";
 import { useDispatch } from "react-redux"
 import { UploadProfileImage } from "../../../redux/apiCalls/profileApiCall";
+import { toast } from "react-toastify";
 
 
 export default function ImageProfile(params) {
@@ -31,7 +32,7 @@ export default function ImageProfile(params) {
         e.preventDefault();
 
         if (!profileImage) {
-            return alert("Please select a profile image.");
+            return toast.error("Please select a profile image.");
         }
 
         const formData = new FormData()

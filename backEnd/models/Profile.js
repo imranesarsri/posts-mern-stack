@@ -16,12 +16,12 @@ const ProfileSchema = mongoose.Schema({
     description: {
         type: String,
         trim: true,
-        maxlength: 500,
+        maxlength: 1000,
     },
     backgroundImage: {
         type: Object,
         default: {
-            url: 'https://example.com/default-background.jpg',
+            url: '/images/sections/profile/profileBackground.svg',
             publicID: null,
         },
     },
