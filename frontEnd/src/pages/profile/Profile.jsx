@@ -64,7 +64,9 @@ export default function Profile() {
                                 {profile?.bio}
                             </h3>
                             <h4 className="capitalize text-md md:text-base font-normal">
-                                {profile?.profile?.city}, {profile?.profile?.country}
+                                {profile?.profile?.city}
+                                {profile?.profile?.city && ','}
+                                {profile?.profile?.country}
                             </h4>
                             <p className="capitalize text-sm md:text-md font-medium mt-2">
                                 <span>Date joined :</span>
