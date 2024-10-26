@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState } from "react";
 import { UseToggleDarkMode } from "../../App";
 import { toast } from "react-toastify";
 import { useLocation } from "react-router-dom";
@@ -7,11 +7,12 @@ import SelectForm from "../../components/formControls/SelectForm";
 import TextareaForm from "../../components/formControls/TextareaForm";
 import InputFileForm from "../../components/formControls/InputFileForm";
 import DefaultButton from "../../components/formControls/ButtonsForm";
+import useScrollToTop from "../../hooks/useScrollToTop";
+
 
 export default function UpdatePost() {
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
+
+    useScrollToTop();  // Scrolls to the top when the component mounts
 
     const { translate } = useContext(UseToggleDarkMode);
 

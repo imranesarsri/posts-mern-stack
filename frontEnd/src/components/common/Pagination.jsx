@@ -1,4 +1,10 @@
-export default function Pagination() {
+export default function Pagination(params) {
+    const generatedPages = []
+    for (let i = 1; i <= params.pages; i++) {
+        generatedPages.push(i)
+        console.log(i)
+    }
+
     return (
         <nav aria-label="Page navigation example">
             <ul className="flex items-center justify-center  mt-5 md:mt-10 -space-x-px h-10 text-base">
@@ -25,14 +31,14 @@ export default function Pagination() {
                         </svg>
                     </a>
                 </li>
-                {[1, 2, 3, 4, 5].map(page => (
+                {generatedPages.map(page => (
                     <li key={page}>
-                        <a
-                            href="#"
-                            className="flex items-center justify-center px-4 h-10 leading-tight text-Light-text bg-Light-backgroundPri border border-Light-text hover:bg-Dark-backgroundPri hover:text-Dark-text dark:bg-Dark-backgroundPri dark:border-Dark-text dark:text-Dark-text dark:hover:bg-Light-backgroundPri dark:hover:text-Light-text"
+                        <div
+                            onClick={() => params.setCurrentPage(page)}
+                            className={page === params.currentPage ? 'custom-button-pagination-active' : 'custom-button-pagination'}
                         >
                             {page}
-                        </a>
+                        </div>
                     </li>
                 ))}
 

@@ -1,13 +1,11 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
 import { UseToggleDarkMode } from "../App";
+import useScrollToTop from "../hooks/useScrollToTop";
 
 export default function Error404(params) {
 
-    useEffect(() => {
-        window.scrollTo(0, 0)
-    }, [])
+    useScrollToTop();  // Scrolls to the top when the component mounts
 
     const { translate } = useContext(UseToggleDarkMode)
     return (

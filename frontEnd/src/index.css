@@ -61,3 +61,14 @@ html[dir="rtl"] .inputAddComment+label {
         display: block;
     }
 }
+
+/* Buttom pagination */
+
+/* custom-styles.css */
+.custom-button-pagination {
+    @apply cursor-pointer flex items-center justify-center px-4 h-10 leading-tight text-Light-text bg-Light-backgroundPri border border-Light-text hover:bg-Dark-backgroundPri hover:text-Dark-text dark:bg-Dark-backgroundPri dark:border-Dark-text dark:text-Dark-text dark:hover:bg-Light-backgroundPri dark:hover:text-Light-text;
+}
+
+.custom-button-pagination-active {
+    @apply cursor-pointer flex items-center justify-center px-4 h-10 leading-tight text-Light-text bg-Light-primary border border-Light-text hover:bg-Dark-backgroundPri hover:text-Dark-text dark:bg-Dark-primary dark:border-Dark-text dark:text-Dark-text dark:hover:bg-Light-backgroundPri dark:hover:text-Light-text;
+}

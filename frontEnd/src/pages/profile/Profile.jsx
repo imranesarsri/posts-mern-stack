@@ -15,9 +15,12 @@ import ChangePassword from "../../components/modals/profile/ChangePassword";
 import { useDispatch, useSelector } from "react-redux"
 import { getUserProfile } from "../../redux/apiCalls/profileApiCall";
 import { useParams } from "react-router-dom"
+import useScrollToTop from "../../hooks/useScrollToTop";
 
 
 export default function Profile() {
+
+    useScrollToTop();  // Scrolls to the top when the component mounts
 
     // Change user information 
     const [openModalProfileUser, setOpenModalProfileUser] = useState(false);
@@ -31,7 +34,6 @@ export default function Profile() {
     const { profile } = useSelector(state => state.profile)
     useEffect(() => {
         dispatch(getUserProfile(id))
-        window.scrollTo(0, 0);
     }, [id, openModalImageProfile, openModalProfileUser, openModalBackgroundImage, openModalImageProfile, openModalChangeEmail, openModalChangePassword]);
 
     return (

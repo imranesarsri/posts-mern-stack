@@ -2,13 +2,12 @@ import { useThemeMode } from "flowbite-react";
 import { useContext } from "react";
 import { UseToggleDarkMode } from "../../App";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
+import useScrollToTop from "../../hooks/useScrollToTop";
+
 
 export default function AuthBody(params) {
 
-    useEffect(() => {
-        window.scrollTo(0, 0)
-    }, [])
+    useScrollToTop();  // Scrolls to the top when the component mounts
 
     const { mode } = useThemeMode();
     const { translate } = useContext(UseToggleDarkMode)

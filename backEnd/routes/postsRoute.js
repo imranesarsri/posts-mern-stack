@@ -14,7 +14,7 @@ router.route('/')
     .get(getAllPosts)
 
 // Get post count
-router.get('/count', verifyTokenAndAdmin, getPostCountCtrl)
+router.get('/count', getPostCountCtrl)
 
 // Update post image
 router.put('/upload-image/:id', validateObjectID, verifyToken, photoUpload.single('image'), updateImagePost)

@@ -1,13 +1,13 @@
 import { useParams } from "react-router-dom"
 import PostCard from "../../components/common/PostCard"
 import { posts } from '../../Data/dummyData'
-import { useEffect } from "react";
+import useScrollToTop from "../../hooks/useScrollToTop";
+
 
 export default function PostDetails() {
 
-    useEffect(() => {
-        window.scrollTo(0, 0)
-    }, [])
+    useScrollToTop();  // Scrolls to the top when the component mounts
+
 
     const { id } = useParams()
     const post = posts.find(p => p._id == parseInt(id))

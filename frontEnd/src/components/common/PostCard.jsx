@@ -11,10 +11,10 @@ const PostCard = (params) => {
         <div className="bg-Light-backgroundPri dark:bg-Dark-backgroundPri border-2 border-x-Light-primary rounded-lg shadow dark:border-x-Dark-primary border-y-0 dark:border-y-0">
             <div className="flex p-2 md:p-5 justify-center">
                 <div className="block min-w-8 lg:min-w-12 pt-1">
-                    <Link to="/profile">
+                    <Link to={`profile/${params.post?.user?._id}`}>
                         <img
                             className="w-6 h-6 lg:w-10 lg:h-10 rounded-full"
-                            src={params.post.user.image}
+                            src={params.post?.user?.profilePhoto?.url}
                             alt="Rounded avatar"
                         />
                     </Link>
@@ -23,18 +23,18 @@ const PostCard = (params) => {
                     <div className="">
                         <div>
                             <div className="flex justify-between">
-                                <Link to="/profile" className="flex flex-col mb-2">
+                                <Link to={`profile/${params.post?.user?._id}`} className="flex flex-col mb-2">
                                     <span className="block font-bold text-sm lg:text-lg">
-                                        {params.post.user.username}
+                                        {params.post?.user?.userName}
                                     </span>
                                     <span className="block font-light text-xs lg:text-base ">
-                                        {params.post.category} . Sep 30
+                                        {params.post?.category} . Sep 30
                                     </span>
                                 </Link>
                                 <DropdownForm actionType="post" post={params.post} />
                             </div>
                             <Link
-                                to={`/posts/details/${params.post._id}`}
+                                to={`/posts/details/${params.post?._id}`}
                                 className="block font-normal text-base lg:text-lg"
                             >
                                 {params.post.title}
@@ -48,7 +48,7 @@ const PostCard = (params) => {
                         {params.post.description}
                     </Link>
                     <Link to={`/posts/details/${params.post._id}`}>
-                        <img className="rounded-lg" src={params.post.image} alt="" />
+                        <img className="rounded-lg" src={params.post.image.url} alt="" />
                     </Link>
                     <div className="flex justify-around pt-5">
                         <div className="flex space-x-2 text-start items-center cursor-pointer">

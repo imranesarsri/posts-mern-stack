@@ -36,6 +36,5 @@ export function signOutUser() {
     return (dispatch) => {
         dispatch(authActions.signOut())
         localStorage.removeItem("userInfo")
-        console.log('signOutUser')
     }
 }

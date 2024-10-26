@@ -1,10 +1,8 @@
-import { useEffect } from "react";
+import useScrollToTop from "../hooks/useScrollToTop";
 
 export default function Contact() {
 
-    useEffect(() => {
-        window.scrollTo(0, 0)
-    }, [])
+    useScrollToTop();  // Scrolls to the top when the component mounts
 
     return (
         <div>Contact page</div>
